@@ -15,7 +15,7 @@ env:
   # Repo specific setting #
   #########################
 
-  ECOSYSTEM_CI_REPO_PATH: quarkiverse-micrometer-registry-stackdriver
+  ECOSYSTEM_CI_REPO_PATH: quarkiverse-micrometer-registry
 
 jobs:
   build:
