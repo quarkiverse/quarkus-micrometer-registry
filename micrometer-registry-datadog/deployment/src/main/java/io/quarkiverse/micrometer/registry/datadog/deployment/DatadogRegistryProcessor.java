@@ -1,0 +1,44 @@
+package io.quarkiverse.micrometer.registry.datadog.deployment;
+
+import java.util.function.BooleanSupplier;
+
+import io.quarkiverse.micrometer.registry.datadog.DatadogConfig;
+import io.quarkiverse.micrometer.registry.datadog.DatadogMeterRegistryProvider;
+import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.deployment.annotations.BuildProducer;
+import io.quarkus.deployment.annotations.BuildStep;
+import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
+import io.quarkus.micrometer.deployment.MicrometerRegistryProviderBuildItem;
+import io.quarkus.micrometer.runtime.MicrometerRecorder;
+import io.quarkus.micrometer.runtime.config.MicrometerConfig;
+
+/**
+ * Add support for the Datadog Meter Registry. Note that the registry may not
+ * be enabled. Keep footprint light.
+ */
+public class DatadogRegistryProcessor {
+    static final String REGISTRY_CLASS_NAME = "io.micrometer.datadog.DatadogMeterRegistry";
+    static final Class<?> REGISTRY_CLASS = MicrometerRecorder.getClassForName(REGISTRY_CLASS_NAME);
+
+    public static class DatadogEnabled implements BooleanSupplier {
+        MicrometerConfig mConfig;
+        DatadogConfig.DatadogBuildConfig datadogConfig;
+
+        public boolean getAsBoolean() {
+            return mConfig.checkRegistryEnabledWithDefault(datadogConfig);
+        }
+    }
+
+    @BuildStep(onlyIf = DatadogEnabled.class)
+    protected MicrometerRegistryProviderBuildItem createDatadogRegistry(CombinedIndexBuildItem index,
+            BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
+
+        // Add the Datadog Registry Producer
+        additionalBeans.produce(AdditionalBeanBuildItem.builder()
+                .addBeanClass(DatadogMeterRegistryProvider.class)
+                .setUnremovable().build());
+
+        // Include the DatadogMeterRegistry in a possible CompositeMeterRegistry
+        return new MicrometerRegistryProviderBuildItem(REGISTRY_CLASS);
+    }
+}
