@@ -21,8 +21,7 @@ Example applications can be found inside the integration-test folder.
 This project is still in its early stage. The goal is for all of these additional registries to work in native mode,
 and that will happen over time.
 
-Contributions are always welcome, but this repository is not really ready for external contributions yet, better create an issue
-to discuss them prior to any contributions.
+Contributions are always welcome. Feel free to ask questions in either the Quarkus Zulip chat, or the #quarkus channel in the [Micrometer Slack](https://join.slack.com/t/micrometer-metrics/shared_invite/zt-ewo3kcs0-Ji3aOAqTxnjYPEFBBI5HqQ) workspace.
 
 ## Contributors ✨
 
