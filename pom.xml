@@ -113,8 +113,7 @@
             <id>it</id>
             <activation>
                 <property>
-                    <name>performRelease</name>
-                    <value>!true</value>
+                    <name>!performRelease</name>
                 </property>
             </activation>
             <modules>
