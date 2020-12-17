@@ -36,11 +36,10 @@
         </pluginRepository>
     </pluginRepositories>
 
-
     <properties>
         <!-- Pre Quarkus 1.11, we need to work off of Quarkus Snapshot builds -->
-        <quarkus.version>999-SNAPSHOT</quarkus.version>
-        <micrometer.version>1.6.1</micrometer.version>
+        <quarkus.version>1.11.0.Beta1</quarkus.version>
+        <micrometer.version>1.6.2</micrometer.version>
 
         <skipTests>false</skipTests>
 
