@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.quarkiverse</groupId>
+        <artifactId>quarkiverse-parent</artifactId>
+        <version>4</version>
+        <relativePath></relativePath> <!-- always from repository -->
+    </parent>
+
+    <groupId>io.quarkiverse.micrometer.registry</groupId>
+    <artifactId>quarkiverse-micrometer-registry-parent</artifactId>
+    <name>Quarkiverse Micrometer Registry - Parent</name>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <!-- Pre Quarkus 1.11, we need to work off of Quarkus Snapshot builds -->
+    <repositories>
+        <repository>
+            <id>oss.sonatype.org-snapshot</id>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>oss.sonatype.org-snapshot</id>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <!-- Pre Quarkus 1.11, we need to work off of Quarkus Snapshot builds -->
+        <quarkus.version>1.11.0.Beta1</quarkus.version>
+        <micrometer.version>1.6.2</micrometer.version>
+
+        <skipTests>false</skipTests>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.parameters>true</maven.compiler.parameters>
+        <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    </properties>
+
+
+
+    <scm>
+        <url>https://github.com/quarkiverse/quarkiverse-micrometer-registry</url>
+        <connection>scm:git:https://github.com/quarkiverse/quarkiverse-micrometer-registry.git</connection>
+        <developerConnection>scm:git:git@github.com/quarkiverse/quarkiverse-micrometer-registry.git</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/quarkiverse/quarkiverse-micrometer-registry/issues</url>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-bom</artifactId>
+                <version>${quarkus.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <quarkus.log.level>INFO</quarkus.log.level>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Extension modules. Note that the integration-tests is added via profile to avoid releasing it -->
+    <modules>
+        <module>micrometer-registry-azure-monitor</module>
+        <module>micrometer-registry-datadog</module>
+        <module>micrometer-registry-jmx</module>
+        <module>micrometer-registry-signalfx</module>
+        <module>micrometer-registry-stackdriver</module>
+        <module>micrometer-registry-statsd</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>it</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>!true</value>
+                </property>
+            </activation>
+            <modules>
+                <module>integration-tests</module>
+            </modules>
+        </profile>
+    </profiles>
+</project>

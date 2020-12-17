@@ -40,6 +40,7 @@ jobs:
       run: |
         echo "::set-output name=date::$(/bin/date -u "+%Y-%m")"
       shell: bash
+
     - name: Cache Maven Repository
       id: cache-maven
       uses: actions/cache@v2
@@ -49,5 +50,7 @@ jobs:
         key: maven-repo-${{ runner.os }}-${{ steps.get-date.outputs.date }}
 
     - name: Build with Maven
-      run: mvn -B formatter:validate verify --file pom.xml
+      run: mvn -B formatter:validate install --file pom.xml
 
+    - name: Build in native
+      run: mvn -B -Pnative verify --file integration-tests/pom.xml

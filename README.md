@@ -1,29 +1,28 @@
-# Welcome to Quarkiverse!
+# Quarkiverse Micrometer Registry extensions
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Congratulations and thank you for creating a new Quarkus extension project in Quarkiverse!
+This repository hosts extensions that support additional Micrometer registry implementations:
 
-Feel free to replace this content with the proper description of your new project and necessary instructions how to use and contribute to it.
+* Azure Monitor
+* Datadog
+* JMX
+* SignalFx
+* Stackdriver
+* StatsD
 
-You can find the basic info, Quarkiverse policies and conventions in [the Quarkiverse wiki](https://github.com/quarkiverse/quarkiverse/wiki).
+## Example applications
 
-Need to quickly create a new Quarkus extension Maven project? Just execute the command below replacing the template values with your preferred ones:
-```
-mvn io.quarkus:quarkus-maven-plugin:<QUARKUS_VERSION>:create-extension -N \
-    -DgroupId=io.quarkiverse.<REPO_NAME> \ 
-    -DartifactId=<EXTENSION_ARTIFACT_ID> \  
-    -Dversion=<INITIAL_VERSION> \ 
-    -Dquarkus.nameBase="<EXTENSION_SIMPLE_NAME>"
-```
-**IMPORTANT:** make sure your project uses [io.quarkiverse:quarkiverse-parent](https://github.com/quarkiverse/quarkiverse-parent) as the parent POM. It will make sure the release and artifact publishing plugins are properly configured for your project.
+Example applications can be found inside the integration-test folder.
 
-In case you are creating a Quarkus extension project for the first time, please follow [Building My First Extension](https://quarkus.io/guides/building-my-first-extension) guide.
+## WARNING
 
-Other useful articles related to Quarkus extension development can be found under the [Writing Extensions](https://quarkus.io/guides/#writing-extensions) guide category on the [Quarkus.io](http://quarkus.io) website.
+This project is still in its early stage. The goal is for all of these additional registries to work in native mode,
+and that will happen over time.
 
-Thanks again, good luck and have fun!
+Contributions are always welcome, but this repository is not really ready for external contributions yet, better create an issue
+to discuss them prior to any contributions.
 
 ## Contributors ✨
 
