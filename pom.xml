@@ -6,13 +6,13 @@
         <groupId>io.quarkiverse</groupId>
         <artifactId>quarkiverse-parent</artifactId>
         <version>4</version>
-        <relativePath></relativePath> <!-- always from repository -->
+        <relativePath /> <!-- always from repository -->
     </parent>
 
     <groupId>io.quarkiverse.micrometer.registry</groupId>
     <artifactId>quarkiverse-micrometer-registry-parent</artifactId>
     <name>Quarkiverse Micrometer Registry - Parent</name>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
 
     <packaging>pom</packaging>
 
@@ -35,7 +35,8 @@
         <url>https://github.com/quarkiverse/quarkiverse-micrometer-registry</url>
         <connection>scm:git:https://github.com/quarkiverse/quarkiverse-micrometer-registry.git</connection>
         <developerConnection>scm:git:git@github.com/quarkiverse/quarkiverse-micrometer-registry.git</developerConnection>
-    </scm>
+      <tag>0.1.0</tag>
+  </scm>
 
     <issueManagement>
         <system>GitHub</system>
