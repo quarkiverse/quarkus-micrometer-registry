@@ -16,26 +16,6 @@
 
     <packaging>pom</packaging>
 
-    <!-- Pre Quarkus 1.11, we need to work off of Quarkus Snapshot builds -->
-    <repositories>
-        <repository>
-            <id>oss.sonatype.org-snapshot</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>oss.sonatype.org-snapshot</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
     <properties>
         <!-- Pre Quarkus 1.11, we need to work off of Quarkus Snapshot builds -->
         <quarkus.version>1.11.0.Beta1</quarkus.version>
@@ -50,8 +30,6 @@
         <maven.compiler.parameters>true</maven.compiler.parameters>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
     </properties>
-
-
 
     <scm>
         <url>https://github.com/quarkiverse/quarkiverse-micrometer-registry</url>
