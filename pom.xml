@@ -17,8 +17,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <!-- Pre Quarkus 1.11, we need to work off of Quarkus Snapshot builds -->
-        <quarkus.version>1.11.0.Beta2</quarkus.version>
+        <quarkus.version>1.11.0.CR1</quarkus.version>
         <micrometer.version>1.6.2</micrometer.version>
 
         <skipTests>false</skipTests>
