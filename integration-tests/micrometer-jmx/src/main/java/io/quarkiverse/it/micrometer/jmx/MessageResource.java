@@ -1,4 +1,4 @@
-package io.quarkus.it.micrometer.jmx;
+package io.quarkiverse.it.micrometer.jmx;
 
 import java.lang.management.ManagementFactory;
 import java.util.Set;
