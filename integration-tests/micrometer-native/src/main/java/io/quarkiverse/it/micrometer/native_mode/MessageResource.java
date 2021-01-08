@@ -1,4 +1,4 @@
-package io.quarkus.it.micrometer.native_mode;
+package io.quarkiverse.it.micrometer.native_mode;
 
 import java.util.ArrayList;
 import java.util.List;

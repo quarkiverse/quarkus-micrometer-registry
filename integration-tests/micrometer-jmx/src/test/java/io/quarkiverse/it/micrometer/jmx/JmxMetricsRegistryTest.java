@@ -1,4 +1,4 @@
-package io.quarkus.it.micrometer.jmx;
+package io.quarkiverse.it.micrometer.jmx;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
