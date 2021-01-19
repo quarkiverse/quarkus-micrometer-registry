@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
-        <artifactId>quarkiverse-micrometer-registry-azure-monitor-parent</artifactId>
+        <artifactId>quarkus-micrometer-registry-azure-monitor-parent</artifactId>
         <version>0.3.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quarkiverse-micrometer-registry-azure-monitor</artifactId>
-    <name>Quarkiverse Micrometer Registry - Azure Monitor - Runtime</name>
+    <artifactId>quarkus-micrometer-registry-azure-monitor</artifactId>
+    <name>Quarkus Micrometer Registry - Azure Monitor - Runtime</name>
 
     <dependencies>
         <dependency>

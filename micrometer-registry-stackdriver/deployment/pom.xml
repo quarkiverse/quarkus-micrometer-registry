@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
-        <artifactId>quarkiverse-micrometer-registry-stackdriver-parent</artifactId>
+        <artifactId>quarkus-micrometer-registry-stackdriver-parent</artifactId>
         <version>0.3.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quarkiverse-micrometer-registry-stackdriver-deployment</artifactId>
-    <name>Quarkiverse Micrometer Registry - Stackdriver - Deployment</name>
+    <artifactId>quarkus-micrometer-registry-stackdriver-deployment</artifactId>
+    <name>Quarkus Micrometer Registry - Stackdriver - Deployment</name>
 
     <dependencies>
         <dependency>
@@ -21,7 +21,7 @@
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkiverse-micrometer-registry-stackdriver</artifactId>
+            <artifactId>quarkus-micrometer-registry-stackdriver</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

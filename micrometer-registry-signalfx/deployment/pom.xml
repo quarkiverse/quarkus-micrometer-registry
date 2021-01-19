@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
-        <artifactId>quarkiverse-micrometer-registry-signalfx-parent</artifactId>
+        <artifactId>quarkus-micrometer-registry-signalfx-parent</artifactId>
         <version>0.3.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quarkiverse-micrometer-registry-signalfx-deployment</artifactId>
-    <name>Quarkiverse Micrometer Registry - SignalFX - Deployment</name>
+    <artifactId>quarkus-micrometer-registry-signalfx-deployment</artifactId>
+    <name>Quarkus Micrometer Registry - SignalFX - Deployment</name>
 
     <dependencies>
         <dependency>
@@ -21,7 +21,7 @@
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkiverse-micrometer-registry-signalfx</artifactId>
+            <artifactId>quarkus-micrometer-registry-signalfx</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
