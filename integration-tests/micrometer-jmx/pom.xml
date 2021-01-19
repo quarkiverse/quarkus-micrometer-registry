@@ -4,13 +4,13 @@
 
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
-        <artifactId>quarkiverse-micrometer-registry-it-parent</artifactId>
+        <artifactId>quarkus-micrometer-registry-it-parent</artifactId>
         <version>0.3.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>quarkiverse-micrometer-registry-it-jmx</artifactId>
-    <name>Quarkiverse Micrometer Registry - Integration Test - JMX</name>
+    <artifactId>quarkus-micrometer-registry-it-jmx</artifactId>
+    <name>Quarkus Micrometer Registry - Integration Test - JMX</name>
 
     <dependencies>
         <dependency>
@@ -20,7 +20,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>quarkiverse-micrometer-registry-jmx</artifactId>
+            <artifactId>quarkus-micrometer-registry-jmx</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -55,7 +55,7 @@
         <!-- Minimal test dependencies to *-deployment artifacts for consistent build order -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>quarkiverse-micrometer-registry-jmx-deployment</artifactId>
+            <artifactId>quarkus-micrometer-registry-jmx-deployment</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
             <scope>test</scope>

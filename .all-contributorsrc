@@ -17,7 +17,7 @@
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "quarkiverse-micrometer-registry-stackdriver",
+  "projectName": "quarkus-micrometer-registry",
   "projectOwner": "quarkiverse",
   "repoType": "github",
   "repoHost": "https://github.com",
