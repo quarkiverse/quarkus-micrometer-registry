@@ -10,7 +10,6 @@ import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
-import io.quarkus.deployment.pkg.steps.NativeBuild;
 import io.quarkus.micrometer.deployment.MicrometerRegistryProviderBuildItem;
 import io.quarkus.micrometer.runtime.MicrometerRecorder;
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
@@ -35,14 +34,7 @@ public class StackdriverRegistryProcessor {
         }
     }
 
-    @BuildStep(onlyIf = { NativeBuild.class, StackdriverEnabled.class })
-    public MicrometerRegistryProviderBuildItem nativeModeNotSupported() {
-        log.info("The Stackdriver meter registry does not support running in native mode.");
-        return null;
-    }
-
-    /** Stackdriver does not work with GraalVM */
-    @BuildStep(onlyIf = StackdriverEnabled.class, onlyIfNot = NativeBuild.class)
+    @BuildStep(onlyIf = StackdriverEnabled.class)
     public MicrometerRegistryProviderBuildItem createStackdriverRegistry(CombinedIndexBuildItem index,
             BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
