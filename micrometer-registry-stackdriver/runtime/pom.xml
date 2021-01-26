@@ -16,8 +16,20 @@
             <artifactId>quarkus-micrometer</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.quarkiverse.googlecloudservices</groupId>
+            <artifactId>quarkus-google-cloud-common-grpc</artifactId>
+            <version>0.4.0</version>
+        </dependency>
+        <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-stackdriver</artifactId>
+            <exclusions>
+                <!-- We exclude the gprc library as it is provided by the quarkiverse extension -->
+                <exclusion>
+                    <groupId>com.google.api</groupId>
+                    <artifactId>gax-grpc</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
