@@ -8,6 +8,8 @@ import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
+import io.quarkus.deployment.builditem.ExtensionSslNativeSupportBuildItem;
+import io.quarkus.deployment.pkg.steps.NativeBuild;
 import io.quarkus.micrometer.deployment.MicrometerRegistryProviderBuildItem;
 import io.quarkus.micrometer.runtime.MicrometerRecorder;
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
@@ -27,6 +29,11 @@ public class DatadogRegistryProcessor {
         public boolean getAsBoolean() {
             return mConfig.checkRegistryEnabledWithDefault(datadogConfig);
         }
+    }
+
+    @BuildStep(onlyIf = { NativeBuild.class })
+    public ExtensionSslNativeSupportBuildItem enableSSLSupport() {
+        return new ExtensionSslNativeSupportBuildItem("micrometer-registry-datadog");
     }
 
     @BuildStep(onlyIf = DatadogEnabled.class)
