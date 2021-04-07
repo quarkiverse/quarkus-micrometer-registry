@@ -9,6 +9,7 @@
 
     <artifactId>quarkus-micrometer-registry-azure-monitor</artifactId>
     <name>Quarkus Micrometer Registry - Azure Monitor - Runtime</name>
+    <description>Send data gathered by Micrometer to Azure Monitor</description>
 
     <dependencies>
         <dependency>

@@ -10,6 +10,7 @@
 
     <artifactId>quarkus-micrometer-registry-stackdriver-parent</artifactId>
     <name>Quarkus Micrometer Registry - Stackdriver - Parent</name>
+    <description>Send metrics to Google Cloud Operations using Stackdriver</description>
 
     <packaging>pom</packaging>
 

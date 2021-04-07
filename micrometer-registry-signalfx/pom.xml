@@ -10,6 +10,7 @@
 
     <artifactId>quarkus-micrometer-registry-signalfx-parent</artifactId>
     <name>Quarkus Micrometer Registry - SignalFX - Parent</name>
+    <description>Send metrics to Splunk using SignalFX</description>
 
     <packaging>pom</packaging>
 
