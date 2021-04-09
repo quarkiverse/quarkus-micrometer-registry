@@ -10,6 +10,7 @@
 
     <artifactId>quarkus-micrometer-registry-datadog-parent</artifactId>
     <name>Quarkus Micrometer Registry - Datadog - Parent</name>
+    <description>Send metrics to Datadog using the Datadog API</description>
 
     <packaging>pom</packaging>
 

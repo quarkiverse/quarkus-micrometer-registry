@@ -10,6 +10,7 @@
 
     <artifactId>quarkus-micrometer-registry-statsd-parent</artifactId>
     <name>Quarkus Micrometer Registry - StatsD - Parent</name>
+    <description>Send metrics to a StatsD sidecar agent</description>
 
     <packaging>pom</packaging>
 
