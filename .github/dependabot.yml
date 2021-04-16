@@ -9,3 +9,8 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+  - package-ecosystem: "maven"
+    target_branch: "1.x"
+    directory: "/"
+    schedule:
+      interval: "daily"
