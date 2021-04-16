@@ -6,6 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "maven"
+    target_branch: "main"
     directory: "/"
     schedule:
       interval: "daily"
