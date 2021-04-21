@@ -1,6 +1,5 @@
 name: Quarkus Micrometer Registry Extensions
 release:
-  current-version: 1.0.0
+  current-version: 1.0.1
   next-version: 199-SNAPSHOT
-  skip-release: true
 
