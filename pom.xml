@@ -17,8 +17,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>1.13.2.Final</quarkus.version>
-        <micrometer.version>1.6.2</micrometer.version>
+        <quarkus.version>2.0.0.Alpha1</quarkus.version>
 
         <skipTests>false</skipTests>
 
