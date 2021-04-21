@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
         <artifactId>quarkus-micrometer-registry-datadog-parent</artifactId>
-        <version>0.6.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>quarkus-micrometer-registry-datadog-deployment</artifactId>
