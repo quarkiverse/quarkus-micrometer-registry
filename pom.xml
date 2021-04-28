@@ -79,6 +79,7 @@
     <modules>
         <module>micrometer-registry-azure-monitor</module>
         <module>micrometer-registry-datadog</module>
+        <module>micrometer-registry-newrelic</module>
         <module>micrometer-registry-jmx</module>
         <module>micrometer-registry-signalfx</module>
         <module>micrometer-registry-stackdriver</module>
