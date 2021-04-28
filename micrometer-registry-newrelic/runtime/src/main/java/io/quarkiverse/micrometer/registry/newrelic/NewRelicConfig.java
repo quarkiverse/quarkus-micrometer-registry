@@ -10,7 +10,7 @@ import io.quarkus.runtime.annotations.ConfigRoot;
 
 public class NewRelicConfig {
 
-    @ConfigRoot(name = "micrometer.export.new-relic", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+    @ConfigRoot(name = "micrometer.export.newrelic", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
     public static class NewRelicBuildConfig implements MicrometerConfig.CapabilityEnabled {
         /**
          * Support for export to New Relic
@@ -39,7 +39,7 @@ public class NewRelicConfig {
     /**
      * Runtime configuration for New Relic MeterRegistry
      */
-    @ConfigRoot(name = "micrometer.export.new-relic", phase = ConfigPhase.RUN_TIME)
+    @ConfigRoot(name = "micrometer.export.newrelic", phase = ConfigPhase.RUN_TIME)
     public static class NewRelicRuntimeConfig {
         // @formatter:off
         /**

@@ -33,7 +33,7 @@ public class NewRelicRegistryProcessor {
 
     @BuildStep(onlyIf = { NativeBuild.class })
     public ExtensionSslNativeSupportBuildItem enableSSLSupport() {
-        return new ExtensionSslNativeSupportBuildItem("micrometer-registry-new-relic");
+        return new ExtensionSslNativeSupportBuildItem("micrometer-registry-newrelic");
     }
 
     @BuildStep(onlyIf = NewRelicEnabled.class)

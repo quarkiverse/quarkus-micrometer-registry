@@ -8,7 +8,7 @@
         <version>299-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quarkus-micrometer-registry-new-relic-parent</artifactId>
+    <artifactId>quarkus-micrometer-registry-newrelic-parent</artifactId>
     <name>Quarkus Micrometer Registry - New Relic - Parent</name>
     <description>Send metrics to New Relic using the New Relic API</description>
 

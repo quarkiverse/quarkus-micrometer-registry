@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
-        <artifactId>quarkus-micrometer-registry-new-relic-parent</artifactId>
+        <artifactId>quarkus-micrometer-registry-newrelic-parent</artifactId>
         <version>299-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quarkus-micrometer-registry-new-relic</artifactId>
+    <artifactId>quarkus-micrometer-registry-newrelic</artifactId>
     <name>Quarkus Micrometer Registry - New Relic - Runtime</name>
 
     <dependencies>

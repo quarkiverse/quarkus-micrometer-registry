@@ -19,9 +19,9 @@ import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 public class NewRelicMeterRegistryProvider {
     private static final Logger log = Logger.getLogger(NewRelicMeterRegistryProvider.class);
 
-    static final String PREFIX = "quarkus.micrometer.export.new-relic.";
-    static final String PUBLISH = "new-relic.publish";
-    static final String ENABLED = "new-relic.enabled";
+    static final String PREFIX = "quarkus.micrometer.export.newrelic.";
+    static final String PUBLISH = "newrelic.publish";
+    static final String ENABLED = "newrelic.enabled";
 
     @Produces
     @Singleton
@@ -33,7 +33,7 @@ public class NewRelicMeterRegistryProvider {
         // Specifically, The new relic registry must be enabled for this
         // Provider to even be present. If this instance (at runtime) wants
         // to prevent metrics from being published, then it would set
-        // quarkus.micrometer.export.new-relic.publish=false
+        // quarkus.micrometer.export.newrelic.publish=false
         if (properties.containsKey(PUBLISH)) {
             properties.put(ENABLED, properties.get(PUBLISH));
         }

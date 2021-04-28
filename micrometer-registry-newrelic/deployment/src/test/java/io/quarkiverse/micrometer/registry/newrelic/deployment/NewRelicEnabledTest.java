@@ -21,9 +21,10 @@ public class NewRelicEnabledTest {
     static final QuarkusUnitTest config = new QuarkusUnitTest()
             .withConfigurationResource("test-logging.properties")
             .overrideConfigKey("quarkus.micrometer.binder-enabled-default", "false")
-            .overrideConfigKey("quarkus.micrometer.export.new-relic.enabled", "true")
-            .overrideConfigKey("quarkus.micrometer.export.new-relic.publish", "false")
-            .overrideConfigKey("quarkus.micrometer.export.new-relic.apiKey", "dummy")
+            .overrideConfigKey("quarkus.micrometer.export.newrelic.enabled", "true")
+            .overrideConfigKey("quarkus.micrometer.export.newrelic.publish", "false")
+            .overrideConfigKey("quarkus.micrometer.export.newrelic.apiKey", "dummy")
+            .overrideConfigKey("quarkus.micrometer.export.newrelic.accountId", "dummy")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
             .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
                     .addClass(NewRelicRegistryProcessor.REGISTRY_CLASS));

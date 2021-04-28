@@ -14,13 +14,13 @@ import io.micrometer.core.instrument.config.validate.ValidationException;
 import io.quarkus.test.QuarkusUnitTest;
 
 public class NewRelicEnabledInvalidTest {
-    final static String testedAttribute = "quarkus.micrometer.export.new-relic.api-key";
+    final static String testedAttribute = "quarkus.micrometer.export.newrelic.api-key";
 
     @RegisterExtension
     static final QuarkusUnitTest config = new QuarkusUnitTest()
             .withConfigurationResource("test-logging.properties")
             .overrideConfigKey("quarkus.micrometer.binder-enabled-default", "false")
-            .overrideConfigKey("quarkus.micrometer.export.new-relic.enabled", "true")
+            .overrideConfigKey("quarkus.micrometer.export.newrelic.enabled", "true")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
             .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
                     .addClass(NewRelicRegistryProcessor.REGISTRY_CLASS))
