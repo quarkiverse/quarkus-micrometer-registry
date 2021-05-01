@@ -58,6 +58,9 @@ public class NewRelicConfig {
          * !`apiKey=YOUR_KEY`
          * !Define the key used to push data using the New Relic API
          *
+         * !`accountId=YOUR_ACCOUNT_ID`
+         * !Define the account ID used to push data using the New Relic API
+         *
          * !`publish=true`
          * !By default, gathered metrics will be published to New Relic when the MeterRegistry is enabled.
          * Use this attribute to selectively disable publication of metrics in some environments.
