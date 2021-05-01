@@ -2,6 +2,8 @@ package io.quarkiverse.micrometer.registry.newrelic.deployment;
 
 import java.util.function.BooleanSupplier;
 
+import org.jboss.logging.Logger;
+
 import io.quarkiverse.micrometer.registry.newrelic.NewRelicConfig;
 import io.quarkiverse.micrometer.registry.newrelic.NewRelicMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
@@ -19,6 +21,8 @@ import io.quarkus.micrometer.runtime.config.MicrometerConfig;
  * be enabled. Keep footprint light.
  */
 public class NewRelicRegistryProcessor {
+    private static final Logger log = Logger.getLogger(NewRelicRegistryProcessor.class);
+
     static final String REGISTRY_CLASS_NAME = "io.micrometer.newrelic.NewRelicMeterRegistry";
     static final Class<?> REGISTRY_CLASS = MicrometerRecorder.getClassForName(REGISTRY_CLASS_NAME);
 
@@ -31,12 +35,13 @@ public class NewRelicRegistryProcessor {
         }
     }
 
-    @BuildStep(onlyIf = { NativeBuild.class })
+    @BuildStep(onlyIf = { NativeBuild.class, NewRelicEnabled.class })
     public ExtensionSslNativeSupportBuildItem enableSSLSupport() {
-        return new ExtensionSslNativeSupportBuildItem("micrometer-registry-newrelic");
+        log.info("The New Relic meter registry does not support running in native mode.");
+        return null;
     }
 
-    @BuildStep(onlyIf = NewRelicEnabled.class)
+    @BuildStep(onlyIf = NewRelicEnabled.class, onlyIfNot = NativeBuild.class)
     protected MicrometerRegistryProviderBuildItem createNewRelicRegistry(CombinedIndexBuildItem index,
             BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
