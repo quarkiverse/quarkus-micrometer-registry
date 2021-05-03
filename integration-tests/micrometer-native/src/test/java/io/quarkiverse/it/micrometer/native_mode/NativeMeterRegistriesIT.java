@@ -32,6 +32,7 @@ class NativeMeterRegistriesIT extends NativeMeterRegistriesTest {
         MatcherAssert.assertThat(registries, Matchers.not(Matchers.containsInAnyOrder(
                 "io.micrometer.azuremonitor.AzureMonitorMeterRegistry",
                 "io.micrometer.jmx.JmxMeterRegistry",
+                "io.micrometer.newrelic.NewRelicMeterRegistry",
                 "io.micrometer.signalfx.SignalFxMeterRegistry",
                 "io.micrometer.statsd.StatsdMeterRegistry")));
     }
