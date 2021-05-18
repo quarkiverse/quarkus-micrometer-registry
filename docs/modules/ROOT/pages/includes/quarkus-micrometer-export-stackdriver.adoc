@@ -1,0 +1,65 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[[quarkus-micrometer-export-stackdriver_configuration]]link:#quarkus-micrometer-export-stackdriver_configuration[Configuration property]
+
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.enabled]]`link:#quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.enabled[quarkus.micrometer.export.stackdriver.enabled]`
+
+[.description]
+--
+Support for export to Stackdriver.
+<p>
+Support for Stackdriver will be enabled if Micrometer
+support is enabled, the Stackdriver registry extension is enabled
+and either this value is true, or this value is unset and
+`quarkus.micrometer.registry-enabled-default` is true.
+<p>
+[NOTE]
+====
+Stackdriver libraries do not yet support running in native mode.
+The Stackdriver MeterRegistry will be automatically disabled
+for native builds.
+<p>
+See https://github.com/grpc/grpc-java/issues/5460
+====
+--|boolean 
+|
+
+
+a| [[quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver-stackdriver]]`link:#quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver-stackdriver[quarkus.micrometer.export.stackdriver]`
+
+[.description]
+--
+Stackdriver registry configuration properties.
+
+A property source for configuration of the Stackdriver MeterRegistry,
+see https://micrometer.io/docs/registry/stackdriver.
+
+Available values:
+
+[cols=2]
+!===
+h!Property=Default
+h!Description
+
+!`project-id=MY_PROJECT_ID`
+!Define the project id used to push data to Stackdriver Monitoring
+
+!`publish=true`
+!By default, gathered metrics will be published to Stackdriver when the MeterRegistry is enabled.
+Use this attribute to selectively disable publication of metrics in some environments.
+
+!`step=1m`
+!The interval at which metrics are sent to Stackdriver Monitoring. The default is 1 minute.
+!===
+
+Other Micrometer configuration attributes can also be specified.
+--|`Map<String,String>` 
+|
+
+|===

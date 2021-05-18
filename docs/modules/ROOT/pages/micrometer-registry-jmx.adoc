@@ -1,0 +1,8 @@
+= Quarkus - Micrometer Metrics: JMX
+
+include::./includes/attributes.adoc[]
+
+
+== Configuration
+
+include::./includes/quarkus-micrometer-export-jmx.adoc[]
