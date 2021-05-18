@@ -1,0 +1,33 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference, cols="80,.^10,.^10"]
+|===
+
+h|[[quarkus-micrometer-export-stackdriver-io-quarkiverse-micrometer-registry-stackdriver-stackdriver-config-stackdriver-build-config_configuration]]link:#quarkus-micrometer-export-stackdriver-io-quarkiverse-micrometer-registry-stackdriver-stackdriver-config-stackdriver-build-config_configuration[Configuration property]
+
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver-io-quarkiverse-micrometer-registry-stackdriver-stackdriver-config-stackdriver-build-config_quarkus.micrometer.export.stackdriver.enabled]]`link:#quarkus-micrometer-export-stackdriver-io-quarkiverse-micrometer-registry-stackdriver-stackdriver-config-stackdriver-build-config_quarkus.micrometer.export.stackdriver.enabled[quarkus.micrometer.export.stackdriver.enabled]`
+
+[.description]
+--
+Support for export to Stackdriver.
+<p>
+Support for Stackdriver will be enabled if Micrometer
+support is enabled, the Stackdriver registry extension is enabled
+and either this value is true, or this value is unset and
+`quarkus.micrometer.registry-enabled-default` is true.
+<p>
+[NOTE]
+====
+Stackdriver libraries do not yet support running in native mode.
+The Stackdriver MeterRegistry will be automatically disabled
+for native builds.
+<p>
+See https://github.com/grpc/grpc-java/issues/5460
+====
+--|boolean 
+|
+
+|===

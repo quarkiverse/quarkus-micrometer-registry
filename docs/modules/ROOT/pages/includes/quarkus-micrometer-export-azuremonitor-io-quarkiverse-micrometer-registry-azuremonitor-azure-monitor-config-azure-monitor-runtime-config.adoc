@@ -1,0 +1,35 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference, cols="80,.^10,.^10"]
+|===
+
+h|[[quarkus-micrometer-export-azuremonitor-io-quarkiverse-micrometer-registry-azuremonitor-azure-monitor-config-azure-monitor-runtime-config_configuration]]link:#quarkus-micrometer-export-azuremonitor-io-quarkiverse-micrometer-registry-azuremonitor-azure-monitor-config-azure-monitor-runtime-config_configuration[Configuration property]
+
+h|Type
+h|Default
+
+a| [[quarkus-micrometer-export-azuremonitor-io-quarkiverse-micrometer-registry-azuremonitor-azure-monitor-config-azure-monitor-runtime-config_quarkus.micrometer.export.azuremonitor-azuremonitor]]`link:#quarkus-micrometer-export-azuremonitor-io-quarkiverse-micrometer-registry-azuremonitor-azure-monitor-config-azure-monitor-runtime-config_quarkus.micrometer.export.azuremonitor-azuremonitor[quarkus.micrometer.export.azuremonitor]`
+
+[.description]
+--
+Azure Monitor registry configuration properties.
+
+A property source for configuration of the AzureMonitor MeterRegistry.
+
+Available values:
+
+[cols=2]
+!===
+h!Property=Default
+h!Description
+
+!`instrumentation-key`
+!Define the instrumentation key used to push data to Azure Insights Monitor
+
+!===
+
+Other Micrometer configuration attributes can also be specified.
+--|`Map<String,String>` 
+|
+
+|===
