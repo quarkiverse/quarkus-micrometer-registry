@@ -1,0 +1,52 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[[quarkus-micrometer-export-datadog_configuration]]link:#quarkus-micrometer-export-datadog_configuration[Configuration property]
+
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-datadog_quarkus.micrometer.export.datadog.enabled]]`link:#quarkus-micrometer-export-datadog_quarkus.micrometer.export.datadog.enabled[quarkus.micrometer.export.datadog.enabled]`
+
+[.description]
+--
+Support for export to Datadog 
+ Support for Datadog will be enabled if Micrometer support is enabled, the Datadog registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
+--|boolean 
+|
+
+
+a| [[quarkus-micrometer-export-datadog_quarkus.micrometer.export.datadog-datadog]]`link:#quarkus-micrometer-export-datadog_quarkus.micrometer.export.datadog-datadog[quarkus.micrometer.export.datadog]`
+
+[.description]
+--
+Datadog MeterRegistry configuration properties.
+
+A property source for configuration of the Datadog MeterRegistry to push
+metrics using the Datadog API, see https://micrometer.io/docs/registry/datadog.
+
+Available values:
+
+[cols=2]
+!===
+h!Property=Default
+h!Description
+
+!`apiKey=YOUR_KEY`
+!Define the key used to push data using the Datadog API
+
+!`publish=true`
+!By default, gathered metrics will be published to Datadog when the MeterRegistry is enabled.
+Use this attribute to selectively disable publication of metrics in some environments.
+
+!`step=1m`
+!The interval at which metrics are sent to Datadog. The default is 1 minute.
+!===
+
+Other Micrometer configuration attributes can also be specified.
+--|`Map<String,String>` 
+|
+
+|===

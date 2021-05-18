@@ -1,4 +1,4 @@
-name: "Micrometer registry: JMX"
+name: "Micrometer registry - JMX"
 metadata:
   keywords:
   - "micrometer"

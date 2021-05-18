@@ -1,0 +1,8 @@
+* xref:index.adoc[Introduction]
+* xref:micrometer-registry-azure-monitor.adoc[Azure Monitor]
+* xref:micrometer-registry-datadog.adoc[Datadog]
+* xref:micrometer-registry-jmx.adoc[JMX]
+* xref:micrometer-registry-newrelic.adoc[New Relic]
+* xref:micrometer-registry-signalfx.adoc[Signal FX]
+* xref:micrometer-registry-stackdriver.adoc[Stackdriver]
+* xref:micrometer-registry-statsd.adoc[StatsD]

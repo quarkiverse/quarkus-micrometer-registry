@@ -33,6 +33,7 @@ class NativeMeterRegistriesTest {
                 "io.micrometer.azuremonitor.AzureMonitorMeterRegistry",
                 "io.micrometer.datadog.DatadogMeterRegistry",
                 "io.micrometer.jmx.JmxMeterRegistry",
+                "io.micrometer.newrelic.NewRelicMeterRegistry",
                 "io.micrometer.signalfx.SignalFxMeterRegistry",
                 "io.micrometer.stackdriver.StackdriverMeterRegistry",
                 "io.micrometer.statsd.StatsdMeterRegistry"));
