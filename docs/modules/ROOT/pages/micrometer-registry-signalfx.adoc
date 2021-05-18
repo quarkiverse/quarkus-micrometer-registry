@@ -1,0 +1,8 @@
+= Quarkus - Micrometer Metrics: SignalFx
+
+include::./includes/attributes.adoc[]
+
+
+== Configuration
+
+include::./includes/quarkus-micrometer-export-signalfx.adoc[]

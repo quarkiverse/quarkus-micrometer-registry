@@ -1,0 +1,4 @@
+:quarkus-version: 2.0.0.CR1
+:quarkus-micrometer-registry-version: 1.0.1
+
+:micrometer-io: https://micrometer.io

@@ -84,6 +84,7 @@
         <module>micrometer-registry-signalfx</module>
         <module>micrometer-registry-stackdriver</module>
         <module>micrometer-registry-statsd</module>
+        <module>docs</module>
     </modules>
 
     <profiles>
