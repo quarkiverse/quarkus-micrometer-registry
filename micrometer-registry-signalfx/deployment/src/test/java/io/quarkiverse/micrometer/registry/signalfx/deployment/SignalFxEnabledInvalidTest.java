@@ -18,8 +18,7 @@ public class SignalFxEnabledInvalidTest {
             .overrideConfigKey("quarkus.micrometer.binder-enabled-default", "false")
             .overrideConfigKey("quarkus.micrometer.export.signalfx.enabled", "true")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(SignalFxRegistryProcessor.REGISTRY_CLASS))
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class))
             .setLogRecordPredicate(r -> "io.quarkus.micrometer.runtime.export.ConfigAdapter".equals(r.getLoggerName()))
             .assertLogRecords(r -> Util.assertMessage(testedAttribute, r))
             .assertException(t -> {

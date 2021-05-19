@@ -26,8 +26,7 @@ public class NewRelicEnabledTest {
             .overrideConfigKey("quarkus.micrometer.export.newrelic.apiKey", "dummy")
             .overrideConfigKey("quarkus.micrometer.export.newrelic.accountId", "dummy")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(NewRelicRegistryProcessor.REGISTRY_CLASS));
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class));
 
     @Inject
     MeterRegistry registry;

@@ -25,8 +25,7 @@ public class StackdriverEnabledTest {
             .overrideConfigKey("quarkus.micrometer.export.stackdriver.publish", "false")
             .overrideConfigKey("quarkus.micrometer.export.stackdriver.project-id", "required")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(StackdriverRegistryProcessor.REGISTRY_CLASS));
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class));
 
     @Inject
     MeterRegistry registry;

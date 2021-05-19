@@ -23,8 +23,7 @@ public class JmxEnabledTest {
             .overrideConfigKey("quarkus.micrometer.binder-enabled-default", "false")
             .overrideConfigKey("quarkus.micrometer.export.jmx.enabled", "true")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(JmxRegistryProcessor.REGISTRY_CLASS));
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class));
 
     @Inject
     MeterRegistry registry;
