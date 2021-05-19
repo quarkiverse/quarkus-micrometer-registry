@@ -24,8 +24,7 @@ public class SignalFxEnabledTest {
             .overrideConfigKey("quarkus.micrometer.export.signalfx.enabled", "true")
             .overrideConfigKey("quarkus.micrometer.export.signalfx.access-token", "required")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(SignalFxRegistryProcessor.REGISTRY_CLASS));
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class));
 
     @Inject
     MeterRegistry registry;

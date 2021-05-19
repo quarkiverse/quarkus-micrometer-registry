@@ -18,8 +18,7 @@ public class AzureMonitorEnabledInvalidTest {
             .overrideConfigKey("quarkus.micrometer.binder-enabled-default", "false")
             .overrideConfigKey("quarkus.micrometer.export.azuremonitor.enabled", "true")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(AzureMonitorRegistryProcessor.REGISTRY_CLASS))
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class))
             .setLogRecordPredicate(r -> "io.quarkus.micrometer.runtime.export.ConfigAdapter".equals(r.getLoggerName()))
             .assertLogRecords(r -> Util.assertMessage(testedAttribute, r))
             .assertException(t -> Assertions.assertEquals(ValidationException.class.getName(), t.getClass().getName(),
