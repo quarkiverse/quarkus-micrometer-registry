@@ -1,0 +1,5 @@
+name: quarkus-micrometer-registry
+title: Quarkus Micrometer Registry extensions
+version: dev
+nav:
+- modules/ROOT/nav.adoc

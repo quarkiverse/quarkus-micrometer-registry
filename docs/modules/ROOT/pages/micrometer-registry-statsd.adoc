@@ -1,0 +1,8 @@
+= Quarkus - Micrometer Metrics: StatsD
+
+include::./includes/attributes.adoc[]
+
+
+== Configuration
+
+include::./includes/quarkus-micrometer-export-statsd.adoc[]

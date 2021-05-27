@@ -1,0 +1,4 @@
+:quarkus-version: ${quarkus.version}
+:quarkus-micrometer-registry-version: ${release.current-version}
+
+:micrometer-io: https://micrometer.io
