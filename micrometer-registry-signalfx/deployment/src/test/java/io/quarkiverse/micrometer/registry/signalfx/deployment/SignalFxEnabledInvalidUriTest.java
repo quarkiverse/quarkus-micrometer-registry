@@ -20,8 +20,7 @@ public class SignalFxEnabledInvalidUriTest {
             .overrideConfigKey("quarkus.micrometer.export.signalfx.access-token", "required")
             .overrideConfigKey("quarkus.micrometer.export.signalfx.uri", "intentionally-bad-uri")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(SignalFxRegistryProcessor.REGISTRY_CLASS))
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class))
             .setLogRecordPredicate(r -> "io.quarkus.micrometer.runtime.export.ConfigAdapter".equals(r.getLoggerName()))
             .assertLogRecords(r -> Util.assertMessage(testedAttribute, r))
             .assertException(t -> Assertions.assertEquals(ValidationException.class.getName(), t.getClass().getName(),

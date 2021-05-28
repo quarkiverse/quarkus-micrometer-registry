@@ -24,8 +24,7 @@ public class AzureMonitorEnabledTest {
             .overrideConfigKey("quarkus.micrometer.export.azuremonitor.enabled", "true")
             .overrideConfigKey("quarkus.micrometer.export.azuremonitor.instrumentation-key", "TEST")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(AzureMonitorRegistryProcessor.REGISTRY_CLASS));
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class));
 
     @Inject
     MeterRegistry registry;

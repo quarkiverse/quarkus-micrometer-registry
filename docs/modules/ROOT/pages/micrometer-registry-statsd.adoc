@@ -1,4 +1,4 @@
-= Quarkus - Micrometer Metrics: StatsD
+= Quarkus - Micrometer: StatsD
 
 include::./includes/attributes.adoc[]
 

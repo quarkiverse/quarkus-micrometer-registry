@@ -25,8 +25,7 @@ public class DatadogEnabledTest {
             .overrideConfigKey("quarkus.micrometer.export.datadog.publish", "false")
             .overrideConfigKey("quarkus.micrometer.export.datadog.apiKey", "dummy")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(DatadogRegistryProcessor.REGISTRY_CLASS));
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class));
 
     @Inject
     MeterRegistry registry;

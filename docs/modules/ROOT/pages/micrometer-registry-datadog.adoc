@@ -1,4 +1,4 @@
-= Quarkus - Micrometer Metrics: Datadog
+= Quarkus - Micrometer: Datadog
 
 include::./includes/attributes.adoc[]
 

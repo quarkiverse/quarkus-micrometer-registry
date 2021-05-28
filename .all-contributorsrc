@@ -14,6 +14,15 @@
         "code",
         "maintenance"
       ]
+    },
+    {
+      "login": "cemnura",
+      "name": "Cem Nura",
+      "avatar_url": "https://avatars.githubusercontent.com/u/24714913?v=4",
+      "profile": "http://cemnura.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
