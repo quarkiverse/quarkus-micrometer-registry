@@ -1,4 +1,4 @@
-name: "Micrometer registry: Azure Monitor"
+name: "Micrometer registry - Azure Monitor"
 metadata:
   keywords:
   - "micrometer"

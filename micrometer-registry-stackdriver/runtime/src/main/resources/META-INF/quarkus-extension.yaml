@@ -1,4 +1,4 @@
-name: "Micrometer registry: Stackdriver"
+name: "Micrometer registry - Stackdriver"
 metadata:
   keywords:
   - "micrometer"

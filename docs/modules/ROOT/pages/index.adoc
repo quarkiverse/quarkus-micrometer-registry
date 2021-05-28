@@ -1,0 +1,9 @@
+= Quarkus - Micrometer Meter Registry Extensions
+
+This is where the core Quarkus Micrometer extension meets the larger ecosystem of supported registries.
+
+* https://micrometer.io[Micrometer Documentation]
+* https://quarkus.io/guides/micrometer[Quarkus Micrometer guide]
+
+
+Please ask questions on stackoverflow (using `quarkus` and `micrometer` tags, or join us in the https://quarkusio.zulipchat.com/[Quarkus Zulip] chatroom, or in the #quarkus channel in the https://join.slack.com/t/micrometer-metrics/shared_invite/zt-ewo3kcs0-Ji3aOAqTxnjYPEFBBI5HqQ[Micrometer Slack] workspace.
