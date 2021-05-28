@@ -60,20 +60,6 @@
     <build>
     
         <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>${project.basedir}/modules/ROOT/pages</directory>
-                            <includes>
-                                <include>includes/**</include>
-                            </includes>
-                            <followSymlinks>false</followSymlinks>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>it.ozimov</groupId>
