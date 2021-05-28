@@ -36,6 +36,7 @@ class NativeMeterRegistriesTest {
                 "io.micrometer.newrelic.NewRelicMeterRegistry",
                 "io.micrometer.signalfx.SignalFxMeterRegistry",
                 "io.micrometer.stackdriver.StackdriverMeterRegistry",
-                "io.micrometer.statsd.StatsdMeterRegistry"));
+                "io.micrometer.statsd.StatsdMeterRegistry",
+                "io.micrometer.graphite.GraphiteMeterRegistry"));
     }
 }
