@@ -1,4 +1,4 @@
-name: "Micrometer registry: StatsD"
+name: "Micrometer registry - StatsD"
 metadata:
   keywords:
   - "micrometer"
