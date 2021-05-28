@@ -24,8 +24,7 @@ public class StatsdEnabledTest {
             .overrideConfigKey("quarkus.micrometer.export.statsd.enabled", "true")
             .overrideConfigKey("quarkus.micrometer.export.statsd.publish", "false")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
-            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
-                    .addClass(StatsdRegistryProcessor.REGISTRY_CLASS));
+            .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class));
 
     @Inject
     MeterRegistry registry;
