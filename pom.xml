@@ -12,7 +12,7 @@
     <groupId>io.quarkiverse.micrometer.registry</groupId>
     <artifactId>quarkus-micrometer-registry-parent</artifactId>
     <name>Quarkus Micrometer Registry - Parent</name>
-    <version>199-SNAPSHOT</version>
+    <version>1.0.2</version>
 
     <packaging>pom</packaging>
 
@@ -33,7 +33,7 @@
         <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
         <connection>scm:git:https://github.com/quarkiverse/quarkus-micrometer-registry.git</connection>
         <developerConnection>scm:git:git@github.com/quarkiverse/quarkus-micrometer-registry.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>1.0.2</tag>
   </scm>
 
     <issueManagement>
