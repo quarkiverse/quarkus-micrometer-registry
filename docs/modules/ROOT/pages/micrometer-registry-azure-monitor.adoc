@@ -1,4 +1,4 @@
-= Quarkus - Micrometer Metrics: Azure Monitor
+= Quarkus - Micrometer: Azure Monitor 
 
 include::./includes/attributes.adoc[]
 
