@@ -27,8 +27,8 @@ class NativeMeterRegistriesIT extends NativeMeterRegistriesTest {
         List<Object> registries = response.jsonPath().getList("$");
         MatcherAssert.assertThat(registries, Matchers.containsInAnyOrder(
                 "io.micrometer.datadog.DatadogMeterRegistry",
-                "io.micrometer.stackdriver.StackdriverMeterRegistry",
-                "io.micrometer.graphite.GraphiteMeterRegistry"));
+                "io.micrometer.graphite.GraphiteMeterRegistry",
+                "io.micrometer.stackdriver.StackdriverMeterRegistry"));
 
         MatcherAssert.assertThat(registries, Matchers.not(Matchers.containsInAnyOrder(
                 "io.micrometer.azuremonitor.AzureMonitorMeterRegistry",
