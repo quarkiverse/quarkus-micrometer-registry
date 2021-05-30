@@ -37,7 +37,6 @@ public class GraphiteMeterRegistryProvider {
 
     @Produces
     @Singleton
-    @DefaultBean
     public GraphiteMeterRegistry registry(GraphiteConfig config,
                                           @GraphiteNameMapper HierarchicalNameMapper nameMapper,
                                           Clock clock) {
