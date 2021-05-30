@@ -1,12 +1,12 @@
 package io.quarkiverse.micrometer.registry.graphite;
 
+import java.util.Map;
+import java.util.Optional;
+
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
 import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
-
-import java.util.Map;
-import java.util.Optional;
 
 public class GraphiteConfig {
 
@@ -44,47 +44,47 @@ public class GraphiteConfig {
         // @formatter:off
         /**
          * Graphite registry configuration properties.
-         * <p>
+         *
          * A property source for configuration of the Graphite MeterRegistry,
          * see https://micrometer.io/docs/registry/graphite.
-         * <p>
+         *
          * Available values:
-         * <p>
+         *
          * [cols=2]
          * !===
          * h!Property=Default
          * h!Description
-         * <p>
+         *
          * !`graphiteTagsEnabled=boolean`
          * !Whether Graphite tags should be used, as opposed to a hierarchical naming convention.
          * Defaults to true if no values are present for tagsAsPrefix
-         * <p>
+         *
          * !`rateUnits=SECONDS`
          * !Base time unit used to report rates.
          * Defaults to SECONDS.
-         * <p>
+         *
          * !`durationUnits=MILLISECONDS`
          * !Base time unit used to report durations.
          * Defaults to MILLISECONDS
-         * <p>
+         *
          * !`host=localhost`
          * !Host of the Graphite server to receive exported metrics.
          * The default to localhost.
-         * <p>
+         *
          * !`port=2004`
          * !Port of the Graphite server to receive exported metrics.
          * The default to 2004.
-         * <p>
+         *
          * !`protocol=PICKLED`
          * !Protocol to use while shipping data to Graphite
          * (valid values are PLAINTEXT, UDP and PICKLED).
          * The default to PICKLED.
-         * <p>
+         *
          * !`step=1m`
          * !The interval at which metrics are sent to Graphite.
          * Defaults to 1 minute.
          * !===
-         * <p>
+         *
          * Other Micrometer configuration attributes can also be specified.
          *
          * @asciidoclet

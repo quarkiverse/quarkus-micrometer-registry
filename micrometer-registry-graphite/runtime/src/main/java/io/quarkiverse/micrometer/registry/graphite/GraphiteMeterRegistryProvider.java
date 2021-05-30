@@ -1,5 +1,12 @@
 package io.quarkiverse.micrometer.registry.graphite;
 
+import java.util.Map;
+
+import javax.enterprise.inject.Produces;
+import javax.inject.Singleton;
+
+import org.eclipse.microprofile.config.Config;
+
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.util.HierarchicalNameMapper;
 import io.micrometer.graphite.GraphiteConfig;
@@ -8,11 +15,6 @@ import io.micrometer.graphite.GraphiteHierarchicalNameMapper;
 import io.micrometer.graphite.GraphiteMeterRegistry;
 import io.quarkus.arc.DefaultBean;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
-import org.eclipse.microprofile.config.Config;
-
-import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
-import java.util.Map;
 
 @Singleton
 public class GraphiteMeterRegistryProvider {
@@ -38,8 +40,8 @@ public class GraphiteMeterRegistryProvider {
     @Produces
     @Singleton
     public GraphiteMeterRegistry registry(GraphiteConfig config,
-                                          @GraphiteNameMapper HierarchicalNameMapper nameMapper,
-                                          Clock clock) {
+            @GraphiteNameMapper HierarchicalNameMapper nameMapper,
+            Clock clock) {
         return new GraphiteMeterRegistry(config, clock, nameMapper);
     }
 }
