@@ -18,7 +18,7 @@
         <dependency>
             <groupId>io.quarkiverse.googlecloudservices</groupId>
             <artifactId>quarkus-google-cloud-common-grpc</artifactId>
-            <version>0.6.0</version>
+            <version>0.7.0</version>
         </dependency>
         <dependency>
             <groupId>io.micrometer</groupId>
