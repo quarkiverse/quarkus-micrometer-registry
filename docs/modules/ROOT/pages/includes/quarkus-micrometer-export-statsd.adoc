@@ -18,6 +18,16 @@ Support for export to StatsD.
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd.default-registry]]`link:#quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd.default-registry[quarkus.micrometer.export.statsd.default-registry]`
+
+[.description]
+--
+By default, this extension will create a StatsD MeterRegistry instance. 
+ Use this attribute to veto the creation of the default StatsD MeterRegistry.
+--|boolean 
+|`true`
+
+
 a| [[quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd-statsd]]`link:#quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd-statsd[quarkus.micrometer.export.statsd]`
 
 [.description]

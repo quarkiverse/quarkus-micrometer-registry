@@ -18,6 +18,16 @@ Support for export to JMX
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx.default-registry]]`link:#quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx.default-registry[quarkus.micrometer.export.jmx.default-registry]`
+
+[.description]
+--
+By default, this extension will create a JMX MeterRegistry instance. 
+ Use this attribute to veto the creation of the default JMX MeterRegistry.
+--|boolean 
+|`true`
+
+
 a| [[quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx-jmx]]`link:#quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx-jmx[quarkus.micrometer.export.jmx]`
 
 [.description]

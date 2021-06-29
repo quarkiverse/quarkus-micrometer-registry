@@ -31,6 +31,16 @@ See https://github.com/grpc/grpc-java/issues/5460
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.default-registry]]`link:#quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.default-registry[quarkus.micrometer.export.stackdriver.default-registry]`
+
+[.description]
+--
+By default, this extension will create a Stackdriver MeterRegistry instance. 
+ Use this attribute to veto the creation of the default Stackdriver MeterRegistry.
+--|boolean 
+|`true`
+
+
 a| [[quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver-stackdriver]]`link:#quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver-stackdriver[quarkus.micrometer.export.stackdriver]`
 
 [.description]

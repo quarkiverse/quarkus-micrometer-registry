@@ -10,7 +10,6 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
 import org.eclipse.microprofile.config.Config;
-import org.jboss.logging.Logger;
 
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.config.validate.InvalidReason;
@@ -22,12 +21,11 @@ import io.micrometer.newrelic.NewRelicConfig;
 import io.micrometer.newrelic.NewRelicMeterRegistry;
 import io.micrometer.newrelic.NewRelicNamingConvention;
 import io.quarkus.arc.DefaultBean;
+import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
 public class NewRelicMeterRegistryProvider {
-    private static final Logger log = Logger.getLogger(NewRelicMeterRegistryProvider.class);
-
     static final String PREFIX = "quarkus.micrometer.export.newrelic.";
     static final String PUBLISH = "newrelic.publish";
     static final String ENABLED = "newrelic.enabled";
@@ -100,6 +98,7 @@ public class NewRelicMeterRegistryProvider {
 
     @Produces
     @Singleton
+    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
     public NewRelicMeterRegistry registry(NewRelicConfig config, Clock clock) {
         return NewRelicMeterRegistry.builder(config)
                 .clock(clock)

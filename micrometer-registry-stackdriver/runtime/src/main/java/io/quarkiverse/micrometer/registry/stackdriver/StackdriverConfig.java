@@ -39,10 +39,19 @@ public class StackdriverConfig {
             return enabled;
         }
 
+        /**
+         * By default, this extension will create a Stackdriver MeterRegistry instance.
+         * <p>
+         * Use this attribute to veto the creation of the default Stackdriver MeterRegistry.
+         */
+        @ConfigItem(defaultValue = "true")
+        public boolean defaultRegistry;
+
         @Override
         public String toString() {
             return this.getClass().getSimpleName()
                     + "{enabled=" + enabled
+                    + ",defaultRegistry=" + defaultRegistry
                     + '}';
         }
     }

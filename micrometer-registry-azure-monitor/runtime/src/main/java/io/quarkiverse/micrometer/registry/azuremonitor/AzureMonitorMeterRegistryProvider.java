@@ -15,6 +15,7 @@ import io.micrometer.core.instrument.config.MeterRegistryConfigValidator;
 import io.micrometer.core.instrument.config.validate.Validated;
 import io.micrometer.core.instrument.step.StepRegistryConfig;
 import io.quarkus.arc.DefaultBean;
+import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
@@ -52,6 +53,7 @@ public class AzureMonitorMeterRegistryProvider {
 
     @Produces
     @Singleton
+    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
     public AzureMonitorMeterRegistry registry(AzureMonitorConfig config, Clock clock) {
         return new AzureMonitorMeterRegistry(config, clock);
     }

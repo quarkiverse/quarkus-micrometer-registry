@@ -6,19 +6,17 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
 import org.eclipse.microprofile.config.Config;
-import org.jboss.logging.Logger;
 
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.datadog.DatadogConfig;
 import io.micrometer.datadog.DatadogMeterRegistry;
 import io.micrometer.datadog.DatadogNamingConvention;
 import io.quarkus.arc.DefaultBean;
+import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
 public class DatadogMeterRegistryProvider {
-    private static final Logger log = Logger.getLogger(DatadogMeterRegistryProvider.class);
-
     static final String PREFIX = "quarkus.micrometer.export.datadog.";
     static final String PUBLISH = "datadog.publish";
     static final String ENABLED = "datadog.enabled";
@@ -54,6 +52,7 @@ public class DatadogMeterRegistryProvider {
 
     @Produces
     @Singleton
+    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
     public DatadogMeterRegistry registry(DatadogConfig config, Clock clock) {
         return DatadogMeterRegistry.builder(config)
                 .clock(clock)

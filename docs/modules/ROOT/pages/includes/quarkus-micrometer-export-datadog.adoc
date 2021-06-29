@@ -18,6 +18,16 @@ Support for export to Datadog
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-datadog_quarkus.micrometer.export.datadog.default-registry]]`link:#quarkus-micrometer-export-datadog_quarkus.micrometer.export.datadog.default-registry[quarkus.micrometer.export.datadog.default-registry]`
+
+[.description]
+--
+By default, this extension will create a Datadog MeterRegistry instance. 
+ Use this attribute to veto the creation of the default Datadog MeterRegistry.
+--|boolean 
+|`true`
+
+
 a| [[quarkus-micrometer-export-datadog_quarkus.micrometer.export.datadog-datadog]]`link:#quarkus-micrometer-export-datadog_quarkus.micrometer.export.datadog-datadog[quarkus.micrometer.export.datadog]`
 
 [.description]
