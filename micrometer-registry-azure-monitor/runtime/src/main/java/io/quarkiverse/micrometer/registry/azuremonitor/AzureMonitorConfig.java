@@ -28,10 +28,19 @@ public class AzureMonitorConfig {
             return enabled;
         }
 
+        /**
+         * By default, this extension will create a AzureMonitor MeterRegistry instance.
+         * <p>
+         * Use this attribute to veto the creation of the default AzureMonitor MeterRegistry.
+         */
+        @ConfigItem(defaultValue = "true")
+        public boolean defaultRegistry;
+
         @Override
         public String toString() {
             return this.getClass().getSimpleName()
                     + "{enabled=" + enabled
+                    + ",defaultRegistry=" + defaultRegistry
                     + '}';
         }
     }

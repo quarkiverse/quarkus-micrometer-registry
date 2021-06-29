@@ -6,19 +6,17 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
 import org.eclipse.microprofile.config.Config;
-import org.jboss.logging.Logger;
 
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.stackdriver.StackdriverConfig;
 import io.micrometer.stackdriver.StackdriverMeterRegistry;
 import io.micrometer.stackdriver.StackdriverNamingConvention;
 import io.quarkus.arc.DefaultBean;
+import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
 public class StackdriverMeterRegistryProvider {
-    private static final Logger log = Logger.getLogger(StackdriverMeterRegistryProvider.class);
-
     static final String PREFIX = "quarkus.micrometer.export.stackdriver.";
     static final String PUBLISH = "stackdriver.publish";
     static final String ENABLED = "stackdriver.enabled";
@@ -54,6 +52,7 @@ public class StackdriverMeterRegistryProvider {
 
     @Produces
     @Singleton
+    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
     public StackdriverMeterRegistry registry(StackdriverConfig config, Clock clock) {
         return StackdriverMeterRegistry.builder(config).clock(clock).build();
     }

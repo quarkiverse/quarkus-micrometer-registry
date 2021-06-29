@@ -18,6 +18,16 @@ Support for export to New Relic
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.default-registry]]`link:#quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.default-registry[quarkus.micrometer.export.newrelic.default-registry]`
+
+[.description]
+--
+By default, this extension will create a New Relic MeterRegistry instance. 
+ Use this attribute to veto the creation of the default New Relic MeterRegistry.
+--|boolean 
+|`true`
+
+
 a| [[quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic-newrelic]]`link:#quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic-newrelic[quarkus.micrometer.export.newrelic]`
 
 [.description]

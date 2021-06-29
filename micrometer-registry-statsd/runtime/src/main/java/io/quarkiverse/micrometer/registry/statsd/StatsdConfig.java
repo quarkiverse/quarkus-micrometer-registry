@@ -28,10 +28,19 @@ public class StatsdConfig {
             return enabled;
         }
 
+        /**
+         * By default, this extension will create a StatsD MeterRegistry instance.
+         * <p>
+         * Use this attribute to veto the creation of the default StatsD MeterRegistry.
+         */
+        @ConfigItem(defaultValue = "true")
+        public boolean defaultRegistry;
+
         @Override
         public String toString() {
             return this.getClass().getSimpleName()
                     + "{enabled=" + enabled
+                    + ",defaultRegistry=" + defaultRegistry
                     + '}';
         }
     }

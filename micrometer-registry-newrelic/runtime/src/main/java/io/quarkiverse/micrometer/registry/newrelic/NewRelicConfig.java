@@ -28,10 +28,19 @@ public class NewRelicConfig {
             return enabled;
         }
 
+        /**
+         * By default, this extension will create a New Relic MeterRegistry instance.
+         * <p>
+         * Use this attribute to veto the creation of the default New Relic MeterRegistry.
+         */
+        @ConfigItem(defaultValue = "true")
+        public boolean defaultRegistry;
+
         @Override
         public String toString() {
             return this.getClass().getSimpleName()
                     + "{enabled=" + enabled
+                    + ",defaultRegistry=" + defaultRegistry
                     + '}';
         }
     }

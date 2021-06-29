@@ -6,19 +6,17 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
 import org.eclipse.microprofile.config.Config;
-import org.jboss.logging.Logger;
 
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.signalfx.SignalFxConfig;
 import io.micrometer.signalfx.SignalFxMeterRegistry;
 import io.micrometer.signalfx.SignalFxNamingConvention;
 import io.quarkus.arc.DefaultBean;
+import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
 public class SignalFxMeterRegistryProvider {
-    private static final Logger log = Logger.getLogger(SignalFxMeterRegistryProvider.class);
-
     static final String PREFIX = "quarkus.micrometer.export.signalfx.";
     static final String PUBLISH = "signalfx.publish";
     static final String ENABLED = "signalfx.enabled";
@@ -45,6 +43,7 @@ public class SignalFxMeterRegistryProvider {
 
     @Produces
     @Singleton
+    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
     public SignalFxMeterRegistry registry(SignalFxConfig config, Clock clock) {
         return new SignalFxMeterRegistry(config, clock);
     }

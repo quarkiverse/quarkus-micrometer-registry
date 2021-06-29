@@ -18,6 +18,16 @@ Support for export to AzureMonitor.
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.default-registry]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.default-registry[quarkus.micrometer.export.azuremonitor.default-registry]`
+
+[.description]
+--
+By default, this extension will create a AzureMonitor MeterRegistry instance. 
+ Use this attribute to veto the creation of the default AzureMonitor MeterRegistry.
+--|boolean 
+|`true`
+
+
 a| [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor-azuremonitor]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor-azuremonitor[quarkus.micrometer.export.azuremonitor]`
 
 [.description]

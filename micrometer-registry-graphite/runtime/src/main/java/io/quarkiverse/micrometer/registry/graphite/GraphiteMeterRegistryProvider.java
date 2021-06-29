@@ -14,6 +14,7 @@ import io.micrometer.graphite.GraphiteDimensionalNameMapper;
 import io.micrometer.graphite.GraphiteHierarchicalNameMapper;
 import io.micrometer.graphite.GraphiteMeterRegistry;
 import io.quarkus.arc.DefaultBean;
+import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
@@ -39,6 +40,7 @@ public class GraphiteMeterRegistryProvider {
 
     @Produces
     @Singleton
+    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
     public GraphiteMeterRegistry registry(GraphiteConfig config,
             @GraphiteNameMapper HierarchicalNameMapper nameMapper,
             Clock clock) {

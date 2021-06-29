@@ -18,6 +18,16 @@ Support for export to Graphite.
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.default-registry]]`link:#quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.default-registry[quarkus.micrometer.export.graphite.default-registry]`
+
+[.description]
+--
+By default, this extension will create a Graphite MeterRegistry instance. 
+ Use this attribute to veto the creation of the default Graphite MeterRegistry.
+--|boolean 
+|`true`
+
+
 a| [[quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite-graphite]]`link:#quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite-graphite[quarkus.micrometer.export.graphite]`
 
 [.description]

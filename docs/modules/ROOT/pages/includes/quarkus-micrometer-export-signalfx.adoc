@@ -18,6 +18,16 @@ Support for export to SignalFx.
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.default-registry]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.default-registry[quarkus.micrometer.export.signalfx.default-registry]`
+
+[.description]
+--
+By default, this extension will create a SignalFx MeterRegistry instance. 
+ Use this attribute to veto the creation of the default SignalFx MeterRegistry.
+--|boolean 
+|`true`
+
+
 a| [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx-signalfx]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx-signalfx[quarkus.micrometer.export.signalfx]`
 
 [.description]
