@@ -5,34 +5,39 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import org.eclipse.microprofile.config.Config;
-
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.signalfx.SignalFxConfig;
 import io.micrometer.signalfx.SignalFxMeterRegistry;
 import io.micrometer.signalfx.SignalFxNamingConvention;
+import io.quarkiverse.micrometer.registry.signalfx.SignalFxConfig.SignalFxRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
 import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
 public class SignalFxMeterRegistryProvider {
-    static final String PREFIX = "quarkus.micrometer.export.signalfx.";
+    static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.signalfx.default-registry";
+    static final String PREFIX = "signalfx.";
+
     static final String PUBLISH = "signalfx.publish";
     static final String ENABLED = "signalfx.enabled";
 
     @Produces
     @Singleton
     @DefaultBean
-    public SignalFxConfig configure(Config config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config, PREFIX);
+    public SignalFxConfig configure(SignalFxRuntimeConfig config) {
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.signalfx, PREFIX);
 
-        return ConfigAdapter.validate(new SignalFxConfig() {
-            @Override
-            public String get(String key) {
-                return properties.get(key);
-            }
-        });
+        // Special check: if publish is set, override the value of enabled
+        // Specifically, The signalfx registry must be enabled for this
+        // Provider to even be present. If this instance (at runtime) wants
+        // to prevent metrics from being published, then it would set
+        // quarkus.micrometer.export.signalfx.publish=false
+        if (properties.containsKey(PUBLISH)) {
+            properties.put(ENABLED, properties.get(PUBLISH));
+        }
+
+        return ConfigAdapter.validate(properties::get);
     }
 
     @Produces
@@ -43,7 +48,7 @@ public class SignalFxMeterRegistryProvider {
 
     @Produces
     @Singleton
-    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
+    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
     public SignalFxMeterRegistry registry(SignalFxConfig config, Clock clock) {
         return new SignalFxMeterRegistry(config, clock);
     }

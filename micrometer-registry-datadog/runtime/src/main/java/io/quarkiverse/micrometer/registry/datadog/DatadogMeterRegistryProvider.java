@@ -5,27 +5,28 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import org.eclipse.microprofile.config.Config;
-
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.datadog.DatadogConfig;
 import io.micrometer.datadog.DatadogMeterRegistry;
 import io.micrometer.datadog.DatadogNamingConvention;
+import io.quarkiverse.micrometer.registry.datadog.DatadogConfig.DatadogRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
 import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
 public class DatadogMeterRegistryProvider {
-    static final String PREFIX = "quarkus.micrometer.export.datadog.";
+    static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.datadog.default-registry";
+    static final String PREFIX = "datadog.";
+
     static final String PUBLISH = "datadog.publish";
     static final String ENABLED = "datadog.enabled";
 
     @Produces
     @Singleton
     @DefaultBean
-    public DatadogConfig configure(Config config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config, PREFIX);
+    public DatadogConfig configure(DatadogRuntimeConfig config) {
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.datadog, PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, The datadog registry must be enabled for this
@@ -36,12 +37,7 @@ public class DatadogMeterRegistryProvider {
             properties.put(ENABLED, properties.get(PUBLISH));
         }
 
-        return ConfigAdapter.validate(new DatadogConfig() {
-            @Override
-            public String get(String key) {
-                return properties.get(key);
-            }
-        });
+        return ConfigAdapter.validate(properties::get);
     }
 
     @Produces
@@ -52,7 +48,7 @@ public class DatadogMeterRegistryProvider {
 
     @Produces
     @Singleton
-    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
+    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
     public DatadogMeterRegistry registry(DatadogConfig config, Clock clock) {
         return DatadogMeterRegistry.builder(config)
                 .clock(clock)
