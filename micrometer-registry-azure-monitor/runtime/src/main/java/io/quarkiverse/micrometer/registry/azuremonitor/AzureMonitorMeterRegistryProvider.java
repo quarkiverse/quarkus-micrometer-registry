@@ -5,8 +5,6 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import org.eclipse.microprofile.config.Config;
-
 import io.micrometer.azuremonitor.AzureMonitorConfig;
 import io.micrometer.azuremonitor.AzureMonitorMeterRegistry;
 import io.micrometer.azuremonitor.AzureMonitorNamingConvention;
@@ -14,19 +12,33 @@ import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.config.MeterRegistryConfigValidator;
 import io.micrometer.core.instrument.config.validate.Validated;
 import io.micrometer.core.instrument.step.StepRegistryConfig;
+import io.quarkiverse.micrometer.registry.azuremonitor.AzureMonitorConfig.AzureMonitorRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
 import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
 public class AzureMonitorMeterRegistryProvider {
-    static final String PREFIX = "quarkus.micrometer.export.azuremonitor.";
+    static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.azuremonitor.default-registry";
+    static final String PREFIX = "azuremonitor.";
+
+    static final String PUBLISH = "azuremonitor.publish";
+    static final String ENABLED = "azuremonitor.enabled";
 
     @Produces
     @Singleton
     @DefaultBean
-    public AzureMonitorConfig configure(Config config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config, PREFIX);
+    public AzureMonitorConfig configure(AzureMonitorRuntimeConfig config) {
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.azuremonitor, PREFIX);
+
+        // Special check: if publish is set, override the value of enabled
+        // Specifically, the StatsD registry must be enabled for this
+        // Provider to even be present. If this instance (at runtime) wants
+        // to prevent metrics from being published, then it would set
+        // quarkus.micrometer.export.azuremonitor.publish=false
+        if (properties.containsKey(PUBLISH)) {
+            properties.put(ENABLED, properties.get(PUBLISH));
+        }
 
         return ConfigAdapter.validate(new AzureMonitorConfig() {
             @Override
@@ -53,7 +65,7 @@ public class AzureMonitorMeterRegistryProvider {
 
     @Produces
     @Singleton
-    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
+    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
     public AzureMonitorMeterRegistry registry(AzureMonitorConfig config, Clock clock) {
         return new AzureMonitorMeterRegistry(config, clock);
     }

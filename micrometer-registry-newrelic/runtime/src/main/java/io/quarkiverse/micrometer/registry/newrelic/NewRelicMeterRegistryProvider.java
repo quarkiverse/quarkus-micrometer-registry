@@ -9,8 +9,6 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import org.eclipse.microprofile.config.Config;
-
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.config.validate.InvalidReason;
 import io.micrometer.core.instrument.config.validate.Validated;
@@ -20,21 +18,24 @@ import io.micrometer.newrelic.ClientProviderType;
 import io.micrometer.newrelic.NewRelicConfig;
 import io.micrometer.newrelic.NewRelicMeterRegistry;
 import io.micrometer.newrelic.NewRelicNamingConvention;
+import io.quarkiverse.micrometer.registry.newrelic.NewRelicConfig.NewRelicRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
 import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
 @Singleton
 public class NewRelicMeterRegistryProvider {
-    static final String PREFIX = "quarkus.micrometer.export.newrelic.";
+    static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.newrelic.default-registry";
+    static final String PREFIX = "newrelic.";
+
     static final String PUBLISH = "newrelic.publish";
     static final String ENABLED = "newrelic.enabled";
 
     @Produces
     @Singleton
     @DefaultBean
-    public NewRelicConfig configure(Config config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config, PREFIX);
+    public NewRelicConfig configure(NewRelicRuntimeConfig config) {
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.newrelic, PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, The new relic registry must be enabled for this
@@ -98,7 +99,7 @@ public class NewRelicMeterRegistryProvider {
 
     @Produces
     @Singleton
-    @UnlessBuildProperty(name = PREFIX + "default-registry", stringValue = "false", enableIfMissing = true)
+    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
     public NewRelicMeterRegistry registry(NewRelicConfig config, Clock clock) {
         return NewRelicMeterRegistry.builder(config)
                 .clock(clock)
