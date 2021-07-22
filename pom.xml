@@ -93,7 +93,7 @@
             <id>it</id>
             <activation>
                 <property>
-                    <name>performRelease</name>
+                    <name>skipITs</name>
                     <value>!true</value>
                 </property>
             </activation>
