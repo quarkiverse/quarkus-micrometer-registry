@@ -93,8 +93,8 @@
             <id>it</id>
             <activation>
                 <property>
-                    <name>performRelease</name>
-                    <value>!true</value>
+                    <name>skipITs</name>
+                    <value>true</value>
                 </property>
             </activation>
             <modules>
