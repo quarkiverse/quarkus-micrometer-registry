@@ -52,7 +52,7 @@ jobs:
           git checkout -b release
           mvn -B release:prepare -Prelease -DpreparationGoals=clean,package -Darguments="-DskipTests -DskipITs" -DreleaseVersion=${{steps.metadata.outputs.current-version}} -DdevelopmentVersion=${{steps.metadata.outputs.next-version}} -DskipITs -s maven-settings.xml
           git add docs/modules/ROOT/pages/includes/attributes.adoc
-          git commit --amend --no-edit
+          git commit -m 'Update documentation version'
           git checkout ${{github.base_ref}}
           git rebase release
           mvn -B release:perform -Darguments="-DskipITs -DperformRelease" -DperformRelease -DskipITs -Prelease -s maven-settings.xml
