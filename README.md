@@ -59,7 +59,7 @@ Pile on! The help is welcome. It should be easy enough to follow the model of ot
 * Create a document, `micrometer-registry-<name>` for the new module in the `docs/modules/ROOT/pages/` directory.
     It should minimally contain the following: 
     ```asciidoc
-    = Quarkus - Micrometer: <Pretty Name>                       // (1)
+    = <Pretty Registry Name>                                   // (1)
 
     include::./includes/attributes.adoc[] 
 
