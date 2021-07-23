@@ -14,6 +14,8 @@ This repository hosts extensions that support additional Micrometer registry imp
 * Stackdriver
 * StatsD
 
+See the [Micrometer documentation](https://micrometer.io/) for details about Micrometer itself. Using Micrometer with Quarkus is explained in the [Quarkus Micrometer Guide](https://quarkus.io/guides/micrometer). [Quarkus Micrometer Extension documentation](https://quarkiverse.github.io/quarkiverse-docs/quarkus-micrometer-registry/dev/index.html) is generated from this project, and specifically covers how to configure Quarkus micrometer registry extensions.
+
 Feel free to ask questions in either the [Quarkus Zulip](https://quarkusio.zulipchat.com/) chatroom, or the #quarkus channel in the [Micrometer Slack](https://join.slack.com/t/micrometer-metrics/shared_invite/zt-ewo3kcs0-Ji3aOAqTxnjYPEFBBI5HqQ) workspace.
 
 ## Example applications
