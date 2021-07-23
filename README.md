@@ -7,6 +7,7 @@ This repository hosts extensions that support additional Micrometer registry imp
 
 * Azure Monitor
 * Datadog
+* Graphite
 * JMX
 * New Relic
 * SignalFx
