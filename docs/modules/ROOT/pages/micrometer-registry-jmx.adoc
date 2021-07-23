@@ -1,4 +1,4 @@
-= Quarkus - Micrometer: JMX
+= JMX
 
 include::./includes/attributes.adoc[]
 

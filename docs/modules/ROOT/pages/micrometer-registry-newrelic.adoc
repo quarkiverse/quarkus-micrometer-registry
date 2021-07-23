@@ -1,4 +1,4 @@
-= Quarkus - Micrometer: New Relic
+= New Relic
 
 include::./includes/attributes.adoc[]
 

@@ -1,4 +1,4 @@
-= Quarkus - Micrometer Meter Registry Extensions
+= Micrometer Meter Registry Extensions
 
 This is where the core Quarkus Micrometer extension meets the larger ecosystem of supported registries.
 

@@ -1,4 +1,4 @@
-= Quarkus - Micrometer: SignalFx
+= SignalFx
 
 include::./includes/attributes.adoc[]
 

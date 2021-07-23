@@ -1,4 +1,4 @@
-= Quarkus - Micrometer: Graphite
+= Graphite
 
 include::./includes/attributes.adoc[]
 

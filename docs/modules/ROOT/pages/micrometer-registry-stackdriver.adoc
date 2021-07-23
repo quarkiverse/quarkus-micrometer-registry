@@ -1,4 +1,4 @@
-= Quarkus - Micrometer: Stackdriver
+= Stackdriver
 
 include::./includes/attributes.adoc[]
 
