@@ -1,0 +1,13 @@
+name: "Micrometer registry - InfluxDB"
+metadata:
+  keywords:
+  - "micrometer"
+  - "metrics"
+  - "metric"
+  - "influx"
+  - "influxdb"
+  - "monitoring"
+  guide: "https://quarkus.io/guides/micrometer-metrics"
+  categories:
+  - "observability"
+  status: "experimental"

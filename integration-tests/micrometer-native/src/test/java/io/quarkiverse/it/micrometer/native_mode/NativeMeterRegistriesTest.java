@@ -13,9 +13,8 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.response.Response;
 
 /**
- * Test functioning MeterRegistries
- * Use test execution order to ensure one http server request measurement
- * is present when the endpoint is scraped.
+ * Test functioning MeterRegistries Use test execution order to ensure one http
+ * server request measurement is present when the endpoint is scraped.
  */
 @QuarkusTest
 class NativeMeterRegistriesTest {
@@ -31,6 +30,7 @@ class NativeMeterRegistriesTest {
                 "io.micrometer.azuremonitor.AzureMonitorMeterRegistry",
                 "io.micrometer.datadog.DatadogMeterRegistry",
                 "io.micrometer.graphite.GraphiteMeterRegistry",
+                "io.micrometer.influx.InfluxMeterRegistry",
                 "io.micrometer.jmx.JmxMeterRegistry",
                 "io.micrometer.newrelic.NewRelicMeterRegistry",
                 "io.micrometer.signalfx.SignalFxMeterRegistry",
