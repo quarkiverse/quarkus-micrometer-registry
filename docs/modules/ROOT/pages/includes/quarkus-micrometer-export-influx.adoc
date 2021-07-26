@@ -1,0 +1,80 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[[quarkus-micrometer-export-influx_configuration]]link:#quarkus-micrometer-export-influx_configuration[Configuration property]
+
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.enabled]]`link:#quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.enabled[quarkus.micrometer.export.influx.enabled]`
+
+[.description]
+--
+Support for export to InfluxDB. 
+ Support for InfluxDB will be enabled if Micrometer support is enabled, the InfluxDB registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
+--|boolean 
+|
+
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.default-registry]]`link:#quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.default-registry[quarkus.micrometer.export.influx.default-registry]`
+
+[.description]
+--
+By default, this extension will create a InfluxDB MeterRegistry instance. 
+ Use this attribute to veto the creation of the default InfluxDB MeterRegistry.
+--|boolean 
+|`true`
+
+
+a| [[quarkus-micrometer-export-influx_quarkus.micrometer.export.influx-influxdb]]`link:#quarkus-micrometer-export-influx_quarkus.micrometer.export.influx-influxdb[quarkus.micrometer.export.influx]`
+
+[.description]
+--
+InfluxDB registry configuration properties.
+
+A property source for configuration of the InfluxDB MeterRegistry,
+see https://micrometer.io/docs/registry/influx.
+
+Available values:
+
+[cols=2]
+!===
+h!Property=Default
+h!Description
+
+!`uri=http://localhost:8086`
+!The url of the InfluxDB Endpoint.
+
+!`apiVersion=V1\|V2`
+!The API Version of the InfluxDB Endpoint.
+
+!`org=ORGNAME`
+!The Organization of the InfluxDB Endpoint.
+
+!`userName=USERNAME`
+!The userName of the InfluxDB Endpoint.
+
+!`token=TOKEN`
+!The authentication token of the InfluxDB Endpoint.
+
+!`bucket=BUCKET`
+!The bucket of the InfluxDB Endpoint.
+
+!`db=DATABASE`
+!The database name of the InfluxDB Endpoint.
+
+!`step=1m`
+!The interval at which metrics are sent to InfluxDB Monitoring. The default is 1 minute.
+!===
+
+Other Micrometer configuration attributes can also be specified.
+
+As mentioned in the Micrometer InfluxDB documentation, if you want to customize the metrics
+sink, do so by providing your own `InfluxDBMeterRegistry` instance using a CDI `@Produces`
+method.
+--|`Map<String,String>` 
+|
+
+|===

@@ -76,6 +76,11 @@
             <artifactId>quarkus-micrometer-registry-statsd</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>quarkus-micrometer-registry-influx</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- Test Dependencies -->
         <dependency>
@@ -189,6 +194,19 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>quarkus-micrometer-registry-statsd-deployment</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>quarkus-micrometer-registry-influx-deployment</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
             <scope>test</scope>
