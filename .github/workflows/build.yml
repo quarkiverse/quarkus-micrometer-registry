@@ -54,4 +54,4 @@ jobs:
       run: mvn -B formatter:validate install --file pom.xml
 
     - name: Build in native
-      run: mvn -B -Pnative verify --file integration-tests/pom.xml
+      run: mvn -B -Dnative verify --file integration-tests/pom.xml

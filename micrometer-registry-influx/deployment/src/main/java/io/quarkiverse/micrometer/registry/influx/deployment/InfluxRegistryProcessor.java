@@ -4,11 +4,13 @@ import java.util.function.BooleanSupplier;
 
 import org.jboss.logging.Logger;
 
+import io.micrometer.influx.InfluxApiVersion;
 import io.quarkiverse.micrometer.registry.influx.InfluxConfig;
 import io.quarkiverse.micrometer.registry.influx.InfluxMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
+import io.quarkus.deployment.builditem.nativeimage.ReflectiveClassBuildItem;
 import io.quarkus.deployment.pkg.steps.NativeBuild;
 import io.quarkus.micrometer.deployment.MicrometerRegistryProviderBuildItem;
 import io.quarkus.micrometer.runtime.MicrometerRecorder;
@@ -36,12 +38,13 @@ public class InfluxRegistryProcessor {
     }
 
     @BuildStep(onlyIf = { NativeBuild.class, InfluxRegistryEnabled.class })
-    public MicrometerRegistryProviderBuildItem nativeModeNotSupported() {
-        log.info("The InfluxDB meter registry does not support running in native mode.");
-        return null;
+    void addClassesForNativeReflection(BuildProducer<ReflectiveClassBuildItem> reflectionClasses) {
+        log.warn("native support for InfluxDB meter registery is EXPERIMENTAL!!! check reflectionClasses");
+
+        reflectionClasses.produce(new ReflectiveClassBuildItem(true, true, InfluxApiVersion.class));
     }
 
-    @BuildStep(onlyIf = InfluxRegistryEnabled.class, onlyIfNot = NativeBuild.class)
+    @BuildStep(onlyIf = InfluxRegistryEnabled.class)
     public MicrometerRegistryProviderBuildItem createInfluxDBRegistry(BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
         // Add the InfluxDB Registry Producer
