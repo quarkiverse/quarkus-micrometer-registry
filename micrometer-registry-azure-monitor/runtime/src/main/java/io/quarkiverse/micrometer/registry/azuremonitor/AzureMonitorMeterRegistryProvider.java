@@ -6,17 +6,17 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
 import io.micrometer.azuremonitor.AzureMonitorConfig;
-import io.micrometer.azuremonitor.AzureMonitorMeterRegistry;
 import io.micrometer.azuremonitor.AzureMonitorNamingConvention;
-import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.config.MeterRegistryConfigValidator;
 import io.micrometer.core.instrument.config.validate.Validated;
 import io.micrometer.core.instrument.step.StepRegistryConfig;
 import io.quarkiverse.micrometer.registry.azuremonitor.AzureMonitorConfig.AzureMonitorRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
-import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
+/**
+ * @see ConditionalRegistryProducer
+ */
 @Singleton
 public class AzureMonitorMeterRegistryProvider {
     static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.azuremonitor.default-registry";
@@ -61,12 +61,5 @@ public class AzureMonitorMeterRegistryProvider {
     @DefaultBean
     public AzureMonitorNamingConvention namingConvention() {
         return new AzureMonitorNamingConvention();
-    }
-
-    @Produces
-    @Singleton
-    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
-    public AzureMonitorMeterRegistry registry(AzureMonitorConfig config, Clock clock) {
-        return new AzureMonitorMeterRegistry(config, clock);
     }
 }

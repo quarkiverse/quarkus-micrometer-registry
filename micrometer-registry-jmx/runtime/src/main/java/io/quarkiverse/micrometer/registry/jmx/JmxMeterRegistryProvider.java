@@ -5,15 +5,15 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.util.HierarchicalNameMapper;
 import io.micrometer.jmx.JmxConfig;
-import io.micrometer.jmx.JmxMeterRegistry;
 import io.quarkiverse.micrometer.registry.jmx.JmxConfig.JmxRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
-import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
+/**
+ * @see ConditionalRegistryProducer
+ */
 @Singleton
 public class JmxMeterRegistryProvider {
     static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.jmx.default-registry";
@@ -45,12 +45,5 @@ public class JmxMeterRegistryProvider {
         }
 
         return ConfigAdapter.validate(properties::get);
-    }
-
-    @Produces
-    @Singleton
-    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
-    public JmxMeterRegistry registry(JmxConfig config, Clock clock, HierarchicalNameMapper nameMapper) {
-        return new JmxMeterRegistry(config, clock, nameMapper);
     }
 }

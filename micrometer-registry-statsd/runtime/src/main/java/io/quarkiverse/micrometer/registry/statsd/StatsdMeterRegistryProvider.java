@@ -5,14 +5,14 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import io.micrometer.core.instrument.Clock;
 import io.micrometer.statsd.StatsdConfig;
-import io.micrometer.statsd.StatsdMeterRegistry;
 import io.quarkiverse.micrometer.registry.statsd.StatsdConfig.StatsdRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
-import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
+/**
+ * @see ConditionalRegistryProducer
+ */
 @Singleton
 public class StatsdMeterRegistryProvider {
     static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.statsd.default-registry";
@@ -37,12 +37,5 @@ public class StatsdMeterRegistryProvider {
         }
 
         return ConfigAdapter.validate(properties::get);
-    }
-
-    @Produces
-    @Singleton
-    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
-    public StatsdMeterRegistry registry(StatsdConfig config, Clock clock) {
-        return new StatsdMeterRegistry(config, clock);
     }
 }

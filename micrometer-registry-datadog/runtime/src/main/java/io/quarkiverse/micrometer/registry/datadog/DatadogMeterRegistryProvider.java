@@ -5,15 +5,15 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import io.micrometer.core.instrument.Clock;
 import io.micrometer.datadog.DatadogConfig;
-import io.micrometer.datadog.DatadogMeterRegistry;
 import io.micrometer.datadog.DatadogNamingConvention;
 import io.quarkiverse.micrometer.registry.datadog.DatadogConfig.DatadogRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
-import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
+/**
+ * @see ConditionalRegistryProducer
+ */
 @Singleton
 public class DatadogMeterRegistryProvider {
     static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.datadog.default-registry";
@@ -44,14 +44,5 @@ public class DatadogMeterRegistryProvider {
     @DefaultBean
     public DatadogNamingConvention namingConvention() {
         return new DatadogNamingConvention();
-    }
-
-    @Produces
-    @Singleton
-    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
-    public DatadogMeterRegistry registry(DatadogConfig config, Clock clock) {
-        return DatadogMeterRegistry.builder(config)
-                .clock(clock)
-                .build();
     }
 }

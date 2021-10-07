@@ -4,7 +4,9 @@ import java.util.function.BooleanSupplier;
 
 import org.jboss.logging.Logger;
 
+import io.quarkiverse.micrometer.registry.newrelic.ConditionalRegistryProducer;
 import io.quarkiverse.micrometer.registry.newrelic.NewRelicConfig;
+import io.quarkiverse.micrometer.registry.newrelic.NewRelicConfig.NewRelicBuildConfig;
 import io.quarkiverse.micrometer.registry.newrelic.NewRelicMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
@@ -42,13 +44,22 @@ public class NewRelicRegistryProcessor {
     }
 
     @BuildStep(onlyIf = NewRelicEnabled.class, onlyIfNot = NativeBuild.class)
-    protected MicrometerRegistryProviderBuildItem createNewRelicRegistry(CombinedIndexBuildItem index,
+    protected MicrometerRegistryProviderBuildItem createNewRelicRegistry(
+            CombinedIndexBuildItem index,
+            NewRelicBuildConfig newRelicBuildConfig,
             BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
-        // Add the New Relic Registry Producer
-        additionalBeans.produce(AdditionalBeanBuildItem.builder()
-                .addBeanClass(NewRelicMeterRegistryProvider.class)
-                .setUnremovable().build());
+        // Add the general New Relic general Producer (config, naming conventions, .. )
+        AdditionalBeanBuildItem.Builder builder = AdditionalBeanBuildItem.builder()
+                .setUnremovable()
+                .addBeanClass(NewRelicMeterRegistryProvider.class);
+
+        if (newRelicBuildConfig.defaultRegistry) {
+            // Only add this Registry Producer if the default registry is enabled
+            builder.addBeanClass(ConditionalRegistryProducer.class);
+        }
+
+        additionalBeans.produce(builder.build());
 
         // Include the NewRelicMeterRegistry in a possible CompositeMeterRegistry
         return new MicrometerRegistryProviderBuildItem(REGISTRY_CLASS);

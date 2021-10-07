@@ -9,20 +9,20 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.config.validate.InvalidReason;
 import io.micrometer.core.instrument.config.validate.Validated;
 import io.micrometer.core.instrument.step.StepRegistryConfig;
 import io.micrometer.core.instrument.util.StringUtils;
 import io.micrometer.newrelic.ClientProviderType;
 import io.micrometer.newrelic.NewRelicConfig;
-import io.micrometer.newrelic.NewRelicMeterRegistry;
 import io.micrometer.newrelic.NewRelicNamingConvention;
 import io.quarkiverse.micrometer.registry.newrelic.NewRelicConfig.NewRelicRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
-import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
+/**
+ * @see ConditionalRegistryProducer
+ */
 @Singleton
 public class NewRelicMeterRegistryProvider {
     static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.newrelic.default-registry";
@@ -95,14 +95,5 @@ public class NewRelicMeterRegistryProvider {
     @DefaultBean
     public NewRelicNamingConvention namingConvention() {
         return new NewRelicNamingConvention();
-    }
-
-    @Produces
-    @Singleton
-    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
-    public NewRelicMeterRegistry registry(NewRelicConfig config, Clock clock) {
-        return NewRelicMeterRegistry.builder(config)
-                .clock(clock)
-                .build();
     }
 }

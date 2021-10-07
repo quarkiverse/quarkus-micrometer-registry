@@ -5,15 +5,15 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import io.micrometer.core.instrument.Clock;
 import io.micrometer.stackdriver.StackdriverConfig;
-import io.micrometer.stackdriver.StackdriverMeterRegistry;
 import io.micrometer.stackdriver.StackdriverNamingConvention;
 import io.quarkiverse.micrometer.registry.stackdriver.StackdriverConfig.StackdriverRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
-import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
+/**
+ * @see ConditionalRegistryProducer
+ */
 @Singleton
 public class StackdriverMeterRegistryProvider {
     static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.stackdriver.default-registry";
@@ -44,12 +44,5 @@ public class StackdriverMeterRegistryProvider {
     @DefaultBean
     public StackdriverNamingConvention namingConvention() {
         return new StackdriverNamingConvention();
-    }
-
-    @Produces
-    @Singleton
-    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
-    public StackdriverMeterRegistry registry(StackdriverConfig config, Clock clock) {
-        return StackdriverMeterRegistry.builder(config).clock(clock).build();
     }
 }

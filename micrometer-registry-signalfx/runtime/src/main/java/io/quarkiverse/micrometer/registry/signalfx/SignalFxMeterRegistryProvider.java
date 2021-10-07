@@ -5,15 +5,15 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import io.micrometer.core.instrument.Clock;
 import io.micrometer.signalfx.SignalFxConfig;
-import io.micrometer.signalfx.SignalFxMeterRegistry;
 import io.micrometer.signalfx.SignalFxNamingConvention;
 import io.quarkiverse.micrometer.registry.signalfx.SignalFxConfig.SignalFxRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
-import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
+/**
+ * @see ConditionalRegistryProducer
+ */
 @Singleton
 public class SignalFxMeterRegistryProvider {
     static final String DEFAULT_REGISTRY = "quarkus.micrometer.export.signalfx.default-registry";
@@ -44,12 +44,5 @@ public class SignalFxMeterRegistryProvider {
     @DefaultBean
     public SignalFxNamingConvention namingConvention() {
         return new SignalFxNamingConvention();
-    }
-
-    @Produces
-    @Singleton
-    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
-    public SignalFxMeterRegistry registry(SignalFxConfig config, Clock clock) {
-        return new SignalFxMeterRegistry(config, clock);
     }
 }
