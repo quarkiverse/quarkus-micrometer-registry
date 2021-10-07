@@ -2,7 +2,9 @@ package io.quarkiverse.micrometer.registry.graphite.deployment;
 
 import java.util.function.BooleanSupplier;
 
+import io.quarkiverse.micrometer.registry.graphite.ConditionalRegistryProducer;
 import io.quarkiverse.micrometer.registry.graphite.GraphiteConfig;
+import io.quarkiverse.micrometer.registry.graphite.GraphiteConfig.GraphiteBuildConfig;
 import io.quarkiverse.micrometer.registry.graphite.GraphiteMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
@@ -40,14 +42,20 @@ public class GraphiteRegistryProcessor {
 
     @BuildStep(onlyIf = GraphiteRegistryEnabled.class)
     public MicrometerRegistryProviderBuildItem createGraphiteRegistry(
+            GraphiteBuildConfig graphiteBuildConfig,
             BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
-        // Add the Graphite Registry Producer
-        additionalBeans.produce(
-                AdditionalBeanBuildItem.builder()
-                        .addBeanClass(GraphiteMeterRegistryProvider.class)
-                        .setUnremovable()
-                        .build());
+        // Add the general Graphite Producer (config, naming conventions, .. )
+        AdditionalBeanBuildItem.Builder builder = AdditionalBeanBuildItem.builder()
+                .setUnremovable()
+                .addBeanClass(GraphiteMeterRegistryProvider.class);
+
+        if (graphiteBuildConfig.defaultRegistry) {
+            // Only add this Registry Producer if the default registry is enabled
+            builder.addBeanClass(ConditionalRegistryProducer.class);
+        }
+
+        additionalBeans.produce(builder.build());
 
         // Include the GraphiteMeterRegistryProvider in a possible CompositeMeterRegistry
         return new MicrometerRegistryProviderBuildItem(REGISTRY_CLASS);

@@ -5,14 +5,14 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import io.micrometer.core.instrument.Clock;
 import io.micrometer.influx.InfluxConfig;
-import io.micrometer.influx.InfluxMeterRegistry;
 import io.quarkiverse.micrometer.registry.influx.InfluxConfig.InfluxRuntimeConfig;
 import io.quarkus.arc.DefaultBean;
-import io.quarkus.arc.properties.UnlessBuildProperty;
 import io.quarkus.micrometer.runtime.export.ConfigAdapter;
 
+/**
+ * @see ConditionalRegistryProducer
+ */
 @Singleton
 public class InfluxMeterRegistryProvider {
 
@@ -38,12 +38,5 @@ public class InfluxMeterRegistryProvider {
         }
 
         return ConfigAdapter.validate(properties::get);
-    }
-
-    @Produces
-    @Singleton
-    @UnlessBuildProperty(name = DEFAULT_REGISTRY, stringValue = "false", enableIfMissing = true)
-    public InfluxMeterRegistry registry(InfluxConfig config, Clock clock) {
-        return new InfluxMeterRegistry(config, clock);
     }
 }

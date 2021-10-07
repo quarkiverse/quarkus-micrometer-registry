@@ -4,7 +4,9 @@ import java.util.function.BooleanSupplier;
 
 import org.jboss.logging.Logger;
 
+import io.quarkiverse.micrometer.registry.jmx.ConditionalRegistryProducer;
 import io.quarkiverse.micrometer.registry.jmx.JmxConfig;
+import io.quarkiverse.micrometer.registry.jmx.JmxConfig.JmxBuildConfig;
 import io.quarkiverse.micrometer.registry.jmx.JmxMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
@@ -42,13 +44,22 @@ public class JmxRegistryProcessor {
 
     /** Jmx does not work with GraalVM */
     @BuildStep(onlyIf = JmxEnabled.class, onlyIfNot = NativeBuild.class)
-    protected MicrometerRegistryProviderBuildItem createJmxRegistry(CombinedIndexBuildItem index,
+    protected MicrometerRegistryProviderBuildItem createJmxRegistry(
+            CombinedIndexBuildItem index,
+            JmxBuildConfig jmxBuildConfig,
             BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
-        // Add the Jmx Registry Producer
-        additionalBeans.produce(AdditionalBeanBuildItem.builder()
-                .addBeanClass(JmxMeterRegistryProvider.class)
-                .setUnremovable().build());
+        // Add the general Jmx Producer (config, naming conventions, .. )
+        AdditionalBeanBuildItem.Builder builder = AdditionalBeanBuildItem.builder()
+                .setUnremovable()
+                .addBeanClass(JmxMeterRegistryProvider.class);
+
+        if (jmxBuildConfig.defaultRegistry) {
+            // Only add this Registry Producer if the default registry is enabled
+            builder.addBeanClass(ConditionalRegistryProducer.class);
+        }
+
+        additionalBeans.produce(builder.build());
 
         // Include the JmxMeterRegistry in a possible CompositeMeterRegistry
         return new MicrometerRegistryProviderBuildItem(REGISTRY_CLASS);

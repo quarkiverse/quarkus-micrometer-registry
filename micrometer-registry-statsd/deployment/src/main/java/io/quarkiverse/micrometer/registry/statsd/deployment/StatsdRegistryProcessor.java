@@ -4,7 +4,9 @@ import java.util.function.BooleanSupplier;
 
 import org.jboss.logging.Logger;
 
+import io.quarkiverse.micrometer.registry.statsd.ConditionalRegistryProducer;
 import io.quarkiverse.micrometer.registry.statsd.StatsdConfig;
+import io.quarkiverse.micrometer.registry.statsd.StatsdConfig.StatsdBuildConfig;
 import io.quarkiverse.micrometer.registry.statsd.StatsdMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
@@ -42,13 +44,21 @@ public class StatsdRegistryProcessor {
     }
 
     @BuildStep(onlyIf = StatsdRegistryEnabled.class, onlyIfNot = NativeBuild.class)
-    public MicrometerRegistryProviderBuildItem createStatsdRegistry(BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
+    public MicrometerRegistryProviderBuildItem createStatsdRegistry(
+            StatsdBuildConfig statsdBuildConfig,
+            BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
-        // Add the Statsd Registry Producer
-        additionalBeans.produce(
-                AdditionalBeanBuildItem.builder()
-                        .addBeanClass(StatsdMeterRegistryProvider.class)
-                        .setUnremovable().build());
+        // Add the general Statsd general Producer (config, naming conventions, .. )
+        AdditionalBeanBuildItem.Builder builder = AdditionalBeanBuildItem.builder()
+                .setUnremovable()
+                .addBeanClass(StatsdMeterRegistryProvider.class);
+
+        if (statsdBuildConfig.defaultRegistry) {
+            // Only add this Registry Producer if the default registry is enabled
+            builder.addBeanClass(ConditionalRegistryProducer.class);
+        }
+
+        additionalBeans.produce(builder.build());
 
         // Include the StatsdMeterRegistryProvider in a possible CompositeMeterRegistry
         return new MicrometerRegistryProviderBuildItem(REGISTRY_CLASS);

@@ -5,7 +5,9 @@ import java.util.function.BooleanSupplier;
 import org.jboss.logging.Logger;
 
 import io.micrometer.influx.InfluxApiVersion;
+import io.quarkiverse.micrometer.registry.influx.ConditionalRegistryProducer;
 import io.quarkiverse.micrometer.registry.influx.InfluxConfig;
+import io.quarkiverse.micrometer.registry.influx.InfluxConfig.InfluxBuildConfig;
 import io.quarkiverse.micrometer.registry.influx.InfluxMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
@@ -45,12 +47,21 @@ public class InfluxRegistryProcessor {
     }
 
     @BuildStep(onlyIf = InfluxRegistryEnabled.class)
-    public MicrometerRegistryProviderBuildItem createInfluxDBRegistry(BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
+    public MicrometerRegistryProviderBuildItem createInfluxDBRegistry(
+            InfluxBuildConfig influxBuildConfig,
+            BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
-        // Add the InfluxDB Registry Producer
-        additionalBeans.produce(AdditionalBeanBuildItem.builder()
-                .addBeanClass(InfluxMeterRegistryProvider.class)
-                .setUnremovable().build());
+        // Add the general InfluxDB Producer (config, naming conventions, .. )
+        AdditionalBeanBuildItem.Builder builder = AdditionalBeanBuildItem.builder()
+                .setUnremovable()
+                .addBeanClass(InfluxMeterRegistryProvider.class);
+
+        if (influxBuildConfig.defaultRegistry) {
+            // Only add this Registry Producer if the default registry is enabled
+            builder.addBeanClass(ConditionalRegistryProducer.class);
+        }
+
+        additionalBeans.produce(builder.build());
 
         // Include the InfluxDBMeterRegistryProvider in a possible CompositeMeterRegistry
         return new MicrometerRegistryProviderBuildItem(REGISTRY_CLASS);

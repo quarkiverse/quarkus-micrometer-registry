@@ -5,7 +5,9 @@ import java.util.function.BooleanSupplier;
 import org.jboss.logging.Logger;
 
 import io.quarkiverse.micrometer.registry.azuremonitor.AzureMonitorConfig;
+import io.quarkiverse.micrometer.registry.azuremonitor.AzureMonitorConfig.AzureMonitorBuildConfig;
 import io.quarkiverse.micrometer.registry.azuremonitor.AzureMonitorMeterRegistryProvider;
+import io.quarkiverse.micrometer.registry.azuremonitor.ConditionalRegistryProducer;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
@@ -42,13 +44,20 @@ public class AzureMonitorRegistryProcessor {
 
     @BuildStep(onlyIf = AzureMonitorEnabled.class, onlyIfNot = NativeBuild.class)
     public MicrometerRegistryProviderBuildItem createAzureMonitorRegistry(
+            AzureMonitorBuildConfig azureMonitorBuildConfig,
             BuildProducer<AdditionalBeanBuildItem> additionalBeans) {
 
-        // Add the AzureMonitor Registry Producer
-        additionalBeans.produce(
-                AdditionalBeanBuildItem.builder()
-                        .addBeanClass(AzureMonitorMeterRegistryProvider.class)
-                        .setUnremovable().build());
+        // Add the general AzureMonitor Producer (config, naming conventions, .. )
+        AdditionalBeanBuildItem.Builder builder = AdditionalBeanBuildItem.builder()
+                .setUnremovable()
+                .addBeanClass(AzureMonitorMeterRegistryProvider.class);
+
+        if (azureMonitorBuildConfig.defaultRegistry) {
+            // Only add this Registry Producer if the default registry is enabled
+            builder.addBeanClass(ConditionalRegistryProducer.class);
+        }
+
+        additionalBeans.produce(builder.build());
 
         // Include the AzureMonitorMeterRegistry in a possible CompositeMeterRegistry
         return new MicrometerRegistryProviderBuildItem(REGISTRY_CLASS);
