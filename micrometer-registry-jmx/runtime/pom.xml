@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
         <artifactId>quarkus-micrometer-registry-jmx-parent</artifactId>
-        <version>2.2.3</version>
+        <version>299-SNAPSHOT</version>
     </parent>
 
     <artifactId>quarkus-micrometer-registry-jmx</artifactId>
