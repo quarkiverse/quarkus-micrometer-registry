@@ -24,10 +24,10 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- Do not use Resteasy! Deliberately focused on vertx-web alone -->
+        <!-- Do not use Resteasy! Deliberately focused on quarkus-reactive-routes alone -->
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-vertx-web</artifactId>
+            <artifactId>quarkus-reactive-routes</artifactId>
         </dependency>
 
         <dependency>
