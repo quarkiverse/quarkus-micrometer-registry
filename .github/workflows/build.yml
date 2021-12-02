@@ -48,3 +48,6 @@ jobs:
 
     - name: Build in native
       run: mvn -B -Dnative verify --file integration-tests/pom.xml
+
+    - name: Remove project artifacts
+      run: rm -rf ~/.m2/repository/io/quarkiverse/micrometer/registry
