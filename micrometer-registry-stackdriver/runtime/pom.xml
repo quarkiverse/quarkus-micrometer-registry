@@ -18,8 +18,11 @@
         <dependency>
             <groupId>io.quarkiverse.googlecloudservices</groupId>
             <artifactId>quarkus-google-cloud-common-grpc</artifactId>
-            <version>0.11.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>native-image-support</artifactId>
+         </dependency>
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-stackdriver</artifactId>
