@@ -26,7 +26,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.parameters>true</maven.compiler.parameters>
-        <compiler-plugin.version>3.9.0</compiler-plugin.version>
+        <compiler-plugin.version>3.10.0</compiler-plugin.version>
     </properties>
 
     <scm>
