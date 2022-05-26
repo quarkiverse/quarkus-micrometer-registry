@@ -1,4 +1,7 @@
-= New Relic
+= New Relic (Deprecated)
+
+*There is a new library* for the New Relic micrometer registry here:
+link:micrometer-registry-newrelic-telemetry.adoc[micrometer-registry-newrelic-telemetry]
 
 include::./includes/attributes.adoc[]
 

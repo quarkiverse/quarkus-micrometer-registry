@@ -81,6 +81,7 @@
         <module>micrometer-registry-datadog</module>
         <module>micrometer-registry-graphite</module>
         <module>micrometer-registry-newrelic</module>
+        <module>micrometer-registry-newrelic-telemetry</module>
         <module>micrometer-registry-otlp</module>
         <module>micrometer-registry-jmx</module>
         <module>micrometer-registry-signalfx</module>

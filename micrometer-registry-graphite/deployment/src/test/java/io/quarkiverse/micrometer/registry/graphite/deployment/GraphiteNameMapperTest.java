@@ -3,6 +3,7 @@ package io.quarkiverse.micrometer.registry.graphite.deployment;
 import java.lang.reflect.Field;
 import java.util.Set;
 
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,7 +20,7 @@ import io.micrometer.core.instrument.dropwizard.DropwizardMeterRegistry;
 import io.micrometer.core.instrument.util.HierarchicalNameMapper;
 import io.micrometer.graphite.GraphiteMeterRegistry;
 import io.quarkiverse.micrometer.registry.graphite.GraphiteNameMapper;
-import io.quarkus.arc.AlternativePriority;
+import io.quarkus.arc.Priority;
 import io.quarkus.test.QuarkusUnitTest;
 
 public class GraphiteNameMapperTest {
@@ -57,7 +58,8 @@ public class GraphiteNameMapperTest {
         @Produces
         @Singleton
         @GraphiteNameMapper
-        @AlternativePriority(1)
+        @Alternative
+        @Priority(1)
         public HierarchicalNameMapper hierarchicalNameMapper() {
             return HierarchicalNameMapper.DEFAULT;
         }

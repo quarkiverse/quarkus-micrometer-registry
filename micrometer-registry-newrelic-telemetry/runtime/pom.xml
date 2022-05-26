@@ -3,21 +3,27 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
-        <artifactId>quarkus-micrometer-registry-newrelic-parent</artifactId>
+        <artifactId>quarkus-micrometer-registry-newrelic-telemetry-parent</artifactId>
         <version>299-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quarkus-micrometer-registry-newrelic</artifactId>
-    <name>Quarkus Micrometer Registry - New Relic - Runtime</name>
+    <artifactId>quarkus-micrometer-registry-newrelic-telemetry</artifactId>
+    <name>Quarkus Micrometer Registry - New Relic Telemetry - Runtime</name>
+
+    <properties>
+        <micrometer-registry-new-relic.version>0.8.0</micrometer-registry-new-relic.version>
+    </properties>
 
     <dependencies>
+<!--        FIXME update version because of CVE -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-micrometer</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.micrometer</groupId>
+            <groupId>com.newrelic.telemetry</groupId>
             <artifactId>micrometer-registry-new-relic</artifactId>
+            <version>${micrometer-registry-new-relic.version}</version>
         </dependency>
     </dependencies>
 
@@ -37,7 +43,9 @@
                             <deployment>${project.groupId}:${project.artifactId}-deployment:${project.version}
                             </deployment>
                             <capabilities>
-                                <provides> io.quarkus.micrometer.registry.newrelic</provides>
+                                <!-- This will prevent this extension to be used along with the old new relic one-->
+                                <!--Mind the registry class is effectively com.newrelic.telemetry.micrometer.NewRelicRegistry-->
+                                <provides>io.quarkus.micrometer.registry.newrelic</provides>
                                 <requires>io.quarkus.metrics</requires>
                             </capabilities>
                         </configuration>

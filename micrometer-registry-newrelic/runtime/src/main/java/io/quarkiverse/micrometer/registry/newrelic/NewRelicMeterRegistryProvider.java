@@ -31,6 +31,12 @@ public class NewRelicMeterRegistryProvider {
     static final String PUBLISH = "newrelic.publish";
     static final String ENABLED = "newrelic.enabled";
 
+    /**
+     * Configures and validates MM side properties.
+     *
+     * @param config The Runtime configuration object
+     * @return The output MM library configuration
+     */
     @Produces
     @Singleton
     @DefaultBean

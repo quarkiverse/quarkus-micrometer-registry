@@ -1,0 +1,17 @@
+= New Relic
+
+include::./includes/attributes.adoc[]
+
+
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.quarkiverse.micrometer.registry</groupId>
+    <artifactId>quarkus-micrometer-registry-newrelic-telemetry</artifactId>
+</dependency>
+----
+
+== Configuration
+
+include::./includes/quarkus-micrometer-export-newrelic-telemetry.adoc[]
