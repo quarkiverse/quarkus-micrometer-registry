@@ -63,6 +63,11 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>quarkus-micrometer-registry-otlp</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>quarkus-micrometer-registry-signalfx</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -167,6 +172,19 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>quarkus-micrometer-registry-otlp-deployment</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>quarkus-micrometer-registry-signalfx-deployment</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
@@ -218,5 +236,5 @@
             </exclusions>
         </dependency>
     </dependencies>
-    
+
 </project>

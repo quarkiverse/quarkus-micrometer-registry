@@ -33,6 +33,7 @@ class NativeMeterRegistriesTest {
                 "io.micrometer.influx.InfluxMeterRegistry",
                 "io.micrometer.jmx.JmxMeterRegistry",
                 "io.micrometer.newrelic.NewRelicMeterRegistry",
+                "io.micrometer.registry.otlp.OtlpMeterRegistry",
                 "io.micrometer.signalfx.SignalFxMeterRegistry",
                 "io.micrometer.stackdriver.StackdriverMeterRegistry",
                 "io.micrometer.statsd.StatsdMeterRegistry"));

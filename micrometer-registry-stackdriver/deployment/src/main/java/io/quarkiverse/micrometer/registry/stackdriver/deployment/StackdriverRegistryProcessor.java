@@ -12,6 +12,8 @@ import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
+import io.quarkus.deployment.builditem.nativeimage.NativeImageConfigBuildItem;
+import io.quarkus.deployment.pkg.steps.NativeBuild;
 import io.quarkus.micrometer.deployment.MicrometerRegistryProviderBuildItem;
 import io.quarkus.micrometer.runtime.MicrometerRecorder;
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
@@ -34,6 +36,13 @@ public class StackdriverRegistryProcessor {
         public boolean getAsBoolean() {
             return mConfig.checkRegistryEnabledWithDefault(stackdriverConfig);
         }
+    }
+
+    @BuildStep(onlyIf = { StackdriverEnabled.class, NativeBuild.class })
+    NativeImageConfigBuildItem nativeImageConfiguration() {
+        NativeImageConfigBuildItem.Builder builder = NativeImageConfigBuildItem.builder()
+                .addRuntimeReinitializedClass("com.sun.management.internal.PlatformMBeanProviderImpl");
+        return builder.build();
     }
 
     @BuildStep(onlyIf = StackdriverEnabled.class)
