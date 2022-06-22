@@ -1,0 +1,15 @@
+= OTLP
+
+include::./includes/attributes.adoc[]
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.quarkiverse.micrometer.registry</groupId>
+    <artifactId>quarkus-micrometer-registry-otlp</artifactId>
+</dependency>
+----
+
+== Configuration
+
+include::./includes/quarkus-micrometer-export-otlp.adoc[]

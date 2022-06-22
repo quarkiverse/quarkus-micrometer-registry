@@ -8,9 +8,9 @@
         <version>299-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quarkus-micrometer-registry-stackdriver-parent</artifactId>
-    <name>Quarkus Micrometer Registry - Stackdriver - Parent</name>
-    <description>Send metrics to Google Cloud Operations using Stackdriver</description>
+    <artifactId>quarkus-micrometer-registry-otlp-parent</artifactId>
+    <name>Quarkus Micrometer Registry - OTLP - Parent</name>
+    <description>Send metrics to OpenTelemetry</description>
 
     <packaging>pom</packaging>
 
@@ -24,13 +24,6 @@
                 <groupId>io.quarkus</groupId>
                 <artifactId>quarkus-bom</artifactId>
                 <version>${quarkus.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.quarkiverse.googlecloudservices</groupId>
-                <artifactId>quarkus-google-cloud-services-bom</artifactId>
-                <version>1.1.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

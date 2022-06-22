@@ -4,6 +4,7 @@
 * xref:micrometer-registry-graphite.adoc[Graphite]
 * xref:micrometer-registry-jmx.adoc[JMX]
 * xref:micrometer-registry-newrelic.adoc[New Relic]
+* xref:micrometer-registry-otlp.adoc[OTLP]
 * xref:micrometer-registry-signalfx.adoc[Signal FX]
 * xref:micrometer-registry-stackdriver.adoc[Stackdriver]
 * xref:micrometer-registry-statsd.adoc[StatsD]

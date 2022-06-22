@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>2.9.2.Final</quarkus.version>
+        <quarkus.version>2.10.0.Final</quarkus.version>
 
         <skipTests>false</skipTests>
 
@@ -81,6 +81,7 @@
         <module>micrometer-registry-datadog</module>
         <module>micrometer-registry-graphite</module>
         <module>micrometer-registry-newrelic</module>
+        <module>micrometer-registry-otlp</module>
         <module>micrometer-registry-jmx</module>
         <module>micrometer-registry-signalfx</module>
         <module>micrometer-registry-stackdriver</module>

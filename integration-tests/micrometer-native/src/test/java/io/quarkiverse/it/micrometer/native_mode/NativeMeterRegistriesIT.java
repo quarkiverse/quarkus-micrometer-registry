@@ -29,6 +29,7 @@ class NativeMeterRegistriesIT extends NativeMeterRegistriesTest {
                 "io.micrometer.datadog.DatadogMeterRegistry",
                 "io.micrometer.graphite.GraphiteMeterRegistry",
                 "io.micrometer.influx.InfluxMeterRegistry",
+                "io.micrometer.registry.otlp.OtlpMeterRegistry",
                 "io.micrometer.stackdriver.StackdriverMeterRegistry"));
 
         MatcherAssert.assertThat(registries, Matchers.not(Matchers.containsInAnyOrder(

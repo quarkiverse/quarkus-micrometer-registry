@@ -3,32 +3,25 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
-        <artifactId>quarkus-micrometer-registry-stackdriver-parent</artifactId>
+        <artifactId>quarkus-micrometer-registry-otlp-parent</artifactId>
         <version>299-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quarkus-micrometer-registry-stackdriver</artifactId>
-    <name>Quarkus Micrometer Registry - Stackdriver - Runtime</name>
+    <artifactId>quarkus-micrometer-registry-otlp</artifactId>
+    <name>Quarkus Micrometer Registry - OTLP - Runtime</name>
 
     <dependencies>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-grpc-common</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-micrometer</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.quarkiverse.googlecloudservices</groupId>
-            <artifactId>quarkus-google-cloud-common-grpc</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-stackdriver</artifactId>
-            <exclusions>
-                <!-- We exclude the gprc library as it is provided by the quarkiverse extension -->
-                <exclusion>
-                    <groupId>com.google.api</groupId>
-                    <artifactId>gax-grpc</artifactId>
-                </exclusion>
-            </exclusions>
+            <artifactId>micrometer-registry-otlp</artifactId>
         </dependency>
     </dependencies>
 
