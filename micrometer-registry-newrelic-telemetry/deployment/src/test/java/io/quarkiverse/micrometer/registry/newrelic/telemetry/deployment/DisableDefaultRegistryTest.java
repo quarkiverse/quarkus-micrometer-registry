@@ -22,7 +22,6 @@ public class DisableDefaultRegistryTest {
             .overrideConfigKey("quarkus.micrometer.binder-enabled-default", "false")
             .overrideConfigKey("quarkus.micrometer.export.newrelic.telemetry.enabled", "true")
             .overrideConfigKey("quarkus.micrometer.export.newrelic.telemetry.default-registry", "false")
-            .overrideConfigKey("quarkus.micrometer.export.newrelic.default-registry", "false")
             .overrideConfigKey("quarkus.micrometer.registry-enabled-default", "false")
             .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class));
 
