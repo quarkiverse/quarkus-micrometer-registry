@@ -1,5 +1,6 @@
 package io.quarkiverse.micrometer.registry.graphite;
 
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 import javax.interceptor.Interceptor;
@@ -8,7 +9,7 @@ import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.util.HierarchicalNameMapper;
 import io.micrometer.graphite.GraphiteConfig;
 import io.micrometer.graphite.GraphiteMeterRegistry;
-import io.quarkus.arc.AlternativePriority;
+import io.quarkus.arc.Priority;
 
 @Singleton
 public class ConditionalRegistryProducer {
@@ -18,7 +19,8 @@ public class ConditionalRegistryProducer {
      */
     @Produces
     @Singleton
-    @AlternativePriority(Interceptor.Priority.APPLICATION + 100)
+    @Alternative
+    @Priority(Interceptor.Priority.APPLICATION + 100)
     public GraphiteMeterRegistry registry(GraphiteConfig config,
             @GraphiteNameMapper HierarchicalNameMapper nameMapper,
             Clock clock) {

@@ -1,0 +1,65 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[[quarkus-micrometer-export-newrelic-telemetry_configuration]]link:#quarkus-micrometer-export-newrelic-telemetry_configuration[Configuration property]
+
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.enabled]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.enabled[quarkus.micrometer.export.newrelic.telemetry.enabled]`
+
+[.description]
+--
+Support for export to New Relic 
+ Support for New Relic will be enabled if Micrometer support is enabled, the New Relic registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
+--|boolean 
+|
+
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.default-registry]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.default-registry[quarkus.micrometer.export.newrelic.telemetry.default-registry]`
+
+[.description]
+--
+By default, this extension will create a New Relic MeterRegistry instance. 
+ Use this attribute to veto the creation of the default New Relic MeterRegistry.
+--|boolean 
+|`true`
+
+
+a| [[quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry-newrelic]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry-newrelic[quarkus.micrometer.export.newrelic.telemetry]`
+
+[.description]
+--
+New Relic MeterRegistry configuration properties.
+
+A property source for configuration of the New Relic MeterRegistry to push
+metrics using the New Relic library, see https://github.com/newrelic/micrometer-registry-newrelic.
+
+Available values:
+
+[cols=2]
+!===
+h!Property=Default
+h!Description
+
+!`apiKey=YOUR_KEY`
+!Define the key used to push data using the New Relic API
+
+!`uri=DESTINATION_URI`
+! The URI for the New Relic metric API. Only necessary if you need to override the default URI.
+
+!`publish=true`
+!By default, gathered metrics will be published to New Relic when the MeterRegistry is enabled.
+Use this attribute to selectively disable publication of metrics in some environments.
+
+Other Micrometer configuration attributes can also be specified. See the
+https://github.com/newrelic/micrometer-registry-newrelic/blob/main/src/main/java/com/newrelic/telemetry/micrometer/NewRelicRegistryConfig.java[configuration class].
+!===
+
+Other Micrometer configuration attributes can also be specified.
+--|`Map<String,String>` 
+|
+
+|===

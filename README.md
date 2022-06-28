@@ -9,7 +9,8 @@ This repository hosts extensions that support additional Micrometer registry imp
 * Datadog
 * Graphite
 * JMX
-* New Relic
+* New Relic (Old io.micrometer::micrometer-registry-new-relic)
+* New Relic Registry (New com.newrelic.telemetry::micrometer-registry-new-relic)
 * SignalFx
 * Stackdriver
 * StatsD

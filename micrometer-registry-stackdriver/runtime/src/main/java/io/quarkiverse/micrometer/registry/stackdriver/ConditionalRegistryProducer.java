@@ -1,5 +1,6 @@
 package io.quarkiverse.micrometer.registry.stackdriver;
 
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 import javax.interceptor.Interceptor;
@@ -7,7 +8,7 @@ import javax.interceptor.Interceptor;
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.stackdriver.StackdriverConfig;
 import io.micrometer.stackdriver.StackdriverMeterRegistry;
-import io.quarkus.arc.AlternativePriority;
+import io.quarkus.arc.Priority;
 
 @Singleton
 public class ConditionalRegistryProducer {
@@ -17,7 +18,8 @@ public class ConditionalRegistryProducer {
      */
     @Produces
     @Singleton
-    @AlternativePriority(Interceptor.Priority.APPLICATION + 100)
+    @Alternative
+    @Priority(Interceptor.Priority.APPLICATION + 100)
     public StackdriverMeterRegistry registry(StackdriverConfig config, Clock clock) {
         return StackdriverMeterRegistry.builder(config).clock(clock).build();
     }

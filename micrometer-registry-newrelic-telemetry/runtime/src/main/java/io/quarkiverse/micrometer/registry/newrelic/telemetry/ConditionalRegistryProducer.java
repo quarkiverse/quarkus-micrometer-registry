@@ -1,13 +1,13 @@
-package io.quarkiverse.micrometer.registry.datadog;
+package io.quarkiverse.micrometer.registry.newrelic.telemetry;
 
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 import javax.interceptor.Interceptor;
 
-import io.micrometer.core.instrument.Clock;
-import io.micrometer.datadog.DatadogConfig;
-import io.micrometer.datadog.DatadogMeterRegistry;
+import com.newrelic.telemetry.micrometer.NewRelicRegistry;
+import com.newrelic.telemetry.micrometer.NewRelicRegistryConfig;
+
 import io.quarkus.arc.Priority;
 
 @Singleton
@@ -20,9 +20,8 @@ public class ConditionalRegistryProducer {
     @Singleton
     @Alternative
     @Priority(Interceptor.Priority.APPLICATION + 100)
-    public DatadogMeterRegistry registry(DatadogConfig config, Clock clock) {
-        return DatadogMeterRegistry.builder(config)
-                .clock(clock)
+    public NewRelicRegistry registry(NewRelicRegistryConfig config) {
+        return NewRelicRegistry.builder(config)
                 .build();
     }
 }
