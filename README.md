@@ -1,6 +1,6 @@
 # Quarkus Micrometer Registry extensions
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This repository hosts extensions that support additional Micrometer registry implementations:
@@ -41,6 +41,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://cemnura.com"><img src="https://avatars.githubusercontent.com/u/24714913?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Cem Nura</b></sub></a><br /><a href="https://github.com/quarkiverse/quarkus-micrometer-registry/commits?author=cemnura" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/luneo7"><img src="https://avatars.githubusercontent.com/u/8834774?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Rogerio Caetano Ferreira</b></sub></a><br /><a href="https://github.com/quarkiverse/quarkus-micrometer-registry/commits?author=luneo7" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/TFyre"><img src="https://avatars.githubusercontent.com/u/1469570?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Francois Steyn</b></sub></a><br /><a href="https://github.com/quarkiverse/quarkus-micrometer-registry/commits?author=TFyre" title="Code">💻</a></td>
+    <td align="center"><a href="http://brunobat.com/about"><img src="https://avatars.githubusercontent.com/u/2318030?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bruno Baptista</b></sub></a><br /><a href="https://github.com/quarkiverse/quarkus-micrometer-registry/commits?author=brunobat" title="Code">💻</a></td>
   </tr>
 </table>
 
