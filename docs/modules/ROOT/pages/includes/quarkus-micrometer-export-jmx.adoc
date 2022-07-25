@@ -1,3 +1,5 @@
+
+:summaryTableId: quarkus-micrometer-export-jmx
 [.configuration-legend]
 icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
 [.configuration-reference.searchable, cols="80,.^10,.^10"]
@@ -14,6 +16,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus.m
 --
 Support for export to JMX 
  Support for JMX will be enabled if Micrometer support is enabled, the JMX registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_JMX_ENABLED+++`
 --|boolean 
 |
 
@@ -24,6 +28,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus.m
 --
 By default, this extension will create a JMX MeterRegistry instance. 
  Use this attribute to veto the creation of the default JMX MeterRegistry.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_JMX_DEFAULT_REGISTRY+++`
 --|boolean 
 |`true`
 
@@ -36,6 +42,8 @@ JMX registry configuration properties.
 
 A property source for configuration of the JMX MeterRegistry,
 see https://micrometer.io/docs/registry/jmx.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_JMX+++`
 --|`Map<String,String>` 
 |
 
