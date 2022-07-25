@@ -28,6 +28,12 @@
                     <groupId>com.google.api</groupId>
                     <artifactId>gax-grpc</artifactId>
                 </exclusion>
+                <!-- We exclude the grpc-netty-shaded library as grpc-netty is included directly
+                 and Quarkus includes the netty library -->
+                 <exclusion>
+                    <groupId>io.grpc</groupId>
+                    <artifactId>grpc-netty-shaded</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
     </dependencies>
