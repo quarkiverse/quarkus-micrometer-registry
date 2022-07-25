@@ -1,3 +1,5 @@
+
+:summaryTableId: quarkus-micrometer-export-stackdriver
 [.configuration-legend]
 icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
 [.configuration-reference.searchable, cols="80,.^10,.^10"]
@@ -27,6 +29,8 @@ for native builds.
 <p>
 See https://github.com/grpc/grpc-java/issues/5460
 ====
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER_ENABLED+++`
 --|boolean 
 |
 
@@ -37,6 +41,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_q
 --
 By default, this extension will create a Stackdriver MeterRegistry instance. 
  Use this attribute to veto the creation of the default Stackdriver MeterRegistry.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER_DEFAULT_REGISTRY+++`
 --|boolean 
 |`true`
 
@@ -69,6 +75,8 @@ Use this attribute to selectively disable publication of metrics in some environ
 !===
 
 Other Micrometer configuration attributes can also be specified.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER+++`
 --|`Map<String,String>` 
 |
 

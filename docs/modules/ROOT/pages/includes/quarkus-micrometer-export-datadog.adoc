@@ -1,3 +1,5 @@
+
+:summaryTableId: quarkus-micrometer-export-datadog
 [.configuration-legend]
 icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
 [.configuration-reference.searchable, cols="80,.^10,.^10"]
@@ -14,6 +16,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-datadog_quark
 --
 Support for export to Datadog 
  Support for Datadog will be enabled if Micrometer support is enabled, the Datadog registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_DATADOG_ENABLED+++`
 --|boolean 
 |
 
@@ -24,6 +28,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-datadog_quark
 --
 By default, this extension will create a Datadog MeterRegistry instance. 
  Use this attribute to veto the creation of the default Datadog MeterRegistry.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_DATADOG_DEFAULT_REGISTRY+++`
 --|boolean 
 |`true`
 
@@ -56,6 +62,8 @@ Use this attribute to selectively disable publication of metrics in some environ
 !===
 
 Other Micrometer configuration attributes can also be specified.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_DATADOG+++`
 --|`Map<String,String>` 
 |
 

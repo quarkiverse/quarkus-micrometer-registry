@@ -1,3 +1,5 @@
+
+:summaryTableId: quarkus-micrometer-export-otlp
 [.configuration-legend]
 icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
 [.configuration-reference.searchable, cols="80,.^10,.^10"]
@@ -14,6 +16,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-otlp_quarkus.
 --
 Support for export to OTLP. 
  Support for OTLP will be enabled if Micrometer support is enabled, the OTLP registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_OTLP_ENABLED+++`
 --|boolean 
 |
 
@@ -24,6 +28,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-otlp_quarkus.
 --
 By default, this extension will create a OTLP MeterRegistry instance. 
  Use this attribute to veto the creation of the default OTLP MeterRegistry.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_OTLP_DEFAULT_REGISTRY+++`
 --|boolean 
 |`true`
 
@@ -55,6 +61,8 @@ build the resource attributes.
 !===
 
 Other Micrometer configuration attributes can also be specified.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_OTLP+++`
 --|`Map<String,String>` 
 |
 

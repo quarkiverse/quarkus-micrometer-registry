@@ -1,3 +1,5 @@
+
+:summaryTableId: quarkus-micrometer-export-newrelic
 [.configuration-legend]
 icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
 [.configuration-reference.searchable, cols="80,.^10,.^10"]
@@ -14,6 +16,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic_quar
 --
 Support for export to New Relic 
  Support for New Relic will be enabled if Micrometer support is enabled, the New Relic registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_NEWRELIC_ENABLED+++`
 --|boolean 
 |
 
@@ -24,6 +28,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic_quar
 --
 By default, this extension will create a New Relic MeterRegistry instance. 
  Use this attribute to veto the creation of the default New Relic MeterRegistry.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_NEWRELIC_DEFAULT_REGISTRY+++`
 --|boolean 
 |`true`
 
@@ -59,6 +65,8 @@ Use this attribute to selectively disable publication of metrics in some environ
 !===
 
 Other Micrometer configuration attributes can also be specified.
+
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_NEWRELIC+++`
 --|`Map<String,String>` 
 |
 
