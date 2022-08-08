@@ -11,7 +11,7 @@
     <name>Quarkus Micrometer Registry - New Relic Telemetry - Runtime</name>
 
     <properties>
-        <micrometer-registry-new-relic.version>0.9.0</micrometer-registry-new-relic.version>
+        <micrometer-registry-new-relic.version>0.10.0</micrometer-registry-new-relic.version>
     </properties>
 
     <dependencies>
