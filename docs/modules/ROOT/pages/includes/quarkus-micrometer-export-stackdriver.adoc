@@ -30,7 +30,12 @@ for native builds.
 See https://github.com/grpc/grpc-java/issues/5460
 ====
 
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER_ENABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER_ENABLED+++`
+endif::add-copy-button-to-env-var[]
 --|boolean 
 |
 
@@ -40,9 +45,14 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_q
 [.description]
 --
 By default, this extension will create a Stackdriver MeterRegistry instance. 
- Use this attribute to veto the creation of the default Stackdriver MeterRegistry.
+Use this attribute to veto the creation of the default Stackdriver MeterRegistry.
 
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER_DEFAULT_REGISTRY+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER_DEFAULT_REGISTRY+++`
+endif::add-copy-button-to-env-var[]
 --|boolean 
 |`true`
 
@@ -76,7 +86,12 @@ Use this attribute to selectively disable publication of metrics in some environ
 
 Other Micrometer configuration attributes can also be specified.
 
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER+++`
+endif::add-copy-button-to-env-var[]
 --|`Map<String,String>` 
 |
 
