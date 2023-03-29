@@ -2,8 +2,8 @@ package io.quarkiverse.micrometer.registry.influx;
 
 import java.util.Map;
 
-import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Singleton;
 
 import io.micrometer.influx.InfluxConfig;
 import io.quarkiverse.micrometer.registry.influx.InfluxConfig.InfluxRuntimeConfig;

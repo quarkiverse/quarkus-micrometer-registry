@@ -2,8 +2,8 @@ package io.quarkiverse.micrometer.registry.datadog;
 
 import java.util.Map;
 
-import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Singleton;
 
 import io.micrometer.datadog.DatadogConfig;
 import io.micrometer.datadog.DatadogNamingConvention;
