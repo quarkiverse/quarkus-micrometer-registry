@@ -5,8 +5,8 @@ import static io.micrometer.core.instrument.config.MeterRegistryConfigValidator.
 
 import java.util.Map;
 
-import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Singleton;
 
 import com.newrelic.telemetry.micrometer.NewRelicRegistryConfig;
 

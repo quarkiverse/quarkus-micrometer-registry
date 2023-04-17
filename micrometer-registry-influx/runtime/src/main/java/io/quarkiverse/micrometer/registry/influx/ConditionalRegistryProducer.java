@@ -1,9 +1,9 @@
 package io.quarkiverse.micrometer.registry.influx;
 
-import javax.enterprise.inject.Alternative;
-import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
-import javax.interceptor.Interceptor;
+import jakarta.enterprise.inject.Alternative;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Singleton;
+import jakarta.interceptor.Interceptor;
 
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.influx.InfluxConfig;

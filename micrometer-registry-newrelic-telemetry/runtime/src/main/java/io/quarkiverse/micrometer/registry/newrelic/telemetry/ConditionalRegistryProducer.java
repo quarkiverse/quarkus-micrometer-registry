@@ -1,9 +1,9 @@
 package io.quarkiverse.micrometer.registry.newrelic.telemetry;
 
-import javax.enterprise.inject.Alternative;
-import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
-import javax.interceptor.Interceptor;
+import jakarta.enterprise.inject.Alternative;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Singleton;
+import jakarta.interceptor.Interceptor;
 
 import com.newrelic.telemetry.micrometer.NewRelicRegistry;
 import com.newrelic.telemetry.micrometer.NewRelicRegistryConfig;

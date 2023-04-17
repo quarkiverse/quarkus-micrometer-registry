@@ -9,10 +9,10 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import io.quarkus.test.junit.NativeImageTest;
+import io.quarkus.test.junit.QuarkusIntegrationTest;
 import io.restassured.response.Response;
 
-@NativeImageTest
+@QuarkusIntegrationTest
 class NativeMeterRegistriesIT extends NativeMeterRegistriesTest {
 
     @Test

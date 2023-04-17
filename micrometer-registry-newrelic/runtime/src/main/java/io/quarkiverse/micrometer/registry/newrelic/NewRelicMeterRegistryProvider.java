@@ -6,8 +6,8 @@ import static io.micrometer.core.instrument.config.MeterRegistryConfigValidator.
 
 import java.util.Map;
 
-import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Singleton;
 
 import io.micrometer.core.instrument.config.validate.InvalidReason;
 import io.micrometer.core.instrument.config.validate.Validated;

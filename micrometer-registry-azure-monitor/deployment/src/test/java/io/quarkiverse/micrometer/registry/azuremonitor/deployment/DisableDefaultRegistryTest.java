@@ -2,7 +2,7 @@ package io.quarkiverse.micrometer.registry.azuremonitor.deployment;
 
 import java.util.Set;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
