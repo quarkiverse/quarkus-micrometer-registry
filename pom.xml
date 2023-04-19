@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>io.quarkiverse</groupId>
         <artifactId>quarkiverse-parent</artifactId>
         <version>12</version>
-        <relativePath/> <!-- always from repository -->
+        <relativePath /> <!-- always from repository -->
     </parent>
 
     <groupId>io.quarkiverse.micrometer.registry</groupId>
     <artifactId>quarkus-micrometer-registry-parent</artifactId>
     <name>Quarkus Micrometer Registry - Parent</name>
-    <version>299-SNAPSHOT</version>
+    <version>3.0.0</version>
 
     <packaging>pom</packaging>
 
@@ -34,7 +33,7 @@
         <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
         <connection>scm:git:https://github.com/quarkiverse/quarkus-micrometer-registry.git</connection>
         <developerConnection>scm:git:git@github.com/quarkiverse/quarkus-micrometer-registry.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>3.0.0</tag>
     </scm>
 
     <issueManagement>

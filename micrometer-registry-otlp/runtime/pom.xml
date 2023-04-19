@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
         <artifactId>quarkus-micrometer-registry-otlp-parent</artifactId>
-        <version>299-SNAPSHOT</version>
+        <version>3.0.0</version>
     </parent>
 
     <artifactId>quarkus-micrometer-registry-otlp</artifactId>
