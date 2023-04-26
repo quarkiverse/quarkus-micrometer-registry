@@ -2,8 +2,6 @@ package io.quarkiverse.micrometer.registry.stackdriver.deployment;
 
 import java.util.function.BooleanSupplier;
 
-import org.jboss.logging.Logger;
-
 import io.quarkiverse.micrometer.registry.stackdriver.ConditionalRegistryProducer;
 import io.quarkiverse.micrometer.registry.stackdriver.StackdriverConfig;
 import io.quarkiverse.micrometer.registry.stackdriver.StackdriverConfig.StackdriverBuildConfig;
@@ -24,8 +22,6 @@ import io.quarkus.micrometer.runtime.config.MicrometerConfig;
  * references.
  */
 public class StackdriverRegistryProcessor {
-    private static final Logger log = Logger.getLogger(StackdriverRegistryProcessor.class);
-
     public static final String REGISTRY_CLASS_NAME = "io.micrometer.stackdriver.StackdriverMeterRegistry";
     public static final Class<?> REGISTRY_CLASS = MicrometerRecorder.getClassForName(REGISTRY_CLASS_NAME);
 

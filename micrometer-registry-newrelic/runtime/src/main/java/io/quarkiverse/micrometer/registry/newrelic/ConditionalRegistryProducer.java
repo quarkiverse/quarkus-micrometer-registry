@@ -1,5 +1,6 @@
 package io.quarkiverse.micrometer.registry.newrelic;
 
+import jakarta.annotation.Priority;
 import jakarta.enterprise.inject.Alternative;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Singleton;
@@ -8,7 +9,6 @@ import jakarta.interceptor.Interceptor;
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.newrelic.NewRelicConfig;
 import io.micrometer.newrelic.NewRelicMeterRegistry;
-import io.quarkus.arc.Priority;
 
 @Singleton
 public class ConditionalRegistryProducer {

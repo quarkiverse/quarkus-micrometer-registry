@@ -35,8 +35,11 @@ public class GraphiteRegistryProcessor {
 
     @BuildStep(onlyIf = { NativeBuild.class, GraphiteRegistryEnabled.class })
     public void process(BuildProducer<ReflectiveClassBuildItem> reflectiveClass) {
-        reflectiveClass.produce(new ReflectiveClassBuildItem(true, true, true,
-                "io.micrometer.graphite.GraphiteProtocol"));
+        reflectiveClass.produce(ReflectiveClassBuildItem.builder("io.micrometer.graphite.GraphiteProtocol")
+                .constructors(true)
+                .methods(true)
+                .fields(true)
+                .build());
 
     }
 

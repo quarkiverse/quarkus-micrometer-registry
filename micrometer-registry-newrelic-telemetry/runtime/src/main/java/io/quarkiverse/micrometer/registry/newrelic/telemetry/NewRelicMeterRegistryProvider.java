@@ -10,10 +10,10 @@ import jakarta.inject.Singleton;
 
 import com.newrelic.telemetry.micrometer.NewRelicRegistryConfig;
 
+import io.micrometer.common.util.StringUtils;
 import io.micrometer.core.instrument.config.validate.InvalidReason;
 import io.micrometer.core.instrument.config.validate.Validated;
 import io.micrometer.core.instrument.step.StepRegistryConfig;
-import io.micrometer.core.instrument.util.StringUtils;
 import io.quarkiverse.micrometer.registry.newrelic.telemetry.NewRelicConfig.NewRelicRuntimeConfig;
 import io.quarkiverse.micrometer.registry.newrelic.telemetry.newrelic.NewRelicRegistryConfigAlternative;
 import io.quarkus.arc.DefaultBean;

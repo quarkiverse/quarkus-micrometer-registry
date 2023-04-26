@@ -3,6 +3,7 @@ package io.quarkiverse.micrometer.registry.graphite.deployment;
 import java.lang.reflect.Field;
 import java.util.Set;
 
+import jakarta.annotation.Priority;
 import jakarta.enterprise.inject.Alternative;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
@@ -20,7 +21,6 @@ import io.micrometer.core.instrument.dropwizard.DropwizardMeterRegistry;
 import io.micrometer.core.instrument.util.HierarchicalNameMapper;
 import io.micrometer.graphite.GraphiteMeterRegistry;
 import io.quarkiverse.micrometer.registry.graphite.GraphiteNameMapper;
-import io.quarkus.arc.Priority;
 import io.quarkus.test.QuarkusUnitTest;
 
 public class GraphiteNameMapperTest {

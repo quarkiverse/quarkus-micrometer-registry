@@ -1,5 +1,6 @@
 package io.quarkiverse.micrometer.registry.stackdriver;
 
+import jakarta.annotation.Priority;
 import jakarta.enterprise.inject.Alternative;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Singleton;
@@ -8,7 +9,6 @@ import jakarta.interceptor.Interceptor;
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.stackdriver.StackdriverConfig;
 import io.micrometer.stackdriver.StackdriverMeterRegistry;
-import io.quarkus.arc.Priority;
 
 @Singleton
 public class ConditionalRegistryProducer {
