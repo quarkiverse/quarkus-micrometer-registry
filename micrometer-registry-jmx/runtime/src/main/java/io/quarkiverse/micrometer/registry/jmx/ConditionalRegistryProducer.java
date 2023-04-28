@@ -1,5 +1,6 @@
 package io.quarkiverse.micrometer.registry.jmx;
 
+import jakarta.annotation.Priority;
 import jakarta.enterprise.inject.Alternative;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Singleton;
@@ -9,7 +10,6 @@ import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.util.HierarchicalNameMapper;
 import io.micrometer.jmx.JmxConfig;
 import io.micrometer.jmx.JmxMeterRegistry;
-import io.quarkus.arc.Priority;
 
 @Singleton
 public class ConditionalRegistryProducer {

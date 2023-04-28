@@ -43,7 +43,10 @@ public class InfluxRegistryProcessor {
     void addClassesForNativeReflection(BuildProducer<ReflectiveClassBuildItem> reflectionClasses) {
         log.warn("native support for InfluxDB meter registry is EXPERIMENTAL!!! check reflectionClasses");
 
-        reflectionClasses.produce(new ReflectiveClassBuildItem(true, true, InfluxApiVersion.class));
+        reflectionClasses.produce(ReflectiveClassBuildItem.builder(InfluxApiVersion.class.getName())
+                .constructors(true)
+                .methods(true)
+                .build());
     }
 
     @BuildStep(onlyIf = InfluxRegistryEnabled.class)

@@ -9,10 +9,10 @@ import java.util.Map;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Singleton;
 
+import io.micrometer.common.util.StringUtils;
 import io.micrometer.core.instrument.config.validate.InvalidReason;
 import io.micrometer.core.instrument.config.validate.Validated;
 import io.micrometer.core.instrument.step.StepRegistryConfig;
-import io.micrometer.core.instrument.util.StringUtils;
 import io.micrometer.newrelic.ClientProviderType;
 import io.micrometer.newrelic.NewRelicConfig;
 import io.micrometer.newrelic.NewRelicNamingConvention;

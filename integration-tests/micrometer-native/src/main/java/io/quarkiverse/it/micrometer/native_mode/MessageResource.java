@@ -24,7 +24,7 @@ public class MessageResource {
         CompositeMeterRegistry compositeMeterRegistry = (CompositeMeterRegistry) registry;
         Set<MeterRegistry> subRegistries = compositeMeterRegistry.getRegistries();
 
-        List<String> names = new ArrayList(subRegistries.size());
+        List<String> names = new ArrayList<>(subRegistries.size());
         subRegistries.forEach(x -> names.add(x.getClass().getName()));
         return names;
     }
