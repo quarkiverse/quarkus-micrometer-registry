@@ -10,6 +10,7 @@ import io.quarkiverse.micrometer.registry.influx.InfluxConfig;
 import io.quarkiverse.micrometer.registry.influx.InfluxConfig.InfluxBuildConfig;
 import io.quarkiverse.micrometer.registry.influx.InfluxMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.bootstrap.classloading.QuarkusClassLoader;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.nativeimage.ReflectiveClassBuildItem;
@@ -35,7 +36,9 @@ public class InfluxRegistryProcessor {
 
         @Override
         public boolean getAsBoolean() {
-            return REGISTRY_CLASS != null && mConfig.checkRegistryEnabledWithDefault(influxConfig);
+            return REGISTRY_CLASS != null
+                    && QuarkusClassLoader.isClassPresentAtRuntime(REGISTRY_CLASS_NAME)
+                    && mConfig.checkRegistryEnabledWithDefault(influxConfig);
         }
     }
 

@@ -7,6 +7,7 @@ import javax.management.*;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.composite.CompositeMeterRegistry;
+import io.quarkus.runtime.ImageMode;
 import io.quarkus.vertx.web.Param;
 import io.quarkus.vertx.web.Route;
 import io.quarkus.vertx.web.Route.HttpMethod;
@@ -24,14 +25,18 @@ public class MessageResource {
 
     @Route(path = "ping", methods = HttpMethod.GET)
     public String message() {
+        System.out.println(ImageMode.current());
+        String result = ImageMode.current().toString();
+
         CompositeMeterRegistry compositeMeterRegistry = (CompositeMeterRegistry) registry;
         Set<MeterRegistry> subRegistries = compositeMeterRegistry.getRegistries();
-        return subRegistries.iterator().next().getClass().getName();
+        result += ";" + (subRegistries.isEmpty() ? "empty" : subRegistries.iterator().next().getClass().getName());
+        return result;
     }
 
     @Route(path = "fail", methods = HttpMethod.GET)
     public String fail() {
-        throw new RuntimeException("Failed on purpose");
+        throw new IntentionalRequestFailure();
     }
 
     @Route(path = "item/:id", methods = HttpMethod.GET)
@@ -49,5 +54,11 @@ public class MessageResource {
             }
         }
         return sb.toString();
+    }
+
+    static class IntentionalRequestFailure extends RuntimeException {
+        public IntentionalRequestFailure() {
+            super("Failed on purpose", null, false, false);
+        }
     }
 }
