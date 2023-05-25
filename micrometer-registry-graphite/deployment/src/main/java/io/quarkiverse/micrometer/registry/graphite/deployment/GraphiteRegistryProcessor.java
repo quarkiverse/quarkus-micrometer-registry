@@ -7,6 +7,7 @@ import io.quarkiverse.micrometer.registry.graphite.GraphiteConfig;
 import io.quarkiverse.micrometer.registry.graphite.GraphiteConfig.GraphiteBuildConfig;
 import io.quarkiverse.micrometer.registry.graphite.GraphiteMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.bootstrap.classloading.QuarkusClassLoader;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.nativeimage.ReflectiveClassBuildItem;
@@ -29,7 +30,9 @@ public class GraphiteRegistryProcessor {
 
         @Override
         public boolean getAsBoolean() {
-            return mConfig.checkRegistryEnabledWithDefault(graphiteConfig);
+            return REGISTRY_CLASS != null
+                    && QuarkusClassLoader.isClassPresentAtRuntime(REGISTRY_CLASS_NAME)
+                    && mConfig.checkRegistryEnabledWithDefault(graphiteConfig);
         }
     }
 

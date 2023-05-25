@@ -9,6 +9,7 @@ import io.quarkiverse.micrometer.registry.statsd.StatsdConfig;
 import io.quarkiverse.micrometer.registry.statsd.StatsdConfig.StatsdBuildConfig;
 import io.quarkiverse.micrometer.registry.statsd.StatsdMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.bootstrap.classloading.QuarkusClassLoader;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.pkg.steps.NativeBuild;
@@ -33,7 +34,9 @@ public class StatsdRegistryProcessor {
 
         @Override
         public boolean getAsBoolean() {
-            return REGISTRY_CLASS != null && mConfig.checkRegistryEnabledWithDefault(statsdConfig);
+            return REGISTRY_CLASS != null
+                    && QuarkusClassLoader.isClassPresentAtRuntime(REGISTRY_CLASS_NAME)
+                    && mConfig.checkRegistryEnabledWithDefault(statsdConfig);
         }
     }
 

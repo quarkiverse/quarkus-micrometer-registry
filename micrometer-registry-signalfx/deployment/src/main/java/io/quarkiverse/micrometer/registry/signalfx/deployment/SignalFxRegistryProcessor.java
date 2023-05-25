@@ -9,6 +9,7 @@ import io.quarkiverse.micrometer.registry.signalfx.SignalFxConfig;
 import io.quarkiverse.micrometer.registry.signalfx.SignalFxConfig.SignalFxBuildConfig;
 import io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.bootstrap.classloading.QuarkusClassLoader;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.pkg.steps.NativeBuild;
@@ -32,7 +33,9 @@ public class SignalFxRegistryProcessor {
 
         @Override
         public boolean getAsBoolean() {
-            return mConfig.checkRegistryEnabledWithDefault(signalFxConfig);
+            return REGISTRY_CLASS != null
+                    && QuarkusClassLoader.isClassPresentAtRuntime(REGISTRY_CLASS_NAME)
+                    && mConfig.checkRegistryEnabledWithDefault(signalFxConfig);
         }
     }
 

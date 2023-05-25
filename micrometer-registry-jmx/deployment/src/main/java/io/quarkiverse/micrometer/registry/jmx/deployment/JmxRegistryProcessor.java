@@ -9,6 +9,7 @@ import io.quarkiverse.micrometer.registry.jmx.JmxConfig;
 import io.quarkiverse.micrometer.registry.jmx.JmxConfig.JmxBuildConfig;
 import io.quarkiverse.micrometer.registry.jmx.JmxMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.bootstrap.classloading.QuarkusClassLoader;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
@@ -32,7 +33,9 @@ public class JmxRegistryProcessor {
         JmxConfig.JmxBuildConfig jmxConfig;
 
         public boolean getAsBoolean() {
-            return mConfig.checkRegistryEnabledWithDefault(jmxConfig);
+            return REGISTRY_CLASS != null
+                    && QuarkusClassLoader.isClassPresentAtRuntime(REGISTRY_CLASS_NAME)
+                    && mConfig.checkRegistryEnabledWithDefault(jmxConfig);
         }
     }
 
@@ -42,7 +45,7 @@ public class JmxRegistryProcessor {
         return null;
     }
 
-    /** Jmx does not work with GraalVM */
+    /** Jmx does not work in native images */
     @BuildStep(onlyIf = JmxEnabled.class, onlyIfNot = NativeBuild.class)
     protected MicrometerRegistryProviderBuildItem createJmxRegistry(
             CombinedIndexBuildItem index,

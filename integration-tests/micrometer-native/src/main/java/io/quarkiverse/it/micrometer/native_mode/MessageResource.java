@@ -31,6 +31,12 @@ public class MessageResource {
 
     @Route(path = "fail", methods = HttpMethod.GET)
     public String fail() {
-        throw new RuntimeException("Failed on purpose");
+        throw new IntentionalRequestFailure();
+    }
+
+    static class IntentionalRequestFailure extends RuntimeException {
+        public IntentionalRequestFailure() {
+            super("Failed on purpose", null, false, false);
+        }
     }
 }

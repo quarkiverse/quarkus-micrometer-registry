@@ -8,6 +8,7 @@ import io.quarkiverse.micrometer.registry.newrelic.telemetry.ConditionalRegistry
 import io.quarkiverse.micrometer.registry.newrelic.telemetry.NewRelicConfig;
 import io.quarkiverse.micrometer.registry.newrelic.telemetry.NewRelicMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.bootstrap.classloading.QuarkusClassLoader;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
@@ -33,7 +34,9 @@ public class NewRelicTelemetryRegistryProcessor {
         NewRelicConfig.NewRelicBuildConfig newRelicConfig;
 
         public boolean getAsBoolean() {
-            return mConfig.checkRegistryEnabledWithDefault(newRelicConfig);
+            return REGISTRY_CLASS != null
+                    && QuarkusClassLoader.isClassPresentAtRuntime(REGISTRY_CLASS_NAME)
+                    && mConfig.checkRegistryEnabledWithDefault(newRelicConfig);
         }
     }
 

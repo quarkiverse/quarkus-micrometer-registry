@@ -7,6 +7,7 @@ import io.quarkiverse.micrometer.registry.stackdriver.StackdriverConfig;
 import io.quarkiverse.micrometer.registry.stackdriver.StackdriverConfig.StackdriverBuildConfig;
 import io.quarkiverse.micrometer.registry.stackdriver.StackdriverMeterRegistryProvider;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
+import io.quarkus.bootstrap.classloading.QuarkusClassLoader;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
@@ -30,7 +31,9 @@ public class StackdriverRegistryProcessor {
         StackdriverConfig.StackdriverBuildConfig stackdriverConfig;
 
         public boolean getAsBoolean() {
-            return mConfig.checkRegistryEnabledWithDefault(stackdriverConfig);
+            return REGISTRY_CLASS != null
+                    && QuarkusClassLoader.isClassPresentAtRuntime(REGISTRY_CLASS_NAME)
+                    && mConfig.checkRegistryEnabledWithDefault(stackdriverConfig);
         }
     }
 
