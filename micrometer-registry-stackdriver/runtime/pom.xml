@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
         <artifactId>quarkus-micrometer-registry-stackdriver-parent</artifactId>
-        <version>399-SNAPSHOT</version>
+        <version>3.0.2</version>
     </parent>
 
     <artifactId>quarkus-micrometer-registry-stackdriver</artifactId>
