@@ -14,7 +14,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-otlp_quarkus.
 
 [.description]
 --
-Support for export to OTLP. 
+Support for export to OTLP.
+
 Support for OTLP will be enabled if Micrometer support is enabled, the OTLP registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
 
 ifdef::add-copy-button-to-env-var[]
@@ -31,7 +32,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-otlp_quarkus.
 
 [.description]
 --
-By default, this extension will create a OTLP MeterRegistry instance. 
+By default, this extension will create a OTLP MeterRegistry instance.
+
 Use this attribute to veto the creation of the default OTLP MeterRegistry.
 
 ifdef::add-copy-button-to-env-var[]

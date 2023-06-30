@@ -44,7 +44,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_q
 
 [.description]
 --
-By default, this extension will create a Stackdriver MeterRegistry instance. 
+By default, this extension will create a Stackdriver MeterRegistry instance.
+
 Use this attribute to veto the creation of the default Stackdriver MeterRegistry.
 
 ifdef::add-copy-button-to-env-var[]

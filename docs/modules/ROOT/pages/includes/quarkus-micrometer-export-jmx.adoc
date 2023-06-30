@@ -14,7 +14,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus.m
 
 [.description]
 --
-Support for export to JMX 
+Support for export to JMX
+
 Support for JMX will be enabled if Micrometer support is enabled, the JMX registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
 
 ifdef::add-copy-button-to-env-var[]
@@ -31,7 +32,8 @@ a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus.m
 
 [.description]
 --
-By default, this extension will create a JMX MeterRegistry instance. 
+By default, this extension will create a JMX MeterRegistry instance.
+
 Use this attribute to veto the creation of the default JMX MeterRegistry.
 
 ifdef::add-copy-button-to-env-var[]
