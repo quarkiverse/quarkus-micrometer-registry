@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.quarkiverse.micrometer.registry</groupId>
         <artifactId>quarkus-micrometer-registry-newrelic-telemetry-parent</artifactId>
-        <version>399-SNAPSHOT</version>
+        <version>3.2.4</version>
     </parent>
 
     <artifactId>quarkus-micrometer-registry-newrelic-telemetry</artifactId>
