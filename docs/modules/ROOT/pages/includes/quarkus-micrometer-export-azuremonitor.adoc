@@ -10,11 +10,28 @@ h|[[quarkus-micrometer-export-azuremonitor_configuration]]link:#quarkus-micromet
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.enabled]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.enabled[quarkus.micrometer.export.azuremonitor.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.get-enabled]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.get-enabled[quarkus.micrometer.export.azuremonitor.get-enabled]`
+
 
 [.description]
 --
-Support for export to AzureMonitor. 
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_AZUREMONITOR_GET_ENABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_AZUREMONITOR_GET_ENABLED+++`
+endif::add-copy-button-to-env-var[]
+--|boolean 
+|
+
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.enabled]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.enabled[quarkus.micrometer.export.azuremonitor.enabled]`
+
+
+[.description]
+--
+Support for export to AzureMonitor.
+
 Support for AzureMonitor will be enabled if Micrometer support is enabled, the Azure Monitor registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
 
 ifdef::add-copy-button-to-env-var[]
@@ -29,9 +46,11 @@ endif::add-copy-button-to-env-var[]
 
 a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.default-registry]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.default-registry[quarkus.micrometer.export.azuremonitor.default-registry]`
 
+
 [.description]
 --
-By default, this extension will create a AzureMonitor MeterRegistry instance. 
+By default, this extension will create a AzureMonitor MeterRegistry instance.
+
 Use this attribute to veto the creation of the default AzureMonitor MeterRegistry.
 
 ifdef::add-copy-button-to-env-var[]
@@ -45,6 +64,7 @@ endif::add-copy-button-to-env-var[]
 
 
 a| [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor-azuremonitor]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor-azuremonitor[quarkus.micrometer.export.azuremonitor]`
+
 
 [.description]
 --

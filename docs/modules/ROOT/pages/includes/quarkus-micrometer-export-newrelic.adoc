@@ -10,11 +10,28 @@ h|[[quarkus-micrometer-export-newrelic_configuration]]link:#quarkus-micrometer-e
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.enabled]]`link:#quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.enabled[quarkus.micrometer.export.newrelic.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.get-enabled]]`link:#quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.get-enabled[quarkus.micrometer.export.newrelic.get-enabled]`
+
 
 [.description]
 --
-Support for export to New Relic 
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_NEWRELIC_GET_ENABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_NEWRELIC_GET_ENABLED+++`
+endif::add-copy-button-to-env-var[]
+--|boolean 
+|
+
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.enabled]]`link:#quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.enabled[quarkus.micrometer.export.newrelic.enabled]`
+
+
+[.description]
+--
+Support for export to New Relic
+
 Support for New Relic will be enabled if Micrometer support is enabled, the New Relic registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
 
 ifdef::add-copy-button-to-env-var[]
@@ -29,9 +46,11 @@ endif::add-copy-button-to-env-var[]
 
 a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.default-registry]]`link:#quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic.default-registry[quarkus.micrometer.export.newrelic.default-registry]`
 
+
 [.description]
 --
-By default, this extension will create a New Relic MeterRegistry instance. 
+By default, this extension will create a New Relic MeterRegistry instance.
+
 Use this attribute to veto the creation of the default New Relic MeterRegistry.
 
 ifdef::add-copy-button-to-env-var[]
@@ -45,6 +64,7 @@ endif::add-copy-button-to-env-var[]
 
 
 a| [[quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic-newrelic]]`link:#quarkus-micrometer-export-newrelic_quarkus.micrometer.export.newrelic-newrelic[quarkus.micrometer.export.newrelic]`
+
 
 [.description]
 --
