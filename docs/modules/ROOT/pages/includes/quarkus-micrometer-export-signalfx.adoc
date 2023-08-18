@@ -10,11 +10,28 @@ h|[[quarkus-micrometer-export-signalfx_configuration]]link:#quarkus-micrometer-e
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.enabled]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.enabled[quarkus.micrometer.export.signalfx.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.get-enabled]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.get-enabled[quarkus.micrometer.export.signalfx.get-enabled]`
+
 
 [.description]
 --
-Support for export to SignalFx. 
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_SIGNALFX_GET_ENABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_SIGNALFX_GET_ENABLED+++`
+endif::add-copy-button-to-env-var[]
+--|boolean 
+|
+
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.enabled]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.enabled[quarkus.micrometer.export.signalfx.enabled]`
+
+
+[.description]
+--
+Support for export to SignalFx.
+
 Support for SignalFx will be enabled if Micrometer support is enabled, the SignalFx registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
 
 ifdef::add-copy-button-to-env-var[]
@@ -29,9 +46,11 @@ endif::add-copy-button-to-env-var[]
 
 a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.default-registry]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.default-registry[quarkus.micrometer.export.signalfx.default-registry]`
 
+
 [.description]
 --
-By default, this extension will create a SignalFx MeterRegistry instance. 
+By default, this extension will create a SignalFx MeterRegistry instance.
+
 Use this attribute to veto the creation of the default SignalFx MeterRegistry.
 
 ifdef::add-copy-button-to-env-var[]
@@ -45,6 +64,7 @@ endif::add-copy-button-to-env-var[]
 
 
 a| [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx-signalfx]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx-signalfx[quarkus.micrometer.export.signalfx]`
+
 
 [.description]
 --

@@ -34,12 +34,12 @@ class JmxMetricsRegistryTest {
                 .statusCode(200)
                 .extract().body().asString();
         String[] parts = result.split(";");
-        if (parts[0].equals("JVM")) {
-            Assertions.assertEquals("io.micrometer.jmx.JmxMeterRegistry", parts[1]);
-        } else {
-            nativeModeTest = true;
-            Assertions.assertEquals("empty", parts[1]);
-        }
+        //if (parts[0].equals("JVM")) {
+        Assertions.assertEquals("io.micrometer.jmx.JmxMeterRegistry", parts[1]);
+        //} else {
+        //    nativeModeTest = true;
+        //    Assertions.assertEquals("empty", parts[1]);
+        //}
     }
 
     @Test
@@ -79,25 +79,25 @@ class JmxMetricsRegistryTest {
                 .statusCode(200)
                 .extract().body().asString();
 
-        if (nativeModeTest) {
-            assertThat(result, is(""));
-        } else {
-            // JMX endpoint is returning a subset of mbean objects to inspect
-            // hierarchical naming means all tags are present: registry=jmx, and env=test
+        //if (nativeModeTest) {
+        //    assertThat(result, is(""));
+        //} else {
+        // JMX endpoint is returning a subset of mbean objects to inspect
+        // hierarchical naming means all tags are present: registry=jmx, and env=test
 
-            // Generic connection statistic
-            assertThat(result, containsString("metrics:name=httpServerConnections.env.test.registry.jmx.statistic"));
-            assertThat(result, containsString(
-                    "metrics:name=httpServerRequests.env.test.method.GET.outcome.CLIENT_ERROR.registry.jmx.status.404.uri.NOT_FOUND"));
-            assertThat(result, containsString(
-                    "metrics:name=httpServerRequests.env.test.method.GET.outcome.SERVER_ERROR.registry.jmx.status.500.uri./message/fail"));
-            assertThat(result, containsString(
-                    "metrics:name=httpServerRequests.env.test.method.GET.outcome.SUCCESS.registry.jmx.status.200.uri./message/ping"));
-            assertThat(result, containsString(
-                    "metrics:name=httpServerRequests.env.test.method.GET.outcome.SUCCESS.registry.jmx.status.200.uri./message/item/{id}"));
+        // Generic connection statistic
+        assertThat(result, containsString("metrics:name=httpServerConnections.env.test.registry.jmx.statistic"));
+        assertThat(result, containsString(
+                "metrics:name=httpServerRequests.env.test.method.GET.outcome.CLIENT_ERROR.registry.jmx.status.404.uri.NOT_FOUND"));
+        assertThat(result, containsString(
+                "metrics:name=httpServerRequests.env.test.method.GET.outcome.SERVER_ERROR.registry.jmx.status.500.uri./message/fail"));
+        assertThat(result, containsString(
+                "metrics:name=httpServerRequests.env.test.method.GET.outcome.SUCCESS.registry.jmx.status.200.uri./message/ping"));
+        assertThat(result, containsString(
+                "metrics:name=httpServerRequests.env.test.method.GET.outcome.SUCCESS.registry.jmx.status.200.uri./message/item/{id}"));
 
-            // this was defined by a tag to a non-matching registry, and should not be found
-            assertThat(result, not(containsString("class-should-not-match")));
-        }
+        // this was defined by a tag to a non-matching registry, and should not be found
+        assertThat(result, not(containsString("class-should-not-match")));
+        //}
     }
 }

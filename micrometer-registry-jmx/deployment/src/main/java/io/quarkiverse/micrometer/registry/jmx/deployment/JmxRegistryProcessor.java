@@ -13,7 +13,6 @@ import io.quarkus.bootstrap.classloading.QuarkusClassLoader;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
-import io.quarkus.deployment.pkg.steps.NativeBuild;
 import io.quarkus.micrometer.deployment.MicrometerRegistryProviderBuildItem;
 import io.quarkus.micrometer.runtime.MicrometerRecorder;
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
@@ -39,14 +38,15 @@ public class JmxRegistryProcessor {
         }
     }
 
-    @BuildStep(onlyIf = { NativeBuild.class, JmxEnabled.class })
-    protected MicrometerRegistryProviderBuildItem createJmxRegistry(CombinedIndexBuildItem index) {
-        log.info("JMX Meter Registry does not support running in native mode.");
-        return null;
-    }
+    //@BuildStep(onlyIf = { NativeBuild.class, JmxEnabled.class })
+    //protected MicrometerRegistryProviderBuildItem createJmxRegistry(CombinedIndexBuildItem index) {
+    //    log.info("JMX Meter Registry does not support running in native mode.");
+    //    return null;
+    //}
 
     /** Jmx does not work in native images */
-    @BuildStep(onlyIf = JmxEnabled.class, onlyIfNot = NativeBuild.class)
+    //@BuildStep(onlyIf = JmxEnabled.class, onlyIfNot = NativeBuild.class)
+    @BuildStep(onlyIf = JmxEnabled.class)
     protected MicrometerRegistryProviderBuildItem createJmxRegistry(
             CombinedIndexBuildItem index,
             JmxBuildConfig jmxBuildConfig,
