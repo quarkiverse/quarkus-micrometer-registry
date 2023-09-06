@@ -10,11 +10,28 @@ h|[[quarkus-micrometer-export-graphite_configuration]]link:#quarkus-micrometer-e
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.enabled]]`link:#quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.enabled[quarkus.micrometer.export.graphite.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.get-enabled]]`link:#quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.get-enabled[quarkus.micrometer.export.graphite.get-enabled]`
+
 
 [.description]
 --
-Support for export to Graphite. 
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_GRAPHITE_GET_ENABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_GRAPHITE_GET_ENABLED+++`
+endif::add-copy-button-to-env-var[]
+--|boolean 
+|
+
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.enabled]]`link:#quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.enabled[quarkus.micrometer.export.graphite.enabled]`
+
+
+[.description]
+--
+Support for export to Graphite.
+
 Support for Graphite will be enabled if Micrometer support is enabled, the Graphite registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
 
 ifdef::add-copy-button-to-env-var[]
@@ -29,9 +46,11 @@ endif::add-copy-button-to-env-var[]
 
 a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.default-registry]]`link:#quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite.default-registry[quarkus.micrometer.export.graphite.default-registry]`
 
+
 [.description]
 --
-By default, this extension will create a Graphite MeterRegistry instance. 
+By default, this extension will create a Graphite MeterRegistry instance.
+
 Use this attribute to veto the creation of the default Graphite MeterRegistry.
 
 ifdef::add-copy-button-to-env-var[]
@@ -45,6 +64,7 @@ endif::add-copy-button-to-env-var[]
 
 
 a| [[quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite-graphite]]`link:#quarkus-micrometer-export-graphite_quarkus.micrometer.export.graphite-graphite[quarkus.micrometer.export.graphite]`
+
 
 [.description]
 --
