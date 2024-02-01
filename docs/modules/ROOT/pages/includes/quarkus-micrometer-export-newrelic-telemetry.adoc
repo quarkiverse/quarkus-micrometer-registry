@@ -10,22 +10,7 @@ h|[[quarkus-micrometer-export-newrelic-telemetry_configuration]]link:#quarkus-mi
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.get-enabled]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.get-enabled[quarkus.micrometer.export.newrelic.telemetry.get-enabled]`
-
-
-[.description]
---
-ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_NEWRELIC_TELEMETRY_GET_ENABLED+++[]
-endif::add-copy-button-to-env-var[]
-ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++QUARKUS_MICROMETER_EXPORT_NEWRELIC_TELEMETRY_GET_ENABLED+++`
-endif::add-copy-button-to-env-var[]
---|boolean 
-|
-
-
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.enabled]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.enabled[quarkus.micrometer.export.newrelic.telemetry.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic-telemetry_quarkus-micrometer-export-newrelic-telemetry-enabled]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus-micrometer-export-newrelic-telemetry-enabled[quarkus.micrometer.export.newrelic.telemetry.enabled]`
 
 
 [.description]
@@ -44,7 +29,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.default-registry]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry.default-registry[quarkus.micrometer.export.newrelic.telemetry.default-registry]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-newrelic-telemetry_quarkus-micrometer-export-newrelic-telemetry-default-registry]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus-micrometer-export-newrelic-telemetry-default-registry[quarkus.micrometer.export.newrelic.telemetry.default-registry]`
 
 
 [.description]
@@ -63,7 +48,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a| [[quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry-newrelic]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus.micrometer.export.newrelic.telemetry-newrelic[quarkus.micrometer.export.newrelic.telemetry]`
+a| [[quarkus-micrometer-export-newrelic-telemetry_quarkus-micrometer-export-newrelic-telemetry-newrelic]]`link:#quarkus-micrometer-export-newrelic-telemetry_quarkus-micrometer-export-newrelic-telemetry-newrelic[quarkus.micrometer.export.newrelic.telemetry]`
 
 
 [.description]

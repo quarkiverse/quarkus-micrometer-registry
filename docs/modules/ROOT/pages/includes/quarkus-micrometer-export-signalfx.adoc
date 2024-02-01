@@ -10,22 +10,7 @@ h|[[quarkus-micrometer-export-signalfx_configuration]]link:#quarkus-micrometer-e
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.get-enabled]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.get-enabled[quarkus.micrometer.export.signalfx.get-enabled]`
-
-
-[.description]
---
-ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_SIGNALFX_GET_ENABLED+++[]
-endif::add-copy-button-to-env-var[]
-ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++QUARKUS_MICROMETER_EXPORT_SIGNALFX_GET_ENABLED+++`
-endif::add-copy-button-to-env-var[]
---|boolean 
-|
-
-
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.enabled]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.enabled[quarkus.micrometer.export.signalfx.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus-micrometer-export-signalfx-enabled]]`link:#quarkus-micrometer-export-signalfx_quarkus-micrometer-export-signalfx-enabled[quarkus.micrometer.export.signalfx.enabled]`
 
 
 [.description]
@@ -44,7 +29,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.default-registry]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx.default-registry[quarkus.micrometer.export.signalfx.default-registry]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-signalfx_quarkus-micrometer-export-signalfx-default-registry]]`link:#quarkus-micrometer-export-signalfx_quarkus-micrometer-export-signalfx-default-registry[quarkus.micrometer.export.signalfx.default-registry]`
 
 
 [.description]
@@ -63,7 +48,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a| [[quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx-signalfx]]`link:#quarkus-micrometer-export-signalfx_quarkus.micrometer.export.signalfx-signalfx[quarkus.micrometer.export.signalfx]`
+a| [[quarkus-micrometer-export-signalfx_quarkus-micrometer-export-signalfx-signalfx]]`link:#quarkus-micrometer-export-signalfx_quarkus-micrometer-export-signalfx-signalfx[quarkus.micrometer.export.signalfx]`
 
 
 [.description]

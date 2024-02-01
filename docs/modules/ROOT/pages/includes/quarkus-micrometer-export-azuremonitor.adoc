@@ -10,22 +10,7 @@ h|[[quarkus-micrometer-export-azuremonitor_configuration]]link:#quarkus-micromet
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.get-enabled]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.get-enabled[quarkus.micrometer.export.azuremonitor.get-enabled]`
-
-
-[.description]
---
-ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_AZUREMONITOR_GET_ENABLED+++[]
-endif::add-copy-button-to-env-var[]
-ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++QUARKUS_MICROMETER_EXPORT_AZUREMONITOR_GET_ENABLED+++`
-endif::add-copy-button-to-env-var[]
---|boolean 
-|
-
-
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.enabled]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.enabled[quarkus.micrometer.export.azuremonitor.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus-micrometer-export-azuremonitor-enabled]]`link:#quarkus-micrometer-export-azuremonitor_quarkus-micrometer-export-azuremonitor-enabled[quarkus.micrometer.export.azuremonitor.enabled]`
 
 
 [.description]
@@ -44,7 +29,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.default-registry]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor.default-registry[quarkus.micrometer.export.azuremonitor.default-registry]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-azuremonitor_quarkus-micrometer-export-azuremonitor-default-registry]]`link:#quarkus-micrometer-export-azuremonitor_quarkus-micrometer-export-azuremonitor-default-registry[quarkus.micrometer.export.azuremonitor.default-registry]`
 
 
 [.description]
@@ -63,7 +48,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a| [[quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor-azuremonitor]]`link:#quarkus-micrometer-export-azuremonitor_quarkus.micrometer.export.azuremonitor-azuremonitor[quarkus.micrometer.export.azuremonitor]`
+a| [[quarkus-micrometer-export-azuremonitor_quarkus-micrometer-export-azuremonitor-azuremonitor]]`link:#quarkus-micrometer-export-azuremonitor_quarkus-micrometer-export-azuremonitor-azuremonitor[quarkus.micrometer.export.azuremonitor]`
 
 
 [.description]

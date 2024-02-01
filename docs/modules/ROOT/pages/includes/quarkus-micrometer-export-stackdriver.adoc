@@ -10,22 +10,7 @@ h|[[quarkus-micrometer-export-stackdriver_configuration]]link:#quarkus-micromete
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.get-enabled]]`link:#quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.get-enabled[quarkus.micrometer.export.stackdriver.get-enabled]`
-
-
-[.description]
---
-ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER_GET_ENABLED+++[]
-endif::add-copy-button-to-env-var[]
-ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++QUARKUS_MICROMETER_EXPORT_STACKDRIVER_GET_ENABLED+++`
-endif::add-copy-button-to-env-var[]
---|boolean 
-|
-
-
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.enabled]]`link:#quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.enabled[quarkus.micrometer.export.stackdriver.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_quarkus-micrometer-export-stackdriver-enabled]]`link:#quarkus-micrometer-export-stackdriver_quarkus-micrometer-export-stackdriver-enabled[quarkus.micrometer.export.stackdriver.enabled]`
 
 
 [.description]
@@ -56,7 +41,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.default-registry]]`link:#quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver.default-registry[quarkus.micrometer.export.stackdriver.default-registry]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-stackdriver_quarkus-micrometer-export-stackdriver-default-registry]]`link:#quarkus-micrometer-export-stackdriver_quarkus-micrometer-export-stackdriver-default-registry[quarkus.micrometer.export.stackdriver.default-registry]`
 
 
 [.description]
@@ -75,7 +60,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a| [[quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver-stackdriver]]`link:#quarkus-micrometer-export-stackdriver_quarkus.micrometer.export.stackdriver-stackdriver[quarkus.micrometer.export.stackdriver]`
+a| [[quarkus-micrometer-export-stackdriver_quarkus-micrometer-export-stackdriver-stackdriver]]`link:#quarkus-micrometer-export-stackdriver_quarkus-micrometer-export-stackdriver-stackdriver[quarkus.micrometer.export.stackdriver]`
 
 
 [.description]
