@@ -10,22 +10,7 @@ h|[[quarkus-micrometer-export-influx_configuration]]link:#quarkus-micrometer-exp
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.get-enabled]]`link:#quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.get-enabled[quarkus.micrometer.export.influx.get-enabled]`
-
-
-[.description]
---
-ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_INFLUX_GET_ENABLED+++[]
-endif::add-copy-button-to-env-var[]
-ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++QUARKUS_MICROMETER_EXPORT_INFLUX_GET_ENABLED+++`
-endif::add-copy-button-to-env-var[]
---|boolean 
-|
-
-
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.enabled]]`link:#quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.enabled[quarkus.micrometer.export.influx.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-influx_quarkus-micrometer-export-influx-enabled]]`link:#quarkus-micrometer-export-influx_quarkus-micrometer-export-influx-enabled[quarkus.micrometer.export.influx.enabled]`
 
 
 [.description]
@@ -44,7 +29,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.default-registry]]`link:#quarkus-micrometer-export-influx_quarkus.micrometer.export.influx.default-registry[quarkus.micrometer.export.influx.default-registry]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-influx_quarkus-micrometer-export-influx-default-registry]]`link:#quarkus-micrometer-export-influx_quarkus-micrometer-export-influx-default-registry[quarkus.micrometer.export.influx.default-registry]`
 
 
 [.description]
@@ -63,7 +48,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a| [[quarkus-micrometer-export-influx_quarkus.micrometer.export.influx-influxdb]]`link:#quarkus-micrometer-export-influx_quarkus.micrometer.export.influx-influxdb[quarkus.micrometer.export.influx]`
+a| [[quarkus-micrometer-export-influx_quarkus-micrometer-export-influx-influxdb]]`link:#quarkus-micrometer-export-influx_quarkus-micrometer-export-influx-influxdb[quarkus.micrometer.export.influx]`
 
 
 [.description]

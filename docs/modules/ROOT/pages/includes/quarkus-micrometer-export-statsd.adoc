@@ -10,22 +10,7 @@ h|[[quarkus-micrometer-export-statsd_configuration]]link:#quarkus-micrometer-exp
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd.get-enabled]]`link:#quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd.get-enabled[quarkus.micrometer.export.statsd.get-enabled]`
-
-
-[.description]
---
-ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_STATSD_GET_ENABLED+++[]
-endif::add-copy-button-to-env-var[]
-ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++QUARKUS_MICROMETER_EXPORT_STATSD_GET_ENABLED+++`
-endif::add-copy-button-to-env-var[]
---|boolean 
-|
-
-
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd.enabled]]`link:#quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd.enabled[quarkus.micrometer.export.statsd.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-statsd_quarkus-micrometer-export-statsd-enabled]]`link:#quarkus-micrometer-export-statsd_quarkus-micrometer-export-statsd-enabled[quarkus.micrometer.export.statsd.enabled]`
 
 
 [.description]
@@ -44,7 +29,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd.default-registry]]`link:#quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd.default-registry[quarkus.micrometer.export.statsd.default-registry]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-statsd_quarkus-micrometer-export-statsd-default-registry]]`link:#quarkus-micrometer-export-statsd_quarkus-micrometer-export-statsd-default-registry[quarkus.micrometer.export.statsd.default-registry]`
 
 
 [.description]
@@ -63,7 +48,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a| [[quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd-statsd]]`link:#quarkus-micrometer-export-statsd_quarkus.micrometer.export.statsd-statsd[quarkus.micrometer.export.statsd]`
+a| [[quarkus-micrometer-export-statsd_quarkus-micrometer-export-statsd-statsd]]`link:#quarkus-micrometer-export-statsd_quarkus-micrometer-export-statsd-statsd[quarkus.micrometer.export.statsd]`
 
 
 [.description]

@@ -10,22 +10,7 @@ h|[[quarkus-micrometer-export-jmx_configuration]]link:#quarkus-micrometer-export
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx.get-enabled]]`link:#quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx.get-enabled[quarkus.micrometer.export.jmx.get-enabled]`
-
-
-[.description]
---
-ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_JMX_GET_ENABLED+++[]
-endif::add-copy-button-to-env-var[]
-ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++QUARKUS_MICROMETER_EXPORT_JMX_GET_ENABLED+++`
-endif::add-copy-button-to-env-var[]
---|boolean 
-|
-
-
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx.enabled]]`link:#quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx.enabled[quarkus.micrometer.export.jmx.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus-micrometer-export-jmx-enabled]]`link:#quarkus-micrometer-export-jmx_quarkus-micrometer-export-jmx-enabled[quarkus.micrometer.export.jmx.enabled]`
 
 
 [.description]
@@ -44,7 +29,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx.default-registry]]`link:#quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx.default-registry[quarkus.micrometer.export.jmx.default-registry]`
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-export-jmx_quarkus-micrometer-export-jmx-default-registry]]`link:#quarkus-micrometer-export-jmx_quarkus-micrometer-export-jmx-default-registry[quarkus.micrometer.export.jmx.default-registry]`
 
 
 [.description]
@@ -63,7 +48,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a| [[quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx-jmx]]`link:#quarkus-micrometer-export-jmx_quarkus.micrometer.export.jmx-jmx[quarkus.micrometer.export.jmx]`
+a| [[quarkus-micrometer-export-jmx_quarkus-micrometer-export-jmx-jmx]]`link:#quarkus-micrometer-export-jmx_quarkus-micrometer-export-jmx-jmx[quarkus.micrometer.export.jmx]`
 
 
 [.description]
