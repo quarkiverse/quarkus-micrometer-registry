@@ -5,8 +5,7 @@
     <parent>
         <groupId>io.quarkiverse</groupId>
         <artifactId>quarkiverse-parent</artifactId>
-        <version>16</version>
-        <relativePath /> <!-- always from repository -->
+        <version>16</version> <!-- always from repository -->
     </parent>
 
     <groupId>io.quarkiverse.micrometer.registry</groupId>
@@ -73,10 +72,21 @@
         <module>micrometer-registry-stackdriver</module>
         <module>micrometer-registry-statsd</module>
         <module>micrometer-registry-influx</module>
-        <module>docs</module>
     </modules>
 
     <profiles>
+        <profile>
+            <id>docs</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>!true</value>
+                </property>
+            </activation>
+            <modules>
+                <module>docs</module>
+            </modules>
+        </profile>
         <profile>
             <id>it</id>
             <activation>
