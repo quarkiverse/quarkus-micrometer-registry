@@ -5,7 +5,8 @@
     <parent>
         <groupId>io.quarkiverse</groupId>
         <artifactId>quarkiverse-parent</artifactId>
-        <version>16</version> <!-- always from repository -->
+        <version>17</version>
+        <relativePath /> <!-- always from repository -->
     </parent>
 
     <groupId>io.quarkiverse.micrometer.registry</groupId>
@@ -16,14 +17,14 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>3.8.1</quarkus.version>
+        <quarkus.version>3.15.1</quarkus.version>
 
         <skipTests>false</skipTests>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.parameters>true</maven.compiler.parameters>
     </properties>
 
@@ -72,6 +73,7 @@
         <module>micrometer-registry-stackdriver</module>
         <module>micrometer-registry-statsd</module>
         <module>micrometer-registry-influx</module>
+        <module>docs</module>
     </modules>
 
     <profiles>
