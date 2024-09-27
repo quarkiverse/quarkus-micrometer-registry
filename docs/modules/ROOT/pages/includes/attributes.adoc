@@ -1,3 +1,3 @@
-:quarkus-version: 3.7.1
+:quarkus-version: 3.15.1
 :quarkus-micrometer-registry-version: 3.2.4
 
