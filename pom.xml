@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>3.15.1</quarkus.version>
+        <quarkus.version>3.15.3</quarkus.version>
 
         <skipTests>false</skipTests>
 
