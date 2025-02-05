@@ -86,4 +86,22 @@ endif::add-copy-button-to-env-var[]
 --|`Map<String,String>` 
 |
 
+a| [[quarkus-micrometer-export-otlp_quarkus-micrometer-export-otlp-step]]`link:#quarkus-micrometer-export-otlp_quarkus-micrometer-export-otlp-step[quarkus.micrometer.export.otlp.step]`
+
+
+[.description]
+--
+Defines how often to send metrics to the OTLP endpoint.
+
+The default value is `1m`.
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++OTEL_METRIC_EXPORT_INTERVAL+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++OTEL_METRIC_EXPORT_INTERVAL+++`
+endif::add-copy-button-to-env-var[]
+--|`Duration` 
+|`1m`
+
 |===
