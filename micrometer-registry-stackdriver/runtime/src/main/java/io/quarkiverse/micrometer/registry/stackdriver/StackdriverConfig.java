@@ -4,14 +4,17 @@ import java.util.Map;
 import java.util.Optional;
 
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithParentName;
 
-public class StackdriverConfig {
+public interface StackdriverConfig {
 
-    @ConfigRoot(name = "micrometer.export.stackdriver", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
-    public static class StackdriverBuildConfig implements MicrometerConfig.CapabilityEnabled {
+    @ConfigRoot(phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.stackdriver")
+    public interface StackdriverBuildConfig extends MicrometerConfig.CapabilityEnabled {
         /**
          * Support for export to Stackdriver.
          * <p>
@@ -31,33 +34,21 @@ public class StackdriverConfig {
          *
          * @asciidoclet
          */
-        @ConfigItem
-        public Optional<Boolean> enabled;
-
         @Override
-        public Optional<Boolean> getEnabled() {
-            return enabled;
-        }
+        Optional<Boolean> enabled();
 
         /**
          * By default, this extension will create a Stackdriver MeterRegistry instance.
          * <p>
          * Use this attribute to veto the creation of the default Stackdriver MeterRegistry.
          */
-        @ConfigItem(defaultValue = "true")
-        public boolean defaultRegistry;
-
-        @Override
-        public String toString() {
-            return this.getClass().getSimpleName()
-                    + "{enabled=" + enabled
-                    + ",defaultRegistry=" + defaultRegistry
-                    + '}';
-        }
+        @WithDefault("true")
+        boolean defaultRegistry();
     }
 
-    @ConfigRoot(name = "micrometer.export.stackdriver", phase = ConfigPhase.RUN_TIME)
-    public static class StackdriverRuntimeConfig {
+    @ConfigRoot(phase = ConfigPhase.RUN_TIME)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.stackdriver")
+    public interface StackdriverRuntimeConfig {
         // @formatter:off
         /**
          * Stackdriver registry configuration properties.
@@ -88,7 +79,7 @@ public class StackdriverConfig {
          * @asciidoclet
          */
         // @formatter:on
-        @ConfigItem(name = ConfigItem.PARENT)
-        Map<String, String> stackdriver;
+        @WithParentName
+        Map<String, String> stackdriver();
     }
 }

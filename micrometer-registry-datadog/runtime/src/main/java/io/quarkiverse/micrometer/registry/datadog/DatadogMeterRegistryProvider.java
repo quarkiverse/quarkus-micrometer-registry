@@ -26,7 +26,7 @@ public class DatadogMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public DatadogConfig configure(DatadogRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.datadog, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.datadog(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, The datadog registry must be enabled for this

@@ -55,7 +55,7 @@ public class SignalFxRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(SignalFxMeterRegistryProvider.class);
 
-        if (signalFxBuildConfig.defaultRegistry) {
+        if (signalFxBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

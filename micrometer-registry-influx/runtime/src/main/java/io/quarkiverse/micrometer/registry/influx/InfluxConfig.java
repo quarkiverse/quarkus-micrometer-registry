@@ -4,14 +4,17 @@ import java.util.Map;
 import java.util.Optional;
 
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithParentName;
 
-public class InfluxConfig {
+public interface InfluxConfig {
 
-    @ConfigRoot(name = "micrometer.export.influx", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
-    public static class InfluxBuildConfig implements MicrometerConfig.CapabilityEnabled {
+    @ConfigRoot(phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.influx")
+    public interface InfluxBuildConfig extends MicrometerConfig.CapabilityEnabled {
         /**
          * Support for export to InfluxDB.
          * <p>
@@ -20,36 +23,24 @@ public class InfluxConfig {
          * and either this value is true, or this value is unset and
          * {@code quarkus.micrometer.registry-enabled-default} is true.
          */
-        @ConfigItem
-        public Optional<Boolean> enabled;
-
         @Override
-        public Optional<Boolean> getEnabled() {
-            return enabled;
-        }
+        Optional<Boolean> enabled();
 
         /**
          * By default, this extension will create a InfluxDB MeterRegistry instance.
          * <p>
          * Use this attribute to veto the creation of the default InfluxDB MeterRegistry.
          */
-        @ConfigItem(defaultValue = "true")
-        public boolean defaultRegistry;
-
-        @Override
-        public String toString() {
-            return this.getClass().getSimpleName()
-                    + "{enabled=" + enabled
-                    + ",defaultRegistry=" + defaultRegistry
-                    + '}';
-        }
+        @WithDefault("true")
+        public boolean defaultRegistry();
     }
 
     /**
      * Runtime configuration for InfluxDB
      */
-    @ConfigRoot(name = "micrometer.export.influx", phase = ConfigPhase.RUN_TIME)
-    public static class InfluxRuntimeConfig {
+    @ConfigRoot(phase = ConfigPhase.RUN_TIME)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.influx")
+    public interface InfluxRuntimeConfig {
 
         // @formatter:off
         /**
@@ -99,7 +90,7 @@ public class InfluxConfig {
          * @asciidoclet
          */
         // @formatter:on
-        @ConfigItem(name = ConfigItem.PARENT)
-        Map<String, String> influxdb;
+        @WithParentName
+        Map<String, String> influxdb();
     }
 }

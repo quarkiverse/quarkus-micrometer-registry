@@ -4,14 +4,17 @@ import java.util.Map;
 import java.util.Optional;
 
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithParentName;
 
-public class AzureMonitorConfig {
+public interface AzureMonitorConfig {
 
-    @ConfigRoot(name = "micrometer.export.azuremonitor", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
-    public static class AzureMonitorBuildConfig implements MicrometerConfig.CapabilityEnabled {
+    @ConfigRoot(phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.azuremonitor")
+    public interface AzureMonitorBuildConfig extends MicrometerConfig.CapabilityEnabled {
         /**
          * Support for export to AzureMonitor.
          * <p>
@@ -20,36 +23,24 @@ public class AzureMonitorConfig {
          * and either this value is true, or this value is unset and
          * {@code quarkus.micrometer.registry-enabled-default} is true.
          */
-        @ConfigItem
-        public Optional<Boolean> enabled;
-
         @Override
-        public Optional<Boolean> getEnabled() {
-            return enabled;
-        }
+        Optional<Boolean> enabled();
 
         /**
          * By default, this extension will create a AzureMonitor MeterRegistry instance.
          * <p>
          * Use this attribute to veto the creation of the default AzureMonitor MeterRegistry.
          */
-        @ConfigItem(defaultValue = "true")
-        public boolean defaultRegistry;
-
-        @Override
-        public String toString() {
-            return this.getClass().getSimpleName()
-                    + "{enabled=" + enabled
-                    + ",defaultRegistry=" + defaultRegistry
-                    + '}';
-        }
+        @WithDefault("true")
+        boolean defaultRegistry();
     }
 
     /**
      * Runtime configuration for Azure Monitor MeterRegistry
      */
-    @ConfigRoot(name = "micrometer.export.azuremonitor", phase = ConfigPhase.RUN_TIME)
-    public static class AzureMonitorRuntimeConfig {
+    @ConfigRoot(phase = ConfigPhase.RUN_TIME)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.azuremonitor")
+    public interface AzureMonitorRuntimeConfig {
         // @formatter:off
         /**
          * Azure Monitor registry configuration properties.
@@ -77,7 +68,7 @@ public class AzureMonitorConfig {
          * @asciidoclet
          */
         // @formatter:on
-        @ConfigItem(name = ConfigItem.PARENT)
-        Map<String, String> azuremonitor;
+        @WithParentName
+        Map<String, String> azuremonitor();
     }
 }

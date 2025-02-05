@@ -55,7 +55,7 @@ public class StackdriverRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(StackdriverMeterRegistryProvider.class);
 
-        if (stackdriverBuildConfig.defaultRegistry) {
+        if (stackdriverBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

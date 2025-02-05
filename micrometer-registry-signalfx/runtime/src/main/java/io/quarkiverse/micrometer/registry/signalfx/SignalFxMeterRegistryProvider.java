@@ -26,7 +26,7 @@ public class SignalFxMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public SignalFxConfig configure(SignalFxRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.signalfx, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.signalfx(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, The signalfx registry must be enabled for this
