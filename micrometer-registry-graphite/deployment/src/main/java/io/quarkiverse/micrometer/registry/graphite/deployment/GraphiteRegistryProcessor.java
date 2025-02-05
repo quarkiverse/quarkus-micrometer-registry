@@ -56,7 +56,7 @@ public class GraphiteRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(GraphiteMeterRegistryProvider.class);
 
-        if (graphiteBuildConfig.defaultRegistry) {
+        if (graphiteBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

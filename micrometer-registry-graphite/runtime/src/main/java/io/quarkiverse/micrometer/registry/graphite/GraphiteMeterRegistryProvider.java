@@ -28,7 +28,7 @@ public class GraphiteMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public GraphiteConfig configure(GraphiteRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.graphite, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.graphite(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, the StackDriver registry must be enabled for this

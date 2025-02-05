@@ -52,7 +52,7 @@ public class DatadogRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(DatadogMeterRegistryProvider.class);
 
-        if (datadogBuildConfig.defaultRegistry) {
+        if (datadogBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

@@ -57,7 +57,7 @@ public class NewRelicTelemetryRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(NewRelicMeterRegistryProvider.class);
 
-        if (newRelicBuildConfig.defaultRegistry) {
+        if (newRelicBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

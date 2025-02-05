@@ -29,7 +29,7 @@ public class AzureMonitorMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public AzureMonitorConfig configure(AzureMonitorRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.azuremonitor, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.azuremonitor(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, the StatsD registry must be enabled for this

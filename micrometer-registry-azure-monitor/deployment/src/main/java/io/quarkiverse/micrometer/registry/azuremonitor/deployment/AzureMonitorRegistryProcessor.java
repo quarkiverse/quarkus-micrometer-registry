@@ -55,7 +55,7 @@ public class AzureMonitorRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(AzureMonitorMeterRegistryProvider.class);
 
-        if (azureMonitorBuildConfig.defaultRegistry) {
+        if (azureMonitorBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

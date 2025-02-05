@@ -56,7 +56,7 @@ public class StatsdRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(StatsdMeterRegistryProvider.class);
 
-        if (statsdBuildConfig.defaultRegistry) {
+        if (statsdBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

@@ -4,14 +4,17 @@ import java.util.Map;
 import java.util.Optional;
 
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithParentName;
 
-public class SignalFxConfig {
+public interface SignalFxConfig {
 
-    @ConfigRoot(name = "micrometer.export.signalfx", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
-    public static class SignalFxBuildConfig implements MicrometerConfig.CapabilityEnabled {
+    @ConfigRoot(phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.signalfx")
+    public interface SignalFxBuildConfig extends MicrometerConfig.CapabilityEnabled {
         /**
          * Support for export to SignalFx.
          * <p>
@@ -20,36 +23,24 @@ public class SignalFxConfig {
          * and either this value is true, or this value is unset and
          * {@code quarkus.micrometer.registry-enabled-default} is true.
          */
-        @ConfigItem
-        public Optional<Boolean> enabled;
-
         @Override
-        public Optional<Boolean> getEnabled() {
-            return enabled;
-        }
+        Optional<Boolean> enabled();
 
         /**
          * By default, this extension will create a SignalFx MeterRegistry instance.
          * <p>
          * Use this attribute to veto the creation of the default SignalFx MeterRegistry.
          */
-        @ConfigItem(defaultValue = "true")
-        public boolean defaultRegistry;
-
-        @Override
-        public String toString() {
-            return this.getClass().getSimpleName()
-                    + "{enabled=" + enabled
-                    + ",defaultRegistry=" + defaultRegistry
-                    + '}';
-        }
+        @WithDefault("true")
+        boolean defaultRegistry();
     }
 
     /**
      * Runtime configuration for SignalFX MeterRegistry
      */
-    @ConfigRoot(name = "micrometer.export.signalfx", phase = ConfigPhase.RUN_TIME)
-    public static class SignalFxRuntimeConfig {
+    @ConfigRoot(phase = ConfigPhase.RUN_TIME)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.signalfx")
+    public interface SignalFxRuntimeConfig {
         // @formatter:off
         /**
          * SignalFx registry configuration properties.
@@ -88,7 +79,7 @@ public class SignalFxConfig {
          * @asciidoclet
          */
         // @formatter:on
-        @ConfigItem(name = ConfigItem.PARENT)
-        Map<String, String> signalfx;
+        @WithParentName
+        Map<String, String> signalfx();
     }
 }
