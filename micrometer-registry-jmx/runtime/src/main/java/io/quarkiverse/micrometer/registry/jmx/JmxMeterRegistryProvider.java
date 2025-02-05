@@ -33,7 +33,7 @@ public class JmxMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public JmxConfig configure(JmxRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.jmx, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.jmx(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, The datadog registry must be enabled for this

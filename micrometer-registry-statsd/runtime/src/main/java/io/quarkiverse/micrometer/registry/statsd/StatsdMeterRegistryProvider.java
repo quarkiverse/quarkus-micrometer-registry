@@ -25,7 +25,7 @@ public class StatsdMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public StatsdConfig configure(StatsdRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.statsd, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.statsd(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, the StatsD registry must be enabled for this

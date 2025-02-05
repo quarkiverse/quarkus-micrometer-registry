@@ -26,7 +26,7 @@ public class StackdriverMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public StackdriverConfig configure(StackdriverRuntimeConfig config) throws Throwable {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.stackdriver, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.stackdriver(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, the StackDriver registry must be enabled for this

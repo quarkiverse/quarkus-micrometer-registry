@@ -62,7 +62,7 @@ public class InfluxRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(InfluxMeterRegistryProvider.class);
 
-        if (influxBuildConfig.defaultRegistry) {
+        if (influxBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

@@ -41,7 +41,7 @@ public class NewRelicMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public NewRelicConfig configure(NewRelicRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.newrelic, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.newrelic(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, The new relic registry must be enabled for this

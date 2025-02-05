@@ -44,7 +44,7 @@ public class OtlpRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(OtlpMeterRegistryProvider.class);
 
-        if (otlpBuildConfig.defaultRegistry) {
+        if (otlpBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

@@ -4,14 +4,17 @@ import java.util.Map;
 import java.util.Optional;
 
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithParentName;
 
-public class JmxConfig {
+public interface JmxConfig {
 
-    @ConfigRoot(name = "micrometer.export.jmx", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
-    public static class JmxBuildConfig implements MicrometerConfig.CapabilityEnabled {
+    @ConfigRoot(phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.jmx")
+    public interface JmxBuildConfig extends MicrometerConfig.CapabilityEnabled {
         /**
          * Support for export to JMX
          * <p>
@@ -20,36 +23,24 @@ public class JmxConfig {
          * and either this value is true, or this value is unset and
          * {@code quarkus.micrometer.registry-enabled-default} is true.
          */
-        @ConfigItem
-        public Optional<Boolean> enabled;
-
         @Override
-        public Optional<Boolean> getEnabled() {
-            return enabled;
-        }
+        Optional<Boolean> enabled();
 
         /**
          * By default, this extension will create a JMX MeterRegistry instance.
          * <p>
          * Use this attribute to veto the creation of the default JMX MeterRegistry.
          */
-        @ConfigItem(defaultValue = "true")
-        public boolean defaultRegistry;
-
-        @Override
-        public String toString() {
-            return this.getClass().getSimpleName()
-                    + "{enabled=" + enabled
-                    + ",defaultRegistry=" + defaultRegistry
-                    + '}';
-        }
+        @WithDefault("true")
+        boolean defaultRegistry();
     }
 
     /**
      * Runtime configuration for JMX MeterRegistry
      */
-    @ConfigRoot(name = "micrometer.export.jmx", phase = ConfigPhase.RUN_TIME)
-    public static class JmxRuntimeConfig {
+    @ConfigRoot(phase = ConfigPhase.RUN_TIME)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.jmx")
+    public interface JmxRuntimeConfig {
         // @formatter:off
         /**
          * JMX registry configuration properties.
@@ -60,8 +51,8 @@ public class JmxConfig {
          * @asciidoclet
          */
         // @formatter:on
-        @ConfigItem(name = ConfigItem.PARENT)
-        Map<String, String> jmx;
+        @WithParentName
+        Map<String, String> jmx();
     }
 
 }
