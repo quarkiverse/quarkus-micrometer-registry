@@ -68,6 +68,13 @@ public class OtlpConfig {
          * !Address to where metrics will be published.
          * Defaults to http://localhost:4318/v1/metrics
          *
+         * !`batchSize=int`
+         * !Number of ``Meters``s to include in a single payload sent to the backend.
+         * Defaults to 10,000.
+         *
+         * !`step=1m`
+         * !The interval at which metrics are sent. The default is 1 minute.
+         *
          * !`resourceAttributes=list`
          * !A comma-separated list of attributes describing to be used as resource attributes, e.g. "key1=val1,key2=val2".
          * Defaults to empty. If not set it tries to use OTEL_RESOURCE_ATTRIBUTES and OTEL_SERVICE_NAME to automatically
