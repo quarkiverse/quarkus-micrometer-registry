@@ -57,7 +57,7 @@ public class JmxRegistryProcessor {
                 .setUnremovable()
                 .addBeanClass(JmxMeterRegistryProvider.class);
 
-        if (jmxBuildConfig.defaultRegistry) {
+        if (jmxBuildConfig.defaultRegistry()) {
             // Only add this Registry Producer if the default registry is enabled
             builder.addBeanClass(ConditionalRegistryProducer.class);
         }

@@ -4,14 +4,17 @@ import java.util.Map;
 import java.util.Optional;
 
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithParentName;
 
-public class StatsdConfig {
+public interface StatsdConfig {
 
-    @ConfigRoot(name = "micrometer.export.statsd", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
-    public static class StatsdBuildConfig implements MicrometerConfig.CapabilityEnabled {
+    @ConfigRoot(phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.statsd")
+    public interface StatsdBuildConfig extends MicrometerConfig.CapabilityEnabled {
         /**
          * Support for export to StatsD.
          * <p>
@@ -20,36 +23,24 @@ public class StatsdConfig {
          * and either this value is true, or this value is unset and
          * {@code quarkus.micrometer.registry-enabled-default} is true.
          */
-        @ConfigItem
-        public Optional<Boolean> enabled;
-
         @Override
-        public Optional<Boolean> getEnabled() {
-            return enabled;
-        }
+        Optional<Boolean> enabled();
 
         /**
          * By default, this extension will create a StatsD MeterRegistry instance.
          * <p>
          * Use this attribute to veto the creation of the default StatsD MeterRegistry.
          */
-        @ConfigItem(defaultValue = "true")
-        public boolean defaultRegistry;
-
-        @Override
-        public String toString() {
-            return this.getClass().getSimpleName()
-                    + "{enabled=" + enabled
-                    + ",defaultRegistry=" + defaultRegistry
-                    + '}';
-        }
+        @WithDefault("true")
+        boolean defaultRegistry();
     }
 
     /**
      * Runtime configuration for StatsD
      */
-    @ConfigRoot(name = "micrometer.export.statsd", phase = ConfigPhase.RUN_TIME)
-    public static class StatsdRuntimeConfig {
+    @ConfigRoot(phase = ConfigPhase.RUN_TIME)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.statsd")
+    public interface StatsdRuntimeConfig {
 
         // @formatter:off
         /**
@@ -98,7 +89,7 @@ public class StatsdConfig {
          * @asciidoclet
          */
         // @formatter:on
-        @ConfigItem(name = ConfigItem.PARENT)
-        Map<String, String> statsd;
+        @WithParentName
+        Map<String, String> statsd();
     }
 }

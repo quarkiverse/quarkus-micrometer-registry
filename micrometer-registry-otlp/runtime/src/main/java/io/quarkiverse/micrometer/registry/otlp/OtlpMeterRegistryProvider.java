@@ -24,7 +24,7 @@ public class OtlpMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public OtlpConfig configure(OtlpRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.otlp, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.otlp(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, the StackDriver registry must be enabled for this

@@ -26,7 +26,7 @@ public class InfluxMeterRegistryProvider {
     @Singleton
     @DefaultBean
     public InfluxConfig configure(InfluxRuntimeConfig config) {
-        final Map<String, String> properties = ConfigAdapter.captureProperties(config.influxdb, PREFIX);
+        final Map<String, String> properties = ConfigAdapter.captureProperties(config.influxdb(), PREFIX);
 
         // Special check: if publish is set, override the value of enabled
         // Specifically, the InfluxDB registry must be enabled for this

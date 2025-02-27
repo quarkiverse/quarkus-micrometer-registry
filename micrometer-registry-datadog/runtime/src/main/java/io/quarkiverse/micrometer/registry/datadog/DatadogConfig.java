@@ -4,14 +4,17 @@ import java.util.Map;
 import java.util.Optional;
 
 import io.quarkus.micrometer.runtime.config.MicrometerConfig;
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithParentName;
 
-public class DatadogConfig {
+public interface DatadogConfig {
 
-    @ConfigRoot(name = "micrometer.export.datadog", phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
-    public static class DatadogBuildConfig implements MicrometerConfig.CapabilityEnabled {
+    @ConfigRoot(phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.datadog")
+    public interface DatadogBuildConfig extends MicrometerConfig.CapabilityEnabled {
         /**
          * Support for export to Datadog
          * <p>
@@ -20,36 +23,24 @@ public class DatadogConfig {
          * and either this value is true, or this value is unset and
          * {@code quarkus.micrometer.registry-enabled-default} is true.
          */
-        @ConfigItem
-        public Optional<Boolean> enabled;
-
         @Override
-        public Optional<Boolean> getEnabled() {
-            return enabled;
-        }
+        Optional<Boolean> enabled();
 
         /**
          * By default, this extension will create a Datadog MeterRegistry instance.
          * <p>
          * Use this attribute to veto the creation of the default Datadog MeterRegistry.
          */
-        @ConfigItem(defaultValue = "true")
-        public boolean defaultRegistry;
-
-        @Override
-        public String toString() {
-            return this.getClass().getSimpleName()
-                    + "{enabled=" + enabled
-                    + ",defaultRegistry=" + defaultRegistry
-                    + '}';
-        }
+        @WithDefault("true")
+        boolean defaultRegistry();
     }
 
     /**
      * Runtime configuration for Datadog MeterRegistry
      */
-    @ConfigRoot(name = "micrometer.export.datadog", phase = ConfigPhase.RUN_TIME)
-    public static class DatadogRuntimeConfig {
+    @ConfigRoot(phase = ConfigPhase.RUN_TIME)
+    @ConfigMapping(prefix = "quarkus.micrometer.export.datadog")
+    public interface DatadogRuntimeConfig {
         // @formatter:off
         /**
          * Datadog MeterRegistry configuration properties.
@@ -80,7 +71,7 @@ public class DatadogConfig {
          * @asciidoclet
          */
         // @formatter:on
-        @ConfigItem(name = ConfigItem.PARENT)
-        Map<String, String> datadog;
+        @WithParentName
+        Map<String, String> datadog();
     }
 }
