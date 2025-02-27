@@ -22,47 +22,52 @@
         <!-- Make sure the doc is built after the other artifacts -->
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-azure-monitor</artifactId>
+            <artifactId>quarkus-micrometer-registry-azure-monitor-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-datadog</artifactId>
+            <artifactId>quarkus-micrometer-registry-datadog-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-graphite</artifactId>
+            <artifactId>quarkus-micrometer-registry-graphite-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-jmx</artifactId>
+            <artifactId>quarkus-micrometer-registry-influx-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-newrelic</artifactId>
+            <artifactId>quarkus-micrometer-registry-jmx-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-signalfx</artifactId>
+            <artifactId>quarkus-micrometer-registry-newrelic-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-stackdriver</artifactId>
+            <artifactId>quarkus-micrometer-registry-otlp-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-statsd</artifactId>
+            <artifactId>quarkus-micrometer-registry-signalfx-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.micrometer.registry</groupId>
-            <artifactId>quarkus-micrometer-registry-influx</artifactId>
+            <artifactId>quarkus-micrometer-registry-stackdriver-deployment</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkiverse.micrometer.registry</groupId>
+            <artifactId>quarkus-micrometer-registry-statsd-deployment</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
