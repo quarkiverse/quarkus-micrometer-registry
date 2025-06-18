@@ -14,6 +14,7 @@ This repository hosts extensions that support additional Micrometer registry imp
 * SignalFx
 * Stackdriver
 * StatsD
+* Prometheus client v0.x (legacy)
 
 See the [Micrometer documentation](https://micrometer.io/) for details about Micrometer itself. Using Micrometer with Quarkus is explained in the [Quarkus Micrometer Guide](https://quarkus.io/guides/micrometer). [Quarkus Micrometer Extension documentation](https://quarkiverse.github.io/quarkiverse-docs/quarkus-micrometer-registry/dev/index.html) is generated from this project, and specifically covers how to configure Quarkus micrometer registry extensions.
 
