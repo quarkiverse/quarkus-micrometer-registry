@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>3.22.3</quarkus.version>
+        <quarkus.version>3.22.1</quarkus.version>
 
         <skipTests>false</skipTests>
 
@@ -72,7 +72,6 @@
         <module>micrometer-registry-stackdriver</module>
         <module>micrometer-registry-statsd</module>
         <module>micrometer-registry-influx</module>
-        <module>micrometer-registry-prometheus-simpleclient</module>
     </modules>
 
     <profiles>
