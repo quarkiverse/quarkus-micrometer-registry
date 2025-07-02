@@ -25,7 +25,6 @@
     <modules>
         <module>micrometer-jmx</module>
         <module>micrometer-native</module>
-        <module>micrometer-prometheus-simpleclient</module>
     </modules>
 
     <build>
