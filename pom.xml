@@ -16,9 +16,12 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>3.25.1</quarkus.version>
+        <quarkus.version>3.26.0</quarkus.version>
 
         <skipTests>false</skipTests>
+
+        <assertj.version>3.27.3</assertj.version>
+        <mockito.version>5.18.0</mockito.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -72,6 +75,7 @@
         <module>micrometer-registry-stackdriver</module>
         <module>micrometer-registry-statsd</module>
         <module>micrometer-registry-influx</module>
+        <module>micrometer-registry-prometheus-v1</module>
     </modules>
 
     <profiles>
