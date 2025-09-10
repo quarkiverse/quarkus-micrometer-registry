@@ -25,6 +25,8 @@
     <modules>
         <module>micrometer-jmx</module>
         <module>micrometer-native</module>
+        <module>micrometer-prometheus-v1</module>
+        <module>micrometer-prometheus-v1-opentelemetry</module>
     </modules>
 
     <build>
