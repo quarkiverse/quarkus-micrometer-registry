@@ -1,0 +1,15 @@
+= Prometheus Client V1
+
+include::./includes/attributes.adoc[]
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.quarkiverse.micrometer.registry</groupId>
+    <artifactId>quarkus-micrometer-registry-prometheus-v1</artifactId>
+</dependency>
+----
+
+== Configuration
+
+There are no additional configurations for this extension.
