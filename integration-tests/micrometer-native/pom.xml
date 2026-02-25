@@ -32,11 +32,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.eclipse.microprofile.metrics</groupId>
-            <artifactId>microprofile-metrics-api</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>quarkus-micrometer-registry-azure-monitor</artifactId>
             <version>${project.version}</version>

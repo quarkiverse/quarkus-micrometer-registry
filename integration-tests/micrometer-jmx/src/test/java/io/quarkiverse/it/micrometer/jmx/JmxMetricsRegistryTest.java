@@ -86,7 +86,8 @@ class JmxMetricsRegistryTest {
         // hierarchical naming means all tags are present: registry=jmx, and env=test
 
         // Generic connection statistic
-        assertThat(result, containsString("metrics:name=httpServerConnections.env.test.registry.jmx.statistic"));
+        assertThat(result,
+                containsString("metrics:name=httpServerConnections.env.test.registry.jmx.serverPort.8081.statistic.duration"));
         assertThat(result, containsString(
                 "metrics:name=httpServerRequests.env.test.method.GET.outcome.CLIENT_ERROR.registry.jmx.status.404.uri.NOT_FOUND"));
         assertThat(result, containsString(

@@ -21,14 +21,6 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-micrometer-deployment</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>io.quarkus</groupId>-->
-<!--            <artifactId>quarkus-resteasy-client-deployment</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>io.quarkus</groupId>-->
-<!--            <artifactId>quarkus-resteasy-common-deployment</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-grpc-common-deployment</artifactId>
@@ -101,20 +93,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.microprofile.metrics</groupId>
-            <artifactId>microprofile-metrics-api</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>io.smallrye.reactive</groupId>
             <artifactId>smallrye-mutiny-vertx-web-client</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>io.quarkus.resteasy.reactive</groupId>-->
-<!--            <artifactId>resteasy-reactive-client</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
