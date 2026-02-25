@@ -16,17 +16,17 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>3.26.3</quarkus.version>
+        <quarkus.version>3.31.4</quarkus.version>
 
         <skipTests>false</skipTests>
 
-        <assertj.version>3.27.5</assertj.version>
-        <mockito.version>5.19.0</mockito.version>
+        <assertj.version>3.27.7</assertj.version>
+        <mockito.version>5.21.0</mockito.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.parameters>true</maven.compiler.parameters>
     </properties>
 

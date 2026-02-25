@@ -56,9 +56,9 @@ public class RestClientUriParameterTest {
         String result = client.getById("http://localhost:" + testPort, "bar");
         assertEquals("bar", result);
 
-        Timer clientTimer = registry.find("http.client.requests").timer();
+        Timer clientTimer = registry.find("http.client.requests")
+                .tag("uri", "/example/{id}").timer();
         assertNotNull(clientTimer);
-        assertEquals("/example/{id}", clientTimer.getId().getTag("uri"));
     }
 
     private Search getMeter(String name) {

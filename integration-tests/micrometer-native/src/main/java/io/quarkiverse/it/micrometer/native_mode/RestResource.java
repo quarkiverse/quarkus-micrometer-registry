@@ -6,9 +6,8 @@ import java.util.stream.Collectors;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 
-import org.eclipse.microprofile.metrics.annotation.Counted;
-import org.eclipse.microprofile.metrics.annotation.Timed;
-
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
@@ -27,7 +26,7 @@ public class RestResource {
     @GET
     @Path("hello")
     @Counted
-    @Timed(name = "hello", description = "MP Metrics timer of rest request.")
+    @Timed(value = "micrometer.native_mode.hello", description = "MM timer of rest request.")
     public String hello() {
         return "hello";
     }
@@ -35,7 +34,7 @@ public class RestResource {
     @GET
     @Path("goodbye")
     @Counted
-    @Timed(name = "goodbye", description = "MP Metrics timer of rest request.")
+    @Timed(value = "micrometer.native_mode.goodbye", description = "MM timer of rest request.")
     public Uni<String> goodbye() {
         return Uni.createFrom().item("goodbye");
     }

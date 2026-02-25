@@ -15,7 +15,6 @@
     </properties>
 
     <dependencies>
-<!--        FIXME update version because of CVE -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-micrometer</artifactId>

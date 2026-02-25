@@ -22,7 +22,7 @@ public class OpenTelemetryExemplarContextUnwrapper implements OpenTelemetryConte
             return methodReference.apply(parameter);
         }
 
-        Context newContext = QuarkusContextStorage.getContext(requestContext);
+        Context newContext = QuarkusContextStorage.getOtelContext(requestContext);
 
         if (newContext == null) {
             return methodReference.apply(parameter);
