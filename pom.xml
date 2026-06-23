@@ -76,6 +76,7 @@
         <module>micrometer-registry-statsd</module>
         <module>micrometer-registry-influx</module>
         <module>micrometer-registry-prometheus-v1</module>
+        <module>docs-rag</module>
     </modules>
 
     <profiles>
