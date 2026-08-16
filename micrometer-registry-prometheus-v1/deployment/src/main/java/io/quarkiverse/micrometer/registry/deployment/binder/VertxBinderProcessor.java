@@ -47,7 +47,12 @@ public class VertxBinderProcessor {
     @BuildStep
     @Record(value = ExecutionTime.STATIC_INIT)
     VertxOptionsConsumerBuildItem build(VertxMeterBinderRecorder recorder) {
-        return new VertxOptionsConsumerBuildItem(recorder.setVertxMetricsOptions(), Interceptor.Priority.LIBRARY_AFTER);
+        // Core quarkus-micrometer registers its own consumer at the same priority with order key
+        // "micrometer.vertx.metrics", and both consumers overwrite the Vert.x MetricsOptions
+        // (last one applied wins). Consumers with equal priority run in order-key order, so this
+        // key must sort after core's for this extension's metrics implementation to win.
+        return new VertxOptionsConsumerBuildItem(recorder.setVertxMetricsOptions(), Interceptor.Priority.LIBRARY_AFTER,
+                "quarkiverse.micrometer.vertx.metrics");
     }
 
     @BuildStep

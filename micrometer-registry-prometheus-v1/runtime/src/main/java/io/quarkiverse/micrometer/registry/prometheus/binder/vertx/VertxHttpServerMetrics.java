@@ -3,6 +3,7 @@ package io.quarkiverse.micrometer.registry.prometheus.binder.vertx;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.LongAdder;
 
 import org.jboss.logging.Logger;
@@ -182,7 +183,7 @@ public class VertxHttpServerMetrics extends VertxTcpServerMetrics
                     Outcome.CLIENT_ERROR.asTag(),
                     HttpCommonTags.STATUS_RESET);
 
-            allTags = additionalMetrics(requestMetric, null, allTags);
+            allTags = additionalMetrics(requestMetric, Optional.empty(), allTags);
 
             openTelemetryContextUnwrapper.executeInContext(
                     sample::stop,
@@ -214,7 +215,7 @@ public class VertxHttpServerMetrics extends VertxTcpServerMetrics
                             config.isServerSuppress4xxErrors()),
                     VertxMetricsTags.outcome(response),
                     HttpCommonTags.status(response.statusCode()));
-            allTags = additionalMetrics(requestMetric, response, allTags);
+            allTags = additionalMetrics(requestMetric, Optional.of(response), allTags);
 
             openTelemetryContextUnwrapper.executeInContext(
                     sample::stop,
@@ -227,7 +228,7 @@ public class VertxHttpServerMetrics extends VertxTcpServerMetrics
     /**
      * Make sure same tags are present for the same "http.server.requests" metric because it's defined in 2 places
      */
-    private Tags additionalMetrics(HttpRequestMetric requestMetric, HttpResponse response, Tags allTags) {
+    private Tags additionalMetrics(HttpRequestMetric requestMetric, Optional<HttpResponse> response, Tags allTags) {
         if (!httpServerMetricsTagsContributors.isEmpty()) {
             HttpServerMetricsTagsContributor.Context context = new DefaultContext(requestMetric.request(), response);
             for (int i = 0; i < httpServerMetricsTagsContributors.size(); i++) {
@@ -277,7 +278,7 @@ public class VertxHttpServerMetrics extends VertxTcpServerMetrics
     }
 
     private record DefaultContext(HttpServerRequest request,
-            HttpResponse response) implements HttpServerMetricsTagsContributor.Context {
+            Optional<HttpResponse> response) implements HttpServerMetricsTagsContributor.Context {
         @Override
         public <T> T requestContextLocalData(Object key) {
             return ((HttpServerRequestInternal) request).context().getLocal(key);

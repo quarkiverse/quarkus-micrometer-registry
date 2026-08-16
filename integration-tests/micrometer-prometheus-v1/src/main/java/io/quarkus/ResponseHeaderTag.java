@@ -1,5 +1,7 @@
 package io.quarkus;
 
+import java.util.Optional;
+
 import jakarta.inject.Singleton;
 
 import io.micrometer.core.instrument.Tags;
@@ -11,11 +13,10 @@ public class ResponseHeaderTag implements HttpServerMetricsTagsContributor {
 
     @Override
     public Tags contribute(Context context) {
+        Optional<HttpResponse> response = context.response();
         String value = "UNSET";
-        HttpResponse response = context.response();
-        // reset frames will not contain response
-        if (response != null) {
-            var headerValue = response.headers().get("foo-response");
+        if (response.isPresent()) {
+            var headerValue = response.get().headers().get("foo-response");
             if ((headerValue != null) && !headerValue.isEmpty()) {
                 value = headerValue;
             }
