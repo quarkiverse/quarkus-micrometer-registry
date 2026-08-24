@@ -12,7 +12,7 @@
     <name>Quarkus Micrometer Registry - Stackdriver - Parent</name>
     <description>Send metrics to Google Cloud Operations using Stackdriver</description>
     <properties>
-        <quarkus-google-cloud-services-bom.version>2.21.0</quarkus-google-cloud-services-bom.version>
+        <quarkus-google-cloud-services-bom.version>2.23.1</quarkus-google-cloud-services-bom.version>
     </properties>
 
     <packaging>pom</packaging>
