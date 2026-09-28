@@ -1,5 +1,6 @@
 * xref:index.adoc[Introduction]
 * xref:micrometer-registry-azure-monitor.adoc[Azure Monitor]
+* xref:micrometer-registry-cloudwatch2.adoc[AWS CloudWatch]
 * xref:micrometer-registry-datadog.adoc[Datadog]
 * xref:micrometer-registry-graphite.adoc[Graphite]
 * xref:micrometer-registry-jmx.adoc[JMX]
