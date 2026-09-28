@@ -65,6 +65,7 @@
     <!-- Extension modules. Note that the integration-tests is added via profile to avoid releasing it -->
     <modules>
         <module>micrometer-registry-azure-monitor</module>
+        <module>micrometer-registry-cloudwatch2</module>
         <module>micrometer-registry-datadog</module>
         <module>micrometer-registry-graphite</module>
         <module>micrometer-registry-newrelic</module>

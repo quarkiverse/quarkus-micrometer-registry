@@ -1,0 +1,55 @@
+= AWS CloudWatch
+
+include::./includes/attributes.adoc[]
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.quarkiverse.micrometer.registry</groupId>
+    <artifactId>quarkus-micrometer-registry-cloudwatch2</artifactId>
+</dependency>
+----
+
+This extension uses the `micrometer-registry-cloudwatch2` registry, which publishes metrics with the AWS SDK v2.
+
+The `namespace` attribute is required:
+
+[source,properties]
+----
+quarkus.micrometer.export.cloudwatch.namespace=my-application
+----
+
+== AWS client
+
+By default, a `CloudWatchAsyncClient` is created using the AWS SDK default region and credentials provider chains
+(for example, the `AWS_REGION`, `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables,
+or the instance/container role when running on AWS).
+
+The region and endpoint of this client can be configured, for example to use a local AWS emulator:
+
+[source,properties]
+----
+quarkus.micrometer.export.cloudwatch.region=us-east-1
+quarkus.micrometer.export.cloudwatch.endpoint-override=http://localhost:4566
+----
+
+To customize the client further, produce your own `CloudWatchAsyncClient` bean; it will be used instead of the default one:
+
+[source,java]
+----
+@Singleton
+public class CloudWatchClientProducer {
+
+    @Produces
+    @Singleton
+    public CloudWatchAsyncClient cloudWatchAsyncClient() {
+        return CloudWatchAsyncClient.builder()
+                .region(Region.EU_WEST_1)
+                .build();
+    }
+}
+----
+
+== Configuration
+
+include::./includes/quarkus-micrometer-export-cloudwatch.adoc[]
