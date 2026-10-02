@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <quarkus.version>3.40.1</quarkus.version>
+        <quarkus.version>4.0.0.Beta1</quarkus.version>
 
         <skipTests>false</skipTests>
 
@@ -25,8 +25,8 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.parameters>true</maven.compiler.parameters>
     </properties>
 
@@ -75,7 +75,6 @@
         <module>micrometer-registry-stackdriver</module>
         <module>micrometer-registry-statsd</module>
         <module>micrometer-registry-influx</module>
-        <module>micrometer-registry-prometheus-v1</module>
         <module>docs-rag</module>
     </modules>
 
