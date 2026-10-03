@@ -23,6 +23,7 @@
     </properties>
 
     <modules>
+        <module>micrometer-cloudwatch2</module>
         <module>micrometer-jmx</module>
         <module>micrometer-native</module>
         <module>micrometer-prometheus-v1</module>
