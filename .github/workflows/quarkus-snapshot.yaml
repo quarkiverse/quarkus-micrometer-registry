@@ -17,4 +17,4 @@ jobs:
     secrets: inherit
     with:
       ecosystem_ci_repo_path: quarkiverse-micrometer-registry
-      java_version: 17
+      alternative: "3.40"
