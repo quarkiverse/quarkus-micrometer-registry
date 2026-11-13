@@ -21,13 +21,13 @@ import io.micrometer.core.instrument.dropwizard.DropwizardMeterRegistry;
 import io.micrometer.core.instrument.util.HierarchicalNameMapper;
 import io.micrometer.graphite.GraphiteMeterRegistry;
 import io.quarkiverse.micrometer.registry.graphite.GraphiteNameMapper;
-import io.quarkus.test.QuarkusUnitTest;
+import io.quarkus.test.QuarkusExtensionTest;
 
 public class GraphiteNameMapperTest {
     static final String REGISTRY_CLASS_NAME = "io.micrometer.graphite.GraphiteMeterRegistry";
 
     @RegisterExtension
-    static final QuarkusUnitTest config = new QuarkusUnitTest()
+    static final QuarkusExtensionTest config = new QuarkusExtensionTest()
             .withConfigurationResource("test-logging.properties")
             .overrideConfigKey("quarkus.micrometer.binder-enabled-default", "false")
             .overrideConfigKey("quarkus.micrometer.export.graphite.enabled", "true")

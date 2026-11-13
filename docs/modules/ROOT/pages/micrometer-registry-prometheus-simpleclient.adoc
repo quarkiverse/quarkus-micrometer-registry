@@ -1,0 +1,12 @@
+= Micrometer Prometheus client v0.x (simpleclient)
+
+This is a legacy client and must not be used together with the new `io.quarkus:quarkus-micrometer-registry-prometheus` dependency.
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.quarkiverse.micrometer.registry</groupId>
+    <artifactId>quarkus-micrometer-registry-prometheus-simpleclient</artifactId>
+</dependency>
+----
+
