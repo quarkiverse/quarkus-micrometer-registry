@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.quarkiverse.micrometer.registry</groupId>
+        <artifactId>quarkus-micrometer-registry-parent</artifactId>
+        <version>399-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>quarkus-micrometer-registry-cloudwatch2-parent</artifactId>
+    <name>Quarkus Micrometer Registry - CloudWatch - Parent</name>
+    <description>Send metrics to AWS CloudWatch using the AWS SDK v2</description>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>deployment</module>
+        <module>runtime</module>
+    </modules>
+</project>

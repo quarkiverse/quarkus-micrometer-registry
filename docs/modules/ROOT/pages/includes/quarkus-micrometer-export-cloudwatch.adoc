@@ -1,0 +1,231 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[.header-title]##Configuration property##
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-enabled]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-enabled[`+++quarkus.micrometer.export.cloudwatch.enabled+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.enabled+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+Support for export to AWS CloudWatch
+
+Support for CloudWatch will be enabled if Micrometer support is enabled, the CloudWatch registry extension is enabled and either this value is true, or this value is unset and `quarkus.micrometer.registry-enabled-default` is true.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_ENABLED+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_ENABLED+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|
+
+a|icon:lock[title=Fixed at build time] [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-default-registry]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-default-registry[`+++quarkus.micrometer.export.cloudwatch.default-registry+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.default-registry+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+By default, this extension will create a CloudWatch MeterRegistry instance.
+
+Use this attribute to veto the creation of the default CloudWatch MeterRegistry.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_DEFAULT_REGISTRY+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_DEFAULT_REGISTRY+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++true+++`
+
+a| [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-namespace]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-namespace[`+++quarkus.micrometer.export.cloudwatch.namespace+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.namespace+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The CloudWatch namespace metrics are published to.
+
+Required when the CloudWatch MeterRegistry is enabled.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_NAMESPACE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_NAMESPACE+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-publish]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-publish[`+++quarkus.micrometer.export.cloudwatch.publish+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.publish+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+By default, gathered metrics will be published to CloudWatch when the MeterRegistry is enabled.
+
+Use this attribute to selectively disable publication of metrics in some environments.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_PUBLISH+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_PUBLISH+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++true+++`
+
+a| [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-step]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-step[`+++quarkus.micrometer.export.cloudwatch.step+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.step+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The interval at which metrics are sent to CloudWatch.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_STEP+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_STEP+++`
+endif::add-copy-button-to-env-var[]
+--
+|link:https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html[Duration] link:#duration-note-anchor-quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer[icon:question-circle[title=More information about the Duration format]]
+|`+++1M+++`
+
+a| [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-high-resolution]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-high-resolution[`+++quarkus.micrometer.export.cloudwatch.high-resolution+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.high-resolution+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+Publish metrics with a storage resolution of 1 second instead of 1 minute.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_HIGH_RESOLUTION+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_HIGH_RESOLUTION+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
+a| [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-batch-size]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-batch-size[`+++quarkus.micrometer.export.cloudwatch.batch-size+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.batch-size+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The number of metrics sent per request to CloudWatch (at most 1000).
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_BATCH_SIZE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_BATCH_SIZE+++`
+endif::add-copy-button-to-env-var[]
+--
+|int
+|`+++20+++`
+
+a| [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-region]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-region[`+++quarkus.micrometer.export.cloudwatch.region+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.region+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The AWS region of the default `CloudWatchAsyncClient`.
+
+If not set, the AWS SDK default region provider chain is used.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_REGION+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_REGION+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a| [[quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-endpoint-override]] [.property-path]##link:#quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer-export-cloudwatch-endpoint-override[`+++quarkus.micrometer.export.cloudwatch.endpoint-override+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.micrometer.export.cloudwatch.endpoint-override+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+Overrides the endpoint of the default `CloudWatchAsyncClient`, for example to use a local AWS emulator.
+
+If not set, the AWS SDK default endpoint for the region is used.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_ENDPOINT_OVERRIDE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MICROMETER_EXPORT_CLOUDWATCH_ENDPOINT_OVERRIDE+++`
+endif::add-copy-button-to-env-var[]
+--
+|link:https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URI.html[URI]
+|
+
+|===
+
+ifndef::no-duration-note[]
+[NOTE]
+[id=duration-note-anchor-quarkus-micrometer-registry-cloudwatch2_quarkus-micrometer]
+.About the Duration format
+====
+To write duration values, use the standard `java.time.Duration` format.
+See the link:https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html#parse(java.lang.CharSequence)[Duration#parse() Java API documentation] for more information.
+
+You can also use a simplified format, starting with a number:
+
+* If the value is only a number, it represents time in seconds.
+* If the value is a number followed by `ms`, it represents time in milliseconds.
+
+In other cases, the simplified format is translated to the `java.time.Duration` format for parsing:
+
+* If the value is a number followed by `h`, `m`, or `s`, it is prefixed with `PT`.
+* If the value is a number followed by `d`, it is prefixed with `P`.
+====
+endif::no-duration-note[]

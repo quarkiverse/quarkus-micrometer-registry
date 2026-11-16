@@ -6,6 +6,7 @@
 This repository hosts extensions that support additional Micrometer registry implementations:
 
 * Azure Monitor
+* AWS CloudWatch
 * Datadog
 * Graphite
 * JMX
