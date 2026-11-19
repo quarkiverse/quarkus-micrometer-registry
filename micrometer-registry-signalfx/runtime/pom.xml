@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-signalfx</artifactId>
     <name>Quarkus Micrometer Registry - SignalFX - Runtime</name>
+    <description>Send metrics to Splunk using SignalFX</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

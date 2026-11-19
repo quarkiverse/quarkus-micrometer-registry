@@ -11,6 +11,9 @@
     <groupId>io.quarkiverse.micrometer.registry</groupId>
     <artifactId>quarkus-micrometer-registry-parent</artifactId>
     <name>Quarkus Micrometer Registry - Parent</name>
+    <description>Quarkus Micrometer Alternative Registries - Parent</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
+
     <version>499-SNAPSHOT</version>
 
     <packaging>pom</packaging>

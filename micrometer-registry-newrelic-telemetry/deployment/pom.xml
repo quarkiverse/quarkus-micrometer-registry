@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-newrelic-telemetry-deployment</artifactId>
     <name>Quarkus Micrometer Registry - New Relic Telemetry - Deployment</name>
+    <description>Send metrics to New Relic using the new New Relic API - Deployment</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

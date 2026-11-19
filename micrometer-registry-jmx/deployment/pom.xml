@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-jmx-deployment</artifactId>
     <name>Quarkus Micrometer Registry - JMX - Deployment</name>
+    <description>View metrics data using JMX - Deployment</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

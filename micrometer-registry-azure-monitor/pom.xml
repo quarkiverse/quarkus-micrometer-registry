@@ -10,6 +10,8 @@
 
     <artifactId>quarkus-micrometer-registry-azure-monitor-parent</artifactId>
     <name>Quarkus Micrometer Registry - Azure Monitor - Parent</name>
+    <description>Send data gathered by Micrometer to Azure Monitor - Parent</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <packaging>pom</packaging>
 

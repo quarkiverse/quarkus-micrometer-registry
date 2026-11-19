@@ -13,6 +13,8 @@
 
     <artifactId>quarkus-micrometer-registry-prometheus-simpleclient-parent</artifactId>
     <name>Quarkus - Micrometer Registry - Prometheus SimpleClient - Parent</name>
+    <description>Enable Prometheus support for Micrometer with the legacy v0.x client - Parent</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
     <packaging>pom</packaging>
 
     <modules>

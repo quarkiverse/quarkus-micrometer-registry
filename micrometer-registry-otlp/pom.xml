@@ -10,7 +10,8 @@
 
     <artifactId>quarkus-micrometer-registry-otlp-parent</artifactId>
     <name>Quarkus Micrometer Registry - OTLP - Parent</name>
-    <description>Send metrics to OpenTelemetry</description>
+    <description>Send metrics to OpenTelemetry - Parent</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <packaging>pom</packaging>
 

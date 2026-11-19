@@ -11,6 +11,8 @@
 
     <artifactId>quarkus-micrometer-registry-it-native</artifactId>
     <name>Quarkus Micrometer Registry - Integration Test - Native</name>
+    <description>Native image integration tests for the Quarkus Micrometer alternative registries</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

@@ -10,7 +10,8 @@
 
     <artifactId>quarkus-micrometer-registry-stackdriver-parent</artifactId>
     <name>Quarkus Micrometer Registry - Stackdriver - Parent</name>
-    <description>Send metrics to Google Cloud Operations using Stackdriver</description>
+    <description>Send metrics to Google Cloud Operations using Stackdriver - Parent</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
     <properties>
         <quarkus-google-cloud-services-bom.version>2.25.1</quarkus-google-cloud-services-bom.version>
     </properties>

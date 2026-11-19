@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-datadog-deployment</artifactId>
     <name>Quarkus Micrometer Registry - Datadog - Deployment</name>
+    <description>Send metrics to Datadog using the Datadog API - Deployment</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-otlp</artifactId>
     <name>Quarkus Micrometer Registry - OTLP - Runtime</name>
+    <description>Send metrics to OpenTelemetry</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

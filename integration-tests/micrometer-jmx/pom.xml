@@ -11,6 +11,8 @@
 
     <artifactId>quarkus-micrometer-registry-it-jmx</artifactId>
     <name>Quarkus Micrometer Registry - Integration Test - JMX</name>
+    <description>Integration tests for the Micrometer JMX registry</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

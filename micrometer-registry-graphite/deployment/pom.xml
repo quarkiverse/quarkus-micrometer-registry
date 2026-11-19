@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-graphite-deployment</artifactId>
     <name>Quarkus Micrometer Registry - Graphite - Deployment</name>
+    <description>Send metrics to Graphite - Deployment</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>
