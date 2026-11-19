@@ -10,7 +10,8 @@
 
     <artifactId>quarkus-micrometer-registry-newrelic-parent</artifactId>
     <name>Quarkus Micrometer Registry - New Relic - Parent</name>
-    <description>Send metrics to New Relic using the New Relic API</description>
+    <description>Send metrics to New Relic using the New Relic API - Parent</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <packaging>pom</packaging>
 

@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-influx</artifactId>
     <name>Quarkus Micrometer Registry - InfluxDB - Runtime</name>
+    <description>Send metrics to a InfluxDB Endpoint</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

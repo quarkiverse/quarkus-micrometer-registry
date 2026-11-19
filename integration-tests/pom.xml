@@ -10,6 +10,8 @@
 
     <artifactId>quarkus-micrometer-registry-it-parent</artifactId>
     <name>Quarkus Micrometer Registry - Integration Test - Parent</name>
+    <description>Integration tests for the Quarkus Micrometer alternative registries</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <packaging>pom</packaging>
 

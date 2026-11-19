@@ -12,6 +12,7 @@
     <artifactId>quarkus-micrometer-registry-docs-rag</artifactId>
     <name>Documentation RAG</name>
     <description>RAG vector embeddings for documentation</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <properties>
         <skipRagGeneration>true</skipRagGeneration>
@@ -22,6 +23,7 @@
             <plugin>
                 <groupId>io.quarkus</groupId>
                 <artifactId>quarkus-extension-maven-plugin</artifactId>
+                <version>${quarkus.version}</version>
                 <executions>
                     <execution>
                         <id>generate-extension-descriptor</id>

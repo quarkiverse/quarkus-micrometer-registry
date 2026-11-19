@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-stackdriver</artifactId>
     <name>Quarkus Micrometer Registry - Stackdriver - Runtime</name>
+    <description>Send metrics to Google Cloud Operations using Stackdriver</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

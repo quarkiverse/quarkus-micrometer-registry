@@ -9,7 +9,9 @@
     </parent>
 
     <artifactId>quarkus-micrometer-registry-prometheus-simpleclient-deployment</artifactId>
+    <name>Quarkus - Micrometer Registry - Prometheus SimpleClient Deployment</name>
     <description>Enable Prometheus support for Micrometer with the legacy v0.x client - Deployment</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-azure-monitor-deployment</artifactId>
     <name>Quarkus Micrometer Registry - Azure Monitor - Deployment</name>
+    <description>Send data gathered by Micrometer to Azure Monitor - Deployment</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

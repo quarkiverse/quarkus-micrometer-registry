@@ -11,6 +11,8 @@
 
     <artifactId>quarkus-integration-test-micrometer-prometheus-simpleclient</artifactId>
     <name>Quarkus - Integration Tests - Micrometer Prometheus SimpleClient </name>
+    <description>Integration tests for the Micrometer Prometheus SimpleClient registry</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

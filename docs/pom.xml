@@ -11,6 +11,8 @@
 
     <artifactId>quarkus-micrometer-registry-docs</artifactId>
     <name>Quarkus Micrometer Registry - Documentation</name>
+    <description>Documentation for the Quarkus Micrometer alternative registries</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <properties>
         <asciidoctorj.version>3.0.1</asciidoctorj.version>

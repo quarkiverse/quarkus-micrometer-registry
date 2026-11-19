@@ -9,6 +9,8 @@
 
     <artifactId>quarkus-micrometer-registry-newrelic</artifactId>
     <name>Quarkus Micrometer Registry - New Relic - Runtime</name>
+    <description>Send metrics to New Relic using the New Relic API</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
         <dependency>

@@ -11,6 +11,7 @@
     <artifactId>quarkus-micrometer-registry-prometheus-simpleclient</artifactId>
     <name>Quarkus - Micrometer Registry - Prometheus SimpleClient Runtime</name>
     <description>Enable Prometheus support for Micrometer with the legacy v0.x client - Runtime</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <dependencies>
 

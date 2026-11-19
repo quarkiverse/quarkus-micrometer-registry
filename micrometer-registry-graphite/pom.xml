@@ -10,7 +10,8 @@
 
     <artifactId>quarkus-micrometer-registry-graphite-parent</artifactId>
     <name>Quarkus Micrometer Registry - Graphite - Parent</name>
-    <description>Send metrics to Graphite</description>
+    <description>Send metrics to Graphite - Parent</description>
+    <url>https://github.com/quarkiverse/quarkus-micrometer-registry</url>
 
     <packaging>pom</packaging>
 
