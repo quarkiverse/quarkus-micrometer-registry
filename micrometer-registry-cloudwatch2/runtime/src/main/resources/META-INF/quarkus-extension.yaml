@@ -1,0 +1,13 @@
+name: "Micrometer registry - CloudWatch"
+metadata:
+  keywords:
+  - "micrometer"
+  - "metrics"
+  - "metric"
+  - "cloudwatch"
+  - "aws"
+  - "monitoring"
+  guide: "https://quarkus.io/guides/micrometer"
+  categories:
+  - "observability"
+  status: "experimental"
